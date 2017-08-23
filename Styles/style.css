@@ -36,3 +36,22 @@ p{
     line-height: 2;
     text-align: justify;
 }
+
+
+
+/*STYLE ADMIN INDEX.PHP*/
+
+.login{
+    background-color: #f9f9f9;
+    
+}
+
+#login-form{
+    background-color: white;
+    padding: 5%;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
