@@ -1,4 +1,5 @@
 <div class="container">
+    <hr>
     <div class="row">
         <div class="col-lg-12">
             <h2 class="title-red">About</h2>

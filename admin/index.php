@@ -30,8 +30,11 @@
                         <div class="form-group">
                             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                         </div>
+                        <div class="form-group">
+                            <a href="#">Forgot password?</a>
+                        </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary">Login</button>
+                            <button type="button" class="btn btn-lg btn-primary">Login</button>
                         </div>
                     </form>
                 </div>

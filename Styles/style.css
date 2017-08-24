@@ -60,3 +60,42 @@ p{
    align-items: center;
    min-height: 100vh;
 }
+
+/*LOCATION MAP*/
+
+.subtitle{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #828282;
+}
+.map{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    
+}
+.map iframe{
+    left:0;
+    top:0;
+    height:90%;
+    width:100%;
+    position:absolute;
+    
+}
+
+
+/*MENU*/
+.fa-cutlery{
+    margin-right: 4%;
+    color: #db524b;
+}
+
+
+
+
+/*FOOTER*/
+
+footer{
+   margin-bottom: 0px!important;
+}
