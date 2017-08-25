@@ -5,7 +5,7 @@
     </title>
     <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="/Styles/style.css" type="text/css" />
+    <link rel="stylesheet" href="/Styles/style-backend.css" type="text/css" />
     <script type="text/javascript" src="../components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../components/bootstrap/dist/js/bootstrap.js"></script>
 </head>
