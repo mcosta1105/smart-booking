@@ -5,13 +5,13 @@
         include("includes/head.php");
     ?>
     <body class="login">
-        <div class="logo">
- 
-        </div>
         <div class="container-fluid">
             <div class="row vertical-center">
                 <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
                     <form id="login-form" action="index.php" method="post">
+                        <div class="text-center">
+                             <img class="logo-img" src="../images/smart-booking-logo.png"></img>
+                        </div>
                         <h3 class="form-title text-center">Sign In to your Account</h3>
                         <div class="form-group">
                             <label for="">Username or email</label>

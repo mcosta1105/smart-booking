@@ -1,12 +1,25 @@
 *{
     font-family: 'Open Sans', sans-serif;
 }
+
+body{
+    padding-top: 120px;
+}
 .jumbotron{
     background:url("/images/pizza.jpg");
     background-size: cover;
     background-position: center;
     height:100%;
     color:white;
+    margin: 5% 0 5% 0;
+}
+
+.jumbotron h1{
+    margin-bottom: 5%;
+}
+#btn-feature{
+    padding: 2% 5%;
+    font-size: 1.9em;
 }
 
 #content{
@@ -29,7 +42,11 @@
 }
 
 .pad5{
-    padding: 0 5% 0 5%;
+    padding: 5% 0 5% 0;
+}
+
+.pad3{
+    padding: 3% 0 3% 0;
 }
 
 p{
@@ -41,6 +58,10 @@ p{
 
 /*STYLE ADMIN INDEX.PHP*/
 
+.logo-img{
+    width: 170px;
+    height: auto;
+}
 .login{
     background-color: #f9f9f9;
     
@@ -61,11 +82,21 @@ p{
    min-height: 100vh;
 }
 
+.form-title{
+    margin-bottom:20px;
+}
+
+/*ABOUT*/
+#pizzeria{
+    width: 100%;
+    height: auto;
+}
+
 /*LOCATION MAP*/
 
 .subtitle{
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     color: #828282;
 }
 .map{
@@ -99,3 +130,7 @@ p{
 footer{
    margin-bottom: 0px!important;
 }
+
+
+
+
