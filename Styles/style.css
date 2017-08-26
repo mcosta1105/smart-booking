@@ -5,6 +5,8 @@
 body{
     padding-top: 120px;
 }
+
+
 .jumbotron{
     background:url("/images/pizza.jpg");
     background-size: cover;
@@ -62,6 +64,8 @@ p{
     height: auto;
 }
 
+
+
 /*LOCATION MAP*/
 
 .subtitle{
@@ -92,8 +96,9 @@ p{
     color: #db524b;
 }
 
-
-/**/
+#menu{
+    margin:5%;
+}
 
 /*FOOTER*/
 

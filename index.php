@@ -6,6 +6,7 @@
         include("includes/database.php");
     ?>
     <body>
+        <span id="index"></span>
         <?php
         include("includes/navigation.php");
         
