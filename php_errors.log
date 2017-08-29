@@ -34,3 +34,15 @@
 [25-Aug-2017 06:09:54 UTC] PHP Warning:  include(): Failed opening 'includes/navigation.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/contact.php on line 5
 [25-Aug-2017 06:09:54 UTC] PHP Stack trace:
 [25-Aug-2017 06:09:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/contact.php:0
+[29-Aug-2017 08:37:57 UTC] PHP Warning:  include(../includes/bookings.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/admin/home.php on line 26
+[29-Aug-2017 08:37:57 UTC] PHP Stack trace:
+[29-Aug-2017 08:37:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[29-Aug-2017 08:37:57 UTC] PHP Warning:  include(): Failed opening '../includes/bookings.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/admin/home.php on line 26
+[29-Aug-2017 08:37:57 UTC] PHP Stack trace:
+[29-Aug-2017 08:37:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[29-Aug-2017 08:38:28 UTC] PHP Warning:  include(admin/includes/bookings.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/admin/home.php on line 26
+[29-Aug-2017 08:38:28 UTC] PHP Stack trace:
+[29-Aug-2017 08:38:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[29-Aug-2017 08:38:28 UTC] PHP Warning:  include(): Failed opening 'admin/includes/bookings.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/admin/home.php on line 26
+[29-Aug-2017 08:38:28 UTC] PHP Stack trace:
+[29-Aug-2017 08:38:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
