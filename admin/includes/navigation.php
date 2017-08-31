@@ -1,3 +1,6 @@
+<?php
+    include("includes/profile.php");
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -16,7 +19,7 @@
                         <i class="fa fa-user fa-fw"></i> User Name <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#" data-toggle="modal" data-target="#profileModal"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -27,4 +30,5 @@
         </div>
     </div>
 </nav>
+
 

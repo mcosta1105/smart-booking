@@ -1,7 +1,4 @@
-<!-- Sign Up -->
-
-
-<!-- Modal -->
+<!-- Booking Modal -->
 <div id="bookingModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -23,7 +20,7 @@
                 </div>
               </div>
             </div>
-            
+             
             <div class="row">
               
             </div>

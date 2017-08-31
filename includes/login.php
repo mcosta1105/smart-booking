@@ -17,7 +17,6 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <form id="login-form" action="index.php" method="post">
-
                         <h3 class="form-title text-center">Sign In to your Account</h3>
                         <div class="form-group">
                             <label for="">Username or email</label>

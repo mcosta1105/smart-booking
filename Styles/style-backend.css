@@ -45,3 +45,24 @@
 .wrapper{
     margin-top: 120px;
 }
+
+.wrapper a{
+    font-size: 1.8em;
+}
+
+/*POP UP*/
+
+.modal-dialog{
+    margin-top: 50vh!important;
+    transform: translateY(-50%)!important;
+}
+
+
+.close{
+    font-size: 40px;
+}
+
+.title-blue{
+    color: #428bca;
+    text-align: center;
+}

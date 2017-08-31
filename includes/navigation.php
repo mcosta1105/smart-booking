@@ -20,6 +20,7 @@
         <li><a href="#location">Location</a></li>
         <li><a href="#" data-toggle="modal" data-target="#bookingModal">Booking</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myAccountModal"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
         <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
         <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
       </ul>
@@ -31,6 +32,7 @@
     include("includes/signup.php");
     include("includes/login.php");
     include("includes/booking.php");
+    include("includes/my_account.php");
 ?>
 
 <script>

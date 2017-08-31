@@ -12,7 +12,7 @@
                 </div><!-- /input-group -->
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
-                <p class="text-center">User List</p>
+                <h4 class="text-center">User List</h4>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

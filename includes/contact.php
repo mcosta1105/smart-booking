@@ -1,8 +1,5 @@
 <!-- Contact -->
 
-<!--Script to align modal popup vertically-->
-
-
 <!-- Modal -->
 <div id="contactModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
