@@ -13,6 +13,39 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <p class="text-center">User List</p>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                            </tr>
+                            <tbody>
+                                <tr class="info">
+                                    <td>Bob</td>
+                                    <td>0405002255</td>
+                                    <td>Active</td>
+                                </tr>
+                                <tr>
+                                    <td>John</td>
+                                    <td>0405002255</td>
+                                    <td>Active</td>
+                                </tr>
+                                <tr class="info">
+                                    <td>Pablo</td>
+                                    <td>0405002255</td>
+                                    <td>Inactive</td>
+                                </tr>
+                                <tr>
+                                    <td>Maycon</td>
+                                    <td>0405002255</td>
+                                    <td>Inactive</td>
+                                </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -111,6 +111,28 @@ footer{
    margin-bottom: 0px!important;
 }
 
+/*LOGIN POPUP*/
+
+.logo-img{
+    width: 170px;
+    height: auto;
+    padding: 0px 0px;
+}
+
+.modal-dialog{
+    margin-top: 50vh;
+    transform: translateY(-50%)!important;
+}
 
 
+.close{
+    font-size: 40px;
+}
 
+.form-title{
+    margin-bottom:20px;
+}
+
+#index{
+    margin-top: 120px;
+}

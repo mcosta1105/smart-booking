@@ -18,16 +18,19 @@
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#location">Location</a></li>
-        <li><a href="#">Booking</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#bookingModal">Booking</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <?php
     include("includes/contact.php");
+    include("includes/signup.php");
+    include("includes/login.php");
+    include("includes/booking.php");
 ?>
 
 <script>
