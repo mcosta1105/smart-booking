@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
     <?php
+        session_start(); //GET and POST request
+        
         $pageTitle = "Restaurant";
         include("includes/head.php");
-        include("includes/database.php");
+        include("autoloader.php");
+        $db = new Database();
+        $connection = $db->getConnection();
     ?>
     <body>
         <span id="index"></span>

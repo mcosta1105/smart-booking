@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="text-center"> 
-                <button type="button" data-dismiss="myAccountModal" class="btn btn-danger" href="#" data-toggle="modal" data-target="#myAccountBookingManagementModal">Edit</button>
+                <button data-toggle="modal" data-target="#myAccountBookingManagementModal" data-dismiss="modal" type="button" class="btn btn-danger">Edit</button>
             </div>
         </div>
     </div>

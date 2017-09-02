@@ -78,3 +78,36 @@
 [31-Aug-2017 08:12:24 UTC] PHP Stack trace:
 [31-Aug-2017 08:12:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
 [31-Aug-2017 08:12:24 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:26
+[01-Sep-2017 04:59:55 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 04:59:55 UTC] PHP Stack trace:
+[01-Sep-2017 04:59:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 04:59:55 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 04:59:55 UTC] PHP Stack trace:
+[01-Sep-2017 04:59:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 04:59:55 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 8
+[01-Sep-2017 04:59:55 UTC] PHP Stack trace:
+[01-Sep-2017 04:59:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:00:17 UTC] PHP Warning:  include(/autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 05:00:17 UTC] PHP Stack trace:
+[01-Sep-2017 05:00:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:00:17 UTC] PHP Warning:  include(): Failed opening '/autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 05:00:17 UTC] PHP Stack trace:
+[01-Sep-2017 05:00:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:00:17 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 8
+[01-Sep-2017 05:00:17 UTC] PHP Stack trace:
+[01-Sep-2017 05:00:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:05:56 UTC] PHP Warning:  include(/autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 05:05:56 UTC] PHP Stack trace:
+[01-Sep-2017 05:05:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:05:56 UTC] PHP Warning:  include(): Failed opening '/autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/admin/index.php on line 7
+[01-Sep-2017 05:05:56 UTC] PHP Stack trace:
+[01-Sep-2017 05:05:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:05:56 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 9
+[01-Sep-2017 05:05:56 UTC] PHP Stack trace:
+[01-Sep-2017 05:05:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:06:12 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 9
+[01-Sep-2017 05:06:12 UTC] PHP Stack trace:
+[01-Sep-2017 05:06:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[01-Sep-2017 05:07:46 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 9
+[01-Sep-2017 05:07:46 UTC] PHP Stack trace:
+[01-Sep-2017 05:07:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0

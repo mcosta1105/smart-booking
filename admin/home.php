@@ -3,7 +3,7 @@
     <?php
         $pageTitle = "Admin/Home";
         include("../admin/includes/head.php");
-        include("../includes/database.php");
+        
     ?>
     <body>
         <?php

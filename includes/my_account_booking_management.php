@@ -1,7 +1,7 @@
 
 <!-- Modal My Account - Booking Management -->
 <div id="myAccountBookingManagementModal" class="modal fade" role="dialog">
-  <div class="modal-dialog" id="width500px">
+  <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
@@ -11,14 +11,14 @@
         <div class="modal-body">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <select class="form-control" id="#">
 		                    <option>Mr.</option>
 		                    <option>Mrs.</option>
 		                    <option>Miss.</option>
 	                    </select>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
                     </div>
                 </div>

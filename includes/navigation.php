@@ -1,3 +1,12 @@
+<?php
+    include("includes/contact.php");
+    include("includes/signup.php");
+    include("includes/login.php");
+    include("includes/booking.php");
+    include("includes/my_account.php");
+    include("includes/options_popup.php");
+?>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,6 +29,7 @@
         <li><a href="#location">Location</a></li>
         <li><a href="#" data-toggle="modal" data-target="#bookingModal">Booking</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
+         <li><a href="#" data-toggle="modal" data-target="#optionsModal"><span class="glyphicon glyphicon-user"></span>  POPUP</a></li>
         <li><a href="#" data-toggle="modal" data-target="#myAccountModal"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
         <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
         <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
@@ -27,13 +37,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<?php
-    include("includes/contact.php");
-    include("includes/signup.php");
-    include("includes/login.php");
-    include("includes/booking.php");
-    include("includes/my_account.php");
-?>
+
 
 <script>
 $(document).ready(function(){

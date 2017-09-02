@@ -3,6 +3,12 @@
     <?php
         $pageTitle = "Smart Booking - Administrator";
         include("includes/head.php");
+        
+        include("autoloader.php");
+        
+        $db = new Database();
+        $connection = $db->getConnection();
+        
     ?>
     <body class="login">
         <div class="container-fluid">
@@ -14,10 +20,10 @@
                         </div>
                         <h3 class="form-title text-center">Sign In to your Account</h3>
                         <div class="form-group">
-                            <label for="">Username or email</label>
+                            <label for="">Email or Phone number</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input class="form-control" type="text" id="user" placeholder="username or email" name="user"/>
+                                <input class="form-control" type="text" id="user" placeholder="email or phone number" name="user"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -34,7 +40,7 @@
                             <a href="#">Forgot password?</a>
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-lg btn-primary">Login</button>
+                            <button type="button" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>
