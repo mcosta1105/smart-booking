@@ -111,3 +111,56 @@
 [01-Sep-2017 05:07:46 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/index.php on line 9
 [01-Sep-2017 05:07:46 UTC] PHP Stack trace:
 [01-Sep-2017 05:07:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/index.php:0
+[05-Sep-2017 07:04:36 UTC] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE) in /home/ubuntu/workspace/admin/includes/users.php on line 64
+[05-Sep-2017 07:04:36 UTC] PHP Stack trace:
+[05-Sep-2017 07:04:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:05:36 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/admin/includes/navigation.php:35) in /home/ubuntu/workspace/admin/includes/users.php on line 3
+[05-Sep-2017 07:05:36 UTC] PHP Stack trace:
+[05-Sep-2017 07:05:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:05:36 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:05:36 UTC] PHP   3. session_start() /home/ubuntu/workspace/admin/includes/users.php:3
+[05-Sep-2017 07:05:36 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/includes/users.php on line 4
+[05-Sep-2017 07:05:36 UTC] PHP Stack trace:
+[05-Sep-2017 07:05:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:05:36 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:06:46 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/admin/includes/users.php on line 4
+[05-Sep-2017 07:06:46 UTC] PHP Stack trace:
+[05-Sep-2017 07:06:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:06:46 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:07:50 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/admin/includes/navigation.php:35) in /home/ubuntu/workspace/admin/includes/users.php on line 2
+[05-Sep-2017 07:07:50 UTC] PHP Stack trace:
+[05-Sep-2017 07:07:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:07:50 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:07:50 UTC] PHP   3. session_start() /home/ubuntu/workspace/admin/includes/users.php:2
+[05-Sep-2017 07:07:50 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/ubuntu/workspace/admin/includes/users.php on line 14
+[05-Sep-2017 07:07:50 UTC] PHP Stack trace:
+[05-Sep-2017 07:07:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:07:50 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:08:34 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/ubuntu/workspace/admin/includes/users.php on line 14
+[05-Sep-2017 07:08:34 UTC] PHP Stack trace:
+[05-Sep-2017 07:08:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:08:34 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:29
+[05-Sep-2017 07:09:51 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/admin/includes/navigation.php:35) in /home/ubuntu/workspace/admin/includes/users.php on line 2
+[05-Sep-2017 07:09:51 UTC] PHP Stack trace:
+[05-Sep-2017 07:09:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:09:51 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:34
+[05-Sep-2017 07:09:51 UTC] PHP   3. session_start() /home/ubuntu/workspace/admin/includes/users.php:2
+[05-Sep-2017 07:09:51 UTC] PHP Fatal error:  Call to undefined function msqli_fetch_array() in /home/ubuntu/workspace/admin/includes/users.php on line 44
+[05-Sep-2017 07:09:51 UTC] PHP Stack trace:
+[05-Sep-2017 07:09:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:09:51 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:34
+[05-Sep-2017 07:10:07 UTC] PHP Fatal error:  Call to undefined function msqli_fetch_array() in /home/ubuntu/workspace/admin/includes/users.php on line 44
+[05-Sep-2017 07:10:07 UTC] PHP Stack trace:
+[05-Sep-2017 07:10:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:10:07 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:34
+[05-Sep-2017 07:12:30 UTC] PHP Fatal error:  Call to undefined function msqli_fetch_array() in /home/ubuntu/workspace/admin/includes/users.php on line 44
+[05-Sep-2017 07:12:30 UTC] PHP Stack trace:
+[05-Sep-2017 07:12:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:12:30 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[05-Sep-2017 07:13:21 UTC] PHP Fatal error:  Call to undefined function msqli_fetch_array() in /home/ubuntu/workspace/admin/includes/users.php on line 44
+[05-Sep-2017 07:13:21 UTC] PHP Stack trace:
+[05-Sep-2017 07:13:21 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[05-Sep-2017 07:13:21 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[05-Sep-2017 07:19:32 UTC] PHP Parse error:  syntax error, unexpected 'info' (T_STRING), expecting ',' or ';' in /home/ubuntu/workspace/admin/includes/users.php on line 51
+[05-Sep-2017 07:19:32 UTC] PHP Stack trace:
+[05-Sep-2017 07:19:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0

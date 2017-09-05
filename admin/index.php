@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
     <?php
-        $pageTitle = "Smart Booking - Administrator";
-        include("includes/head.php");
+        session_start(); //GET and POST request
         
+        $pageTitle = "Smart Booking - Administrator";
+        
+        include("includes/head.php");
         include("autoloader.php");
         
         $db = new Database();
         $connection = $db->getConnection();
-        
+    
     ?>
     <body class="login">
         <div class="container-fluid">

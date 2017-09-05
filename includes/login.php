@@ -1,3 +1,53 @@
+<?php
+    session_start();
+    //Process Login
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $user = $_POST["user"];
+        $password = $_POST["password"];
+        
+        if(filter_var($user, FILTER_VALIDATE_EMAIL)){
+            $login_query = "SELECT * FROM user WHERE email=?";
+        }
+        else{
+            $login_query = "SELECT * FROM user WHERE phone=?";
+        }
+        
+        $statement = $connection->prepare($login_query);
+        $statement->bind_param("s", $user);
+        $statement->execute();
+        $result = $statement->get_result();
+        
+        //Check if user is registered
+        if($result->num_rows > 0){
+            
+            //Set cookie for user
+            /*
+            if(isset($_POST["rememberMe"])){
+                setcookie("user", $user, time()+60*60*7);
+                echo "Remember User";
+            }*/
+            
+            $userdata = $result->fetch_assoc();
+            //check for password macthing
+            $stored = $userdata["password"];
+            $user_id = $userdata["id"];
+            $user_firstName = $userdata["first_name"];
+            $user_lastName = $userdata["last_name"];
+            $user_email = $userdata["email"];
+            //Verify password
+            if(password_verify($password, $stored)){
+                echo "Welcome $user_firstName!";
+            }
+            else{
+                echo "Wrong credentials supplied";
+            }
+        }
+        else{
+            echo "Account does not exist!";
+        }
+    }
+?>
+
 <!-- Modal -->
 <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog" id="loginWidth">
@@ -31,13 +81,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+                            <input type="checkbox" value="1" id="rememberMe" name="rememberMe"> Remember me
                         </div>
                         <div class="form-group">
                             <a href="#">Forgot password?</a>
                         </div>
                         <div class="text-center">
-                            <button data-dismiss="modal" type="button" class="btn btn-primary">Login</button>
+                            <button type="submit" value="login" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>

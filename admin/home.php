@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
     <?php
+    
+        session_start();
+        
         $pageTitle = "Admin/Home";
+        
         include("../admin/includes/head.php");
+        include("autoloader.php");
+        
+        $db = new Database();
+        $connection = $db->getConnection();
         
     ?>
     <body>
@@ -15,7 +23,8 @@
                     <div class="col-lg-12">
                         <ul class="nav nav-tabs nav-justified">
                             <li role="presentation" class="active"><a data-toggle="tab" href="#bookings">Bookings</a></li>
-                            <li role="presentation"><a data-toggle="tab" href="#users">Users</a></li>
+                            <li role="presentation">
+                            <a data-toggle="tab" href="#users">Users</a></li>
                         </ul>
                     </div>
                 </div>
