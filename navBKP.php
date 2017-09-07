@@ -5,29 +5,6 @@
     include("includes/booking.php");
     include("includes/my_account.php");
     include("includes/options_popup.php");
-    
-    //parse_url gets the current page without the querystring, 
-    //eg from products?page=0&category=3 to '/products.php'
-    //basename() removes the '/' at the beginning
-    $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-
-    //navigation items as an array
-    if(!$_SESSION["user_email"])
-    {
-      $navigation_items = array(
-        " Signup"=>"#signUpModal",
-        " Login"=>"#loginModal"
-      );
-    }
-    else
-    {
-      $name = $_SESSION["user_firstName"];
-      $navigation_items = array(
-        " $name"=>"#myAccountModal",
-        " Logout"=>"logout.php"
-      );
-    }
-
 ?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -52,29 +29,14 @@
         <li><a href="#location">Location</a></li>
         <li><a href="#" data-toggle="modal" data-target="#bookingModal">Booking</a></li>
         <li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
-        <?php
-              foreach($navigation_items as $name=>$link)
-              {
-                if($link === "#signUpModal" || $link === "#myAccountModal")
-                {
-                    $icon = "glyphicon glyphicon-user";
-                    echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"$link\"><span class=\"$icon\"></span>$name</a></li>";
-                }
-                else if($link === "#loginModal")
-                {
-                    $icon = "glyphicon glyphicon-log-in";
-                    echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"$link\"><span class=\"$icon\"></span>$name</a></li>";
-                }
-                else if($link === "logout.php")
-                {
-                    echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span>$name</a></li>";
-                }
-            }
-        ?>
-
+         <li><a href="#" data-toggle="modal" data-target="#optionsModal"><span class="glyphicon glyphicon-user"></span>  POPUP</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myAccountModal"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>  Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->         
+  </div><!-- /.container-fluid -->
 </nav>
 
 
@@ -104,8 +66,8 @@ $(document).ready(function(){
       });
     }  // End if
   });
-  //if(needtologin == true){
-  //  $("#loginModal").modal({show: true});
-  //}
+  if(needtologin == true){
+    $("#loginModal").modal({show: true});
+  }
 });
 </script>

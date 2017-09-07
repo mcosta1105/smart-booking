@@ -21,11 +21,24 @@
         if($result->num_rows > 0){
             
             //Set cookie for user
-            /*
+            
             if(isset($_POST["rememberMe"])){
-                setcookie("user", $user, time()+60*60*7);
+                //setcookie("user", $user, time()+60*60*7);
                 echo "Remember User";
-            }*/
+                $expiry = time()+60*60*7;
+                $_SESSION["expiry"] = $expiry;
+            }
+            if($_SESSION["expiry"]){
+                $now = time();
+                $diff = $now - $_SESSION["expiry"];
+                if($diff>0){
+                    // 
+                    unset($_SESSION["expiry"]);
+                    //get user to login again
+                    unset($_SESSION["user_email"]);
+                    $needtologin = true;
+                }
+            }
             
             $userdata = $result->fetch_assoc();
             //check for password macthing
@@ -37,6 +50,9 @@
             //Verify password
             if(password_verify($password, $stored)){
                 echo "Welcome $user_firstName!";
+                $_SESSION["user_email"] = $user_email;
+                $_SESSION["user_firstName"] = $user_firstName;
+                
             }
             else{
                 echo "Wrong credentials supplied";

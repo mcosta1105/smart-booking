@@ -9,4 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
+    <?php
+    if($needtologin===true){
+        echo "<script>var needtologin = true; </script>";
+    }
+    ?>
 </head>
