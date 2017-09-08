@@ -2,15 +2,17 @@
 
     $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-    if(isset($_POST['search']))
+    if(isset($_POST['user_search']))
     {
+        //SEARCH BY NAME OR PHONE
         $valueToSearch = $_POST['value_to_search'];
         $search_query = "SELECT * FROM user WHERE CONCAT(first_name, phone) LIKE '%".$valueToSearch."%'";
         $result = $connection->query($search_query);
     }
     else
     {
-        $query = "SELECT first_name, phone, status FROM user";
+        //LIST ALL USERS
+        $query = "SELECT * FROM user";
         $result = $connection->query($query);  
     }
     
@@ -25,7 +27,7 @@
                 <div class="input-group">
                     <input type="text" name="value_to_search" class="form-control" placeholder="Search..">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit" name="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="btn btn-primary" type="submit" name="user_search"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </span>
                 </div><!-- /input-group -->
             </div>

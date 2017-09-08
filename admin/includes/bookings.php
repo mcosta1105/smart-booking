@@ -3,36 +3,43 @@
 
     include("includes/booking_management.php");
     
-    if(isset($_POST['search']))
-    {
-        $bookingToSearch = $_POST['booking_to_search'];
-        $dateToSerch =$_POST['date_to_search'];
-        
-        //if($bookingToSearch == "booking_to_search")
-        //{
-            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
-                       WHERE user.first_name LIKE '%".$bookingToSearch."%'
-                       OR user.phone LIKE '%".$bookingToSearch."%'
-                       OR booking.date LIKE '%".$bookingToSearch."%'
-                       GROUP BY user.id
-                       ORDER BY booking.date";
+    date_default_timezone_set('Australia/Sydney');
+    $currentDate = date('Y-m-d');
     
-            $result = $connection->query($query);
-        //}
-       /* else if($dateToSerch == "date_to_search")
-        {
-            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
+    if(isset($_POST['date_search']))
+    {
+        //SEARCH BY DATE
+        $dateToSerch =$_POST['date_to_search'];
+         
+        $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
                        WHERE booking.date LIKE '%".$dateToSerch."%'
                        GROUP BY user.id
                        ORDER BY booking.date";
     
-            $result = $connection->query($query);
-        }
-        */
+        $result = $connection->query($query);
+    }
+    else if(isset($_POST['search']))
+    {
+        //SEARCH BY NAME, PHONE OR DATE
+        $bookingToSearch = $_POST['booking_to_search'];
+       
+        $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
+                   WHERE user.first_name LIKE '%".$bookingToSearch."%'
+                   OR user.phone LIKE '%".$bookingToSearch."%'
+                   OR booking.date LIKE '%".$bookingToSearch."%'
+                   GROUP BY user.id
+                   ORDER BY booking.date";
+
+        $result = $connection->query($query);
     }
     else
     {
-        $query = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id GROUP BY user.id ORDER BY booking.date";
+        //SEARCH WITH CURRENT DATE
+        $query = "SELECT * FROM booking 
+        INNER JOIN user ON booking.user_id = user.id 
+        WHERE booking.date LIKE '%".$currentDate."%'
+        GROUP BY user.id ORDER BY booking.date";
+        
         $result = $connection->query($query);
     }
     
@@ -45,13 +52,16 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <h4 class="text-center">Select a Date</h4>
+                    <h4 class="text-center">Search by Date</h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
                         <input type="date" name="date_to_search" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit" name="date_search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </span>
                     </div>
-                   <br>
-                   <h4 class="text-center">Or Search</h4>
+                    <br>
+                    <h4 class="text-center">Or Search</h4>
                     <div class="input-group">
                         <input type="text" class="form-control" name="booking_to_search" placeholder="Search..">
                         <span class="input-group-btn">
@@ -61,7 +71,6 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <h4 class="text-center">Bookings List</h4>
-                    <!--http://secondtruth.github.io/startmin/pages/index.html-->
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
