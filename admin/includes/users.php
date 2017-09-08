@@ -1,5 +1,7 @@
 <?php
 
+    $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+
     if(isset($_POST['search']))
     {
         $valueToSearch = $_POST['value_to_search'];
@@ -59,7 +61,7 @@
                                     <td><?php echo $row['phone'];?></td>
                                     <td>
                                     <?php 
-                                        if($row['status'] == 1)
+                                        if($row['user_status'] == 1)
                                         {
                                             echo "Active";
                                         }

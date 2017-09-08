@@ -6,12 +6,8 @@
     include("includes/my_account.php");
     include("includes/options_popup.php");
     
-    //parse_url gets the current page without the querystring, 
-    //eg from products?page=0&category=3 to '/products.php'
-    //basename() removes the '/' at the beginning
-    $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-
     //navigation items as an array
+    //display according if user is loged in
     if(!$_SESSION["user_email"])
     {
       $navigation_items = array(
@@ -70,8 +66,7 @@
                     echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span>$name</a></li>";
                 }
             }
-        ?>
-
+      ?>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->         

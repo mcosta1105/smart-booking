@@ -164,3 +164,68 @@
 [05-Sep-2017 07:19:32 UTC] PHP Parse error:  syntax error, unexpected 'info' (T_STRING), expecting ',' or ';' in /home/ubuntu/workspace/admin/includes/users.php on line 51
 [05-Sep-2017 07:19:32 UTC] PHP Stack trace:
 [05-Sep-2017 07:19:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 04:52:32 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 67
+[08-Sep-2017 04:52:32 UTC] PHP Stack trace:
+[08-Sep-2017 04:52:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 04:52:32 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 04:52:32 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:67
+[08-Sep-2017 05:08:14 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/admin/includes/users.php on line 45
+[08-Sep-2017 05:08:14 UTC] PHP Stack trace:
+[08-Sep-2017 05:08:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:08:14 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:38
+[08-Sep-2017 05:08:14 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/users.php:45
+[08-Sep-2017 05:10:54 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/admin/includes/users.php on line 45
+[08-Sep-2017 05:10:54 UTC] PHP Stack trace:
+[08-Sep-2017 05:10:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:10:54 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:38
+[08-Sep-2017 05:10:54 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/users.php:45
+[08-Sep-2017 05:20:52 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:20:52 UTC] PHP Stack trace:
+[08-Sep-2017 05:20:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:20:52 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:20:52 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:21:25 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:21:25 UTC] PHP Stack trace:
+[08-Sep-2017 05:21:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:21:25 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:21:25 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:22:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:22:09 UTC] PHP Stack trace:
+[08-Sep-2017 05:22:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:22:09 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:22:09 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:22:31 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:22:31 UTC] PHP Stack trace:
+[08-Sep-2017 05:22:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:22:31 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:22:31 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:23:26 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 81
+[08-Sep-2017 05:23:26 UTC] PHP Stack trace:
+[08-Sep-2017 05:23:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:23:26 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:23:26 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:81
+[08-Sep-2017 05:24:15 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/admin/includes/users.php on line 45
+[08-Sep-2017 05:24:15 UTC] PHP Stack trace:
+[08-Sep-2017 05:24:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:24:15 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:38
+[08-Sep-2017 05:24:15 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/users.php:45
+[08-Sep-2017 05:24:25 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/admin/includes/users.php on line 45
+[08-Sep-2017 05:24:25 UTC] PHP Stack trace:
+[08-Sep-2017 05:24:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:24:25 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:38
+[08-Sep-2017 05:24:25 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/users.php:45
+[08-Sep-2017 05:24:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:24:34 UTC] PHP Stack trace:
+[08-Sep-2017 05:24:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:24:34 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:24:34 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:24:42 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:24:42 UTC] PHP Stack trace:
+[08-Sep-2017 05:24:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:24:42 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:24:42 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82
+[08-Sep-2017 05:24:52 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 82
+[08-Sep-2017 05:24:52 UTC] PHP Stack trace:
+[08-Sep-2017 05:24:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[08-Sep-2017 05:24:52 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:35
+[08-Sep-2017 05:24:52 UTC] PHP   3. mysqli_fetch_array() /home/ubuntu/workspace/admin/includes/bookings.php:82

@@ -20,12 +20,12 @@
         
         if(!$isFirstNameValid)
         {
-            $errors["firstName"] = "First Name Criteria (Min: > 0 And Max: 16 char).";
+            $errors["firstName"] = "First Name Criteria (Max: 16 characteres).";
         }
         
         if(!$isLastNameValid)
         {
-            $errors["lastName"] = "Last Name Criteria (Min: > 0 And Max: 16 char).";
+            $errors["lastName"] = "Last Name Criteria (Max: 16 characteres).";
         }
         
         //EMAIL
@@ -53,7 +53,7 @@
         
         if(!$isPasswordValid)
         {
-            $errors["password"] = "Passwords < 8, or do not match.";
+            $errors["password"] = "Password min: 8 characteres, or Passwords do not match.";
         }
         
         $errorscount = count($errors);
@@ -149,20 +149,48 @@
                     </div>
                 </div>
 			</div>
-			<div class="form-group">
+			<?php
+			    if($errors["lastName"])
+			    {
+			        $lastNameClass = "has-error";
+			    }
+			?>
+			<div class="form-group <?php echo $lastNameClass; ?>">
 				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+			    <span class="help-block"><?php echo $errors["lastName"]; ?></span>
 			</div>
-			<div class="form-group">
+			<?php
+			    if($errors["email"])
+			    {
+			        $emailClass = "has-error";
+			    }
+			?>
+			<div class="form-group <?php echo $emailClass; ?>">
 				<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+				<span class="help-block"><?php echo $errors["email"]; ?></span>
 			</div>
-			<div class="form-group">
+			<?php
+			    if($errors["phone"])
+			    {
+			        $phoneClass = "has-error";
+			    }
+			?>
+			<div class="form-group <?php echo $phoneClass; ?>">
 				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+				<span class="help-block"><?php echo $errors["phone"]; ?></span>
 			</div>
-			<div class="form-group">
+			<?php
+			    if($errors["password"])
+			    {
+			        $passwordClass = "has-error";
+			    }
+			?>
+			<div class="form-group <?php echo $passwordClass; ?>">
 			    <input type="password" name="password1" class="form-control" id="password1" placeholder="Password - min: 8 characteres" required>
 			</div>
-			<div class="form-group">
+			<div class="form-group <?php echo $passwordClass; ?>">
 			    <input type="password" name="password2" class="form-control" id="password2" placeholder="Retype your password" required>
+			    <span class="help-block"><?php echo $errors["password"]; ?></span>
 			</div>
 			<div class="form-group">
                 <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Special Request (Optional)" maxlength="200" rows="7"></textarea>                   
