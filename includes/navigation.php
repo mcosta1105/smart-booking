@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+    
     include("includes/contact.php");
     include("includes/signup.php");
     include("includes/login.php");
@@ -13,6 +16,13 @@
       $navigation_items = array(
         " Signup"=>"#signUpModal",
         " Login"=>"#loginModal"
+      );
+    }
+    else if($_SESSION["level"] === 2) //2 == ADMIN, 1 == USER
+    {
+      $navigation_items = array(
+      " Admin" => "admin/home.php",
+      " Logout"=>"logout.php"
       );
     }
     else
@@ -61,9 +71,13 @@
                     $icon = "glyphicon glyphicon-log-in";
                     echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"$link\"><span class=\"$icon\"></span>$name</a></li>";
                 }
+                else if($link === "admin/home.php")
+                {
+                    echo "<li><a href=\"$link\"><span class=\"glyphicon glyphicon-check\"></span>$name</a></li>";
+                }
                 else if($link === "logout.php")
                 {
-                    echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span>$name</a></li>";
+                    echo "<li><a href=\"$link\"><span class=\"glyphicon glyphicon-log-out\"></span>$name</a></li>";
                 }
             }
       ?>

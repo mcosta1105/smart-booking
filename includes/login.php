@@ -47,11 +47,14 @@
             $user_firstName = $userdata["first_name"];
             $user_lastName = $userdata["last_name"];
             $user_email = $userdata["email"];
+            $level = $userdata["level"];
+            
             //Verify password
             if(password_verify($password, $stored)){
                 echo "Welcome $user_firstName!";
                 $_SESSION["user_email"] = $user_email;
                 $_SESSION["user_firstName"] = $user_firstName;
+                $_SESSION["level"] = $level;
                 
             }
             else{
@@ -86,14 +89,14 @@
                             <label for="">Email or Phone number</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input class="form-control" type="text" id="user" placeholder="email or phone number" name="user"/>
+                                <input class="form-control" type="text" id="user" placeholder="email or phone number" name="user" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" id="password" placeholder="your password" name="password"/>    
+                                <input class="form-control" type="password" id="password" placeholder="your password" name="password" required/>    
                             </div>
                         </div>
                         <div class="form-group">
