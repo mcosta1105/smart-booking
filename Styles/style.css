@@ -161,6 +161,14 @@ footer{
 #restaurant{
     background-image: url("/images/restaurant.svg");
     background-repeat: no-repeat;
+    max-width: 100%;
     background-size: cover;
     padding-top: 5%;
+}
+
+
+
+.tables{
+    opacity: 0.2;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
 }
