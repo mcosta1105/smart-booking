@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!-- Modal -->
 <div id="chooseTableModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
@@ -12,7 +17,7 @@
             <div class="row">
               <div class="col-md-12" id="restaurant">
                 <div class="row pad3">
-                  <div class="tables col-md-2 col-md-offset-3">
+                  <div class="tables col-md-2 col-md-offset-3" style="cursor:not-allowed">
                       <a href="#"><img src="/images/1.svg"></img></a>
                   </div>
                   <div class="col-md-2">
@@ -27,7 +32,7 @@
                 </div>
                 <div class="row pad3">
                   <div class="col-md-2 col-md-offset-3">
-                      <a href="#"><img src="/images/5.svg"></img></a>
+                      <a href="#"><img src="/images/5.svg" style = "<?php echo $tableStatus ?>"></img></a>
                   </div>
                   <div class="col-md-2">
                       <a href="#"><img src="/images/6.svg"></img></a>

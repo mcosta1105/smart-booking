@@ -166,9 +166,10 @@ footer{
     padding-top: 5%;
 }
 
-
-
-.tables{
-    opacity: 0.2;
+.tables a:hover{
+    opacity: 0.8;
     filter: alpha(opacity=50); /* For IE8 and earlier */
+    cursor: not-allowed;
 }
+
+/*cursor:not-allowed*/
