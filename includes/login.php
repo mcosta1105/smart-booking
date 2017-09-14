@@ -1,7 +1,7 @@
 <?php
     session_start();
     //Process Login
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "login"){
         $user = $_POST["user"];
         $password = $_POST["password"];
         
@@ -106,7 +106,7 @@
                             <a href="#">Forgot password?</a>
                         </div>
                         <div class="text-center">
-                            <button type="submit" value="login" class="btn btn-primary">Login</button>
+                            <button type="submit" name="submit" value="login" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>

@@ -3,7 +3,7 @@
 
     //handle incoming data
     $method = $_SERVER["REQUEST_METHOD"];
-    if($method == "POST")
+    if($method == "POST" && $_POST["submit"] == "register")
     {
         //array to hold the errors
         $errors = array();

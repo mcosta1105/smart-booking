@@ -3,7 +3,7 @@
   $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
   
   //Process Booking
-  if($_SERVER["REQUEST_METHOD"] == "POST")
+  if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "booking")
   {
       $no_people = $_POST["no_people"];
       $date_picked = $_POST["date"];
@@ -42,42 +42,111 @@
       $statement->bind_param("sss",$no_people,$date_picked, $time_picked);
       $statement->execute();
       
-      $result = $statement->get_result();
+      $booking_result = $statement->get_result();
       
       //Push into Array
-      if($result->num_rows > 0)
+      if($booking_result->num_rows > 0)
       {
-        $tables_array = array();
+        $tables_available_array = array();
         
-        while($row = $result->fetch_assoc())
+        while($row = $booking_result->fetch_assoc())
         {
-            array_push($tables_array, $row);
+            array_push($tables_available_array, $row["id"]);
         }
       }
       
-      /*foreach($tables_array as $table)
-      {
-        $tableNo = $table["id"];
-        //echo $tableNo;
-      }
-      */
+      $tableN01 = 1;
+      $tableN02 = 2;
+      $tableN03 = 3;
+      $tableN04 = 4;
+      $tableN05 = 5;
+      $tableN06 = 6;
+      $tableN07 = 7;
+      $tableN08 = 8;
+      $tableN09 = 9;
+      $tableN10 = 10;
+
+      $tableN01Status = "table-booked";
+      $tableN02Status = "table-booked";
+      $tableN03Status = "table-booked";
+      $tableN04Status = "table-booked";
+      $tableN05Status = "table-booked";
+      $tableN06Status = "table-booked";
+      $tableN07Status = "table-booked";
+      $tableN08Status = "table-booked";
+      $tableN09Status = "table-booked";
+      $tableN10Status = "table-booked";
       
-      if(count($tables_array) > 0)
+      if(count($tables_available_array) > 0)
       {
-        foreach($tables_array as $table)
+        foreach($tables_available_array as $table)
         {
-          if($table["id"] == 5)
+          if($table == $tableN01)
           {
-            $tableStatus = "cursor:not-allowed";
+            $tableN01Status = "";
           }
+          else if($table == $tableN02)
+          {
+            $tableN02Status = "";
+          }
+          else if($table == $tableN03)
+          {
+            $tableN03Status = "";
+          }
+          else if($table == $tableN04)
+          {
+            $tableN04Status = "";
+          }
+          else if($table == $tableN05)
+          {
+            $tableN05Status = "";
+          }
+          else if($table == $tableN06)
+          {
+            $tableN06Status = "";
+          }
+          else if($table == $tableN07)
+          {
+            $tableN07Status = "";
+          }
+          else if($table == $tableN08)
+          {
+            $tableN08Status = "";
+          }
+          else if($table == $tableN09)
+          {
+            $tableN09Status = "";
+          }
+          else if($table == $tableN10)
+          {
+            $tableN10Status = "";
+          }
+          else
+          {
+            $tableN01Status = "table-booked";
+            $tableN02Status = "table-booked";
+            $tableN03Status = "table-booked";
+            $tableN04Status = "table-booked";
+            $tableN05Status = "table-booked";
+            $tableN06Status = "table-booked";
+            $tableN07Status = "table-booked";
+            $tableN08Status = "table-booked";
+            $tableN09Status = "table-booked";
+            $tableN10Status = "table-booked";
+          }
+          
         }
       }
       
+      ?>
       
-    
-      
+      <script type="text/javascript"> 
+       $(document).ready(function(){
+           $('#chooseTableModal').modal('show');
+       });
+      </script>
+    <?php
   }
-  
 ?>
 
 <!-- Booking Modal -->
@@ -120,7 +189,7 @@
                 <div class="col-md-10 col-md-offset-1">
                   <h4 class="text-center">Select a date:</h4>
                   <div class="input-group date" data-provide="datepicker">
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" value="<?php echo date('Y-m-d');?>" class="form-control" name="date">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar" aria-hidden="true"></i>
                     </div>
@@ -154,7 +223,7 @@
               
                 <div class="row">
                   <div class="text-center" style="margin-top:5%">
-                    <button type="submit"  value="booking" data-toggle="modal" data-target="#chooseTableModal"  class="btn btn-danger">Choose a Table</button>
+                    <button type="submit" name="submit" value="booking" class="btn btn-danger">Choose a Table</button>
                   </div>  
                 </div>
               </form>
@@ -162,9 +231,7 @@
     </div>
   </div>
 </div>
-
 <?php
-
 // btn = data-toggle="modal" data-target="#chooseTableModal"  data-dismiss="modal"
     include("includes/chooseTable.php");
 ?>
