@@ -12,33 +12,33 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#"disabled>
 		                    <option>Mr.</option>
 		                    <option>Mrs.</option>
 		                    <option>Miss.</option>
 	                    </select>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required disabled>
                     </div>
                 </div>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="lastName" name="lasttName" placeholder="Last Name" required>
+				<input type="text" class="form-control" id="lastName" name="lasttName" placeholder="Last Name" required disabled>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+				<input type="text" class="form-control" id="email" name="email" placeholder="Email" required disabled>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required disabled>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7" disabled></textarea>                   
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#" disabled>
 		                    <option>User</option>
 		                    <option>Administrator</option>
 	                    </select>

@@ -12,6 +12,8 @@
         $db = new Database();
         $connection = $db->getConnection();
         
+        $user_firstName = $_SESSION["user_firstName"];
+        
     ?>
     <body>
         <?php

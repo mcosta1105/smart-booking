@@ -83,43 +83,43 @@
         {
           if($table == $tableN01)
           {
-            $tableN01Status = "";
+            $tableN01Status = "table-available";
           }
           else if($table == $tableN02)
           {
-            $tableN02Status = "";
+            $tableN02Status = "table-available";
           }
           else if($table == $tableN03)
           {
-            $tableN03Status = "";
+            $tableN03Status = "table-available";
           }
           else if($table == $tableN04)
           {
-            $tableN04Status = "";
+            $tableN04Status = "table-available";
           }
           else if($table == $tableN05)
           {
-            $tableN05Status = "";
+            $tableN05Status = "table-available";
           }
           else if($table == $tableN06)
           {
-            $tableN06Status = "";
+            $tableN06Status = "table-available";
           }
           else if($table == $tableN07)
           {
-            $tableN07Status = "";
+            $tableN07Status = "table-available";
           }
           else if($table == $tableN08)
           {
-            $tableN08Status = "";
+            $tableN08Status = "table-available";
           }
           else if($table == $tableN09)
           {
-            $tableN09Status = "";
+            $tableN09Status = "table-available";
           }
           else if($table == $tableN10)
           {
-            $tableN10Status = "";
+            $tableN10Status = "table-available";
           }
           else
           {

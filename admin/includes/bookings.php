@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+    
     $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
     include("includes/booking_management.php");
@@ -6,41 +9,49 @@
     date_default_timezone_set('Australia/Sydney');
     $currentDate = date('Y-m-d');
     
-    if(isset($_POST['date_search']))
+    $user_firstName = $_SESSION["user_firstName"];
+    
+    if($user_firstName != null OR $user_firstName != "")
     {
-        //SEARCH BY DATE
-        $dateToSerch =$_POST['date_to_search'];
-         
-        $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
-                       WHERE booking.date LIKE '%".$dateToSerch."%'
+        if(isset($_POST['date_search']))
+        {
+            //SEARCH BY DATE
+            $dateToSerch =$_POST['date_to_search'];
+             
+            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
+                           WHERE booking.date LIKE '%".$dateToSerch."%'
+                           GROUP BY user.id
+                           ORDER BY booking.date";
+        
+            $result = $connection->query($query);
+        }
+        else if(isset($_POST['search']))
+        {
+            //SEARCH BY NAME, PHONE OR DATE
+            $bookingToSearch = $_POST['booking_to_search'];
+           
+            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
+                       WHERE user.first_name LIKE '%".$bookingToSearch."%'
+                       OR user.phone LIKE '%".$bookingToSearch."%'
+                       OR booking.date LIKE '%".$bookingToSearch."%'
                        GROUP BY user.id
                        ORDER BY booking.date";
     
-        $result = $connection->query($query);
+            $result = $connection->query($query);
+        }
+        else
+        {
+            //SEARCH WITH CURRENT DATE
+            $query = "SELECT * FROM booking 
+            INNER JOIN user ON booking.user_id = user.id 
+            WHERE booking.date LIKE '%".$currentDate."%'
+            GROUP BY user.id ORDER BY booking.date";
+            
+            $result = $connection->query($query);
+        }
     }
-    else if(isset($_POST['search']))
-    {
-        //SEARCH BY NAME, PHONE OR DATE
-        $bookingToSearch = $_POST['booking_to_search'];
-       
-        $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
-                   WHERE user.first_name LIKE '%".$bookingToSearch."%'
-                   OR user.phone LIKE '%".$bookingToSearch."%'
-                   OR booking.date LIKE '%".$bookingToSearch."%'
-                   GROUP BY user.id
-                   ORDER BY booking.date";
-
-        $result = $connection->query($query);
-    }
-    else
-    {
-        //SEARCH WITH CURRENT DATE
-        $query = "SELECT * FROM booking 
-        INNER JOIN user ON booking.user_id = user.id 
-        WHERE booking.date LIKE '%".$currentDate."%'
-        GROUP BY user.id ORDER BY booking.date";
-        
-        $result = $connection->query($query);
+    else{
+        $result = array("0" =>"Not Logged In!");
     }
     
     
@@ -88,7 +99,6 @@
                                 <tbody>
                                     <?php 
                                         $counter = 0;
-                                        
                                         while($row = mysqli_fetch_array($result)):
                                     ?>
                                     <?php
@@ -102,11 +112,11 @@
                                             
                                             $counter++;
                                     ?>
-                                    <td><?php echo $row['date'];?></td>
-                                    <td><?php echo $row['time'];?></td>
-                                    <td><?php echo $row['table_id'];?></td>
-                                    <td><?php echo $row['no_people'];?></td>
-                                    <td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['date'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['time'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['table_id'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['no_people'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>
                                     <?php 
                                     
                                         //Not Seated = 1
@@ -132,10 +142,10 @@
                                         }
                                     ?>
                                     </td>
-                                    <td><?php echo $row['title'];?></td>
-                                    <td><?php echo $row['first_name'];?></td>
-                                    <td><?php echo $row['phone'];?></td>
-                                    <td><?php echo $row['special_request'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['title'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['first_name'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['phone'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['special_request'];?></td>
                                     </tr>
                                     <?php endwhile;?>
                                 </tbody>

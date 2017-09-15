@@ -5,6 +5,7 @@
     include("includes/contact.php");
     include("includes/signup.php");
     include("includes/login.php");
+     include("includes/ajaxLogin.php");
     include("includes/booking.php");
     include("includes/my_account.php");
     include("includes/options_popup.php");

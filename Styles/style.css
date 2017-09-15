@@ -161,61 +161,68 @@ footer{
 #restaurant{
     background-image: url("/images/restaurant.svg");
     background-repeat: no-repeat;
-    max-width: 100%;
-    background-size: cover;
+    background-position: center;
     padding-top: 5%;
 }
 
 .table-booked{
-    opacity: 0.2;
+    opacity: 0.3;
     filter: alpha(opacity=50); /* For IE8 and earlier */
     cursor: not-allowed;
 }
 
-.table-booked:hover{
-    opacity: 0.1;
+.table-available:hover{
+    opacity: 0.7;
+    
     filter: alpha(opacity=50); /* For IE8 and earlier */
-    cursor: not-allowed;
+    
+}
+
+.seats2{
+    width: 90%;
+    height: auto;
+}
+
+.seats4{
+    width: 90%;
+    height: auto;
+}
+
+.seats6{
+    width: 80%;
+    height: auto;
 }
 
 #landscape{ display:block; }
 @media only screen and (orientation:portrait){
   #landscape {  
-    height: 70vw;
-    min-width:500px;
+    height: 100vw;
+    min-width: 80vh;
+    position: absolute;
+        left: -25%;
+        top: -150px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    
   }
-  
-  div a img{
-      width:auto;
-      max-height:60px;
-  }
-  
-  .seats2{
-      width:auto;
-      max-height:40px;
+  #restaurant{
+      min-width:80vh;
+      height:auto;
   }
 }
 @media only screen and (orientation:landscape){
-  #landscape {  
+  #landscape {
+    height: 100vh;
+    max-width: 80vw;
+    position: absolute;
+        left: 9%;
+        top: -186px;
      -webkit-transform: rotate(0deg);
      -moz-transform: rotate(0deg);
      -o-transform: rotate(0deg);
      -ms-transform: rotate(0deg);
      transform: rotate(0deg);
-  }
- div a img{
-      width:auto;
-      max-height:60px;
-  }
-  
-  .seats2{
-      width:auto;
-      max-height:40px;
   }
 }

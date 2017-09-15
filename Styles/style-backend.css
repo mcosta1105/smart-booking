@@ -13,6 +13,14 @@
     
 }
 
+.error{
+    color: #d9534f!important;
+    display:block;
+    margin-top: 10px;
+    text-align: center;
+    font-weight:bold;
+}
+
 #login-form{
     background-color: white;
     padding: 5%;
@@ -46,7 +54,7 @@
     margin-top: 120px;
 }
 
-.wrapper a{
+.wrapper .nav a{
     font-size: 1.8em;
 }
 
@@ -65,4 +73,22 @@
 .title-blue{
     color: #428bca;
     text-align: center;
+}
+
+td { 
+    border-collapse: collapse!important; 
+}
+
+td a { 
+    display: block!important; 
+    color:black;
+    text-decoration: none;
+}
+
+td a:hover,
+td a:link,
+td a:visited,
+td a:active{ 
+    color:black;
+    text-decoration: none;
 }

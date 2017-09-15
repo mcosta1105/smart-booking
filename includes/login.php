@@ -1,71 +1,3 @@
-<?php
-    session_start();
-    //Process Login
-    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "login"){
-        $user = $_POST["user"];
-        $password = $_POST["password"];
-        
-        if(filter_var($user, FILTER_VALIDATE_EMAIL)){
-            $login_query = "SELECT * FROM user WHERE email=?";
-        }
-        else{
-            $login_query = "SELECT * FROM user WHERE phone=?";
-        }
-        
-        $statement = $connection->prepare($login_query);
-        $statement->bind_param("s", $user);
-        $statement->execute();
-        $result = $statement->get_result();
-        
-        //Check if user is registered
-        if($result->num_rows > 0){
-            
-            //Set cookie for user
-            
-            if(isset($_POST["rememberMe"])){
-                //setcookie("user", $user, time()+60*60*7);
-                echo "Remember User";
-                $expiry = time()+60*60*7;
-                $_SESSION["expiry"] = $expiry;
-            }
-            if($_SESSION["expiry"]){
-                $now = time();
-                $diff = $now - $_SESSION["expiry"];
-                if($diff>0){
-                    // 
-                    unset($_SESSION["expiry"]);
-                    //get user to login again
-                    unset($_SESSION["user_email"]);
-                    $needtologin = true;
-                }
-            }
-            
-            $userdata = $result->fetch_assoc();
-            //check for password macthing
-            $stored = $userdata["password"];
-            $user_id = $userdata["id"];
-            $user_firstName = $userdata["first_name"];
-            $user_lastName = $userdata["last_name"];
-            $user_email = $userdata["email"];
-            $level = $userdata["level"];
-            
-            //Verify password
-            if(password_verify($password, $stored)){
-                echo "Welcome $user_firstName!";
-                $_SESSION["user_email"] = $user_email;
-                $_SESSION["user_firstName"] = $user_firstName;
-                $_SESSION["level"] = $level;
-                
-            }
-            else{
-                echo "Wrong credentials supplied";
-            }
-        }
-        else{
-            echo "Account does not exist!";
-        }
-    }
-?>
 
 <!-- Modal -->
 <div id="loginModal" class="modal fade" role="dialog">
@@ -90,13 +22,19 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input class="form-control" type="text" id="user" placeholder="email or phone number" name="user" required/>
+                                <span class="help-block">
+                                    <?php echo $errors["username"];?>
+                                </span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" id="password" placeholder="your password" name="password" required/>    
+                                <input class="form-control" type="password" id="password" placeholder="your password" name="password" required/>
+                                <span class="help-block">
+                                    <?php echo $errors["password"];?>
+                                </span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -106,8 +44,9 @@
                             <a href="#">Forgot password?</a>
                         </div>
                         <div class="text-center">
-                            <button type="submit" name="submit" value="login" class="btn btn-primary">Login</button>
+                            <button id="loginButton" onclick="checkLogin()" name="submit" value="login" class="btn btn-primary">Login</button>
                         </div>
+                        <div id="login"></div>
                     </form>
                 </div>
             </div>
@@ -116,3 +55,25 @@
     </div>
   </div>
 </div>
+
+<script>
+    function checkLogin() {
+        document.getElementById("loginButton").disabled = true;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("loginButton").disabled = false;
+            if(this.responseText== "true"){
+                window.location.reload();
+            }else{
+                document.getElementById("login").innerHTML = this.responseText;
+            }
+        }
+      };
+      var username = document.getElementById("user");
+      var password = document.getElementById("password");
+      xhttp.open("POST", "includes/ajaxLogin.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("user="+username.value+"&password="+password.value);
+            }
+</script>

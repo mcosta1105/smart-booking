@@ -12,7 +12,7 @@
         $connection = $db->getConnection();
         
         //Login
-        if($_SERVER["REQUES_METHOD"] == "POST" && $_POST["submit"] == "login")
+        if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "login")
         {
             $user = $_POST["user"];
             $password = $_POST["password"];
@@ -62,21 +62,23 @@
                 //Verify Password and Level
                 if(password_verify($password, $stored))
                 {
-                    if($level === 2) //2 == ADMIN, 1 == USER
+                    if($level == 2) //2 == ADMIN, 1 == USER
                     {
-                        echo "Welcome $user_firstName!";
+                        //echo "Welcome $user_firstName!";
                         $_SESSION["user_firstName"] = $user_firstName;
+                        header("Location: home.php"); 
+                        exit;
                     }
                     else {
-                        echo "$user_firstName is not Administrator!";
+                        $error = "$user_firstName is not Administrator!";
                     }
                 }
                 else{
-                    echo "Wrong credentials supplied";
+                    $error = "Wrong credentials supplied";
                 }
             }
             else{
-                echo "Account does not exist!";
+                $error = "Account does not exist!";
             }
         }
     ?>
@@ -84,7 +86,7 @@
         <div class="container-fluid">
             <div class="row vertical-center">
                 <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
-                    <form id="login-form" action="home.php" method="post">
+                    <form id="login-form" action="index.php" method="post">
                         <div class="text-center">
                              <img class="logo-img" src="../images/smart-booking-logo.png"></img>
                         </div>
@@ -111,7 +113,11 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" name="submit" value="login" class="btn btn-primary">Login</button>
+                            <span class="error">
+                            <?php echo $error; ?>
+                            </span>
                         </div>
+                        
                     </form>
                 </div>
             </div>

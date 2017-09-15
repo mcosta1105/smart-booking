@@ -11,37 +11,41 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#"disabled>
 		                    <option>Mr.</option>
 		                    <option>Mrs.</option>
 		                    <option>Miss.</option>
 	                    </select>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required disabled>
                     </div>
                 </div>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required disabled>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7" disabled></textarea>                   
             </div>
 			<div class="form-group">
 			    <div class="row">
 			        <div class="col-md-6">
-			            <input type="date" class="form-control" id="date" name="date_time" placeholder="Date/Time" required>  
+			            <input type="date" class="form-control" id="date" name="date_time" placeholder="Date/Time" required disabled>  
 			        </div>
 			        <div class="col-md-6">
-			            <select class="form-control" id="#">
-    	                    <option>Time</option>
-    	                    <option>17:00</option>
-    	                    <option>17:30</option>
-    	                    <option>18:00</option>
-    	                    <option>18:30</option>
-    	                    <option>19:00</option>
-    	                    <option>21:00</option>
+			            <select class="form-control" id="#" disabled>
+    	                    <option>5:00 PM</option>
+      		                <option>5:30 PM</option>
+      		                <option>6:00 PM</option>
+      		                <option>6:30 PM</option>
+      		                <option>7:00 PM</option>
+      		                <option>7:30 PM</option>
+      		                <option>8:00 PM</option>
+      		                <option>8:30 PM</option>
+      		                <option>9:00 PM</option>
+      		                <option>9:30 PM</option>
+      		                <option>10:00 PM</option>
                         </select>
 			        </div>
 			    </div>
@@ -50,7 +54,7 @@
 			<div class="form-group">
 			    <div class="row">
                     <div class="col-md-4">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#" disabled>
     	                    <option>People</option>
     	                    <option>1</option>
     	                    <option>2</option>
@@ -61,7 +65,7 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#" disabled>
     	                    <option>Table 1</option>
     	                    <option>Table 2</option>
     	                    <option>Table 3</option>
@@ -75,7 +79,7 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-control" id="#">
+                        <select class="form-control" id="#" disabled>
     	                    <option>Status</option>
     	                    <option>Canceled</option>
     	                    <option>Finished</option>

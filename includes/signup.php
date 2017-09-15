@@ -77,6 +77,11 @@
             $title = $_POST["title"];
             $special_request = $_POST["message"];
             
+            if($special_request == "" OR $special_request == null)
+            {
+                $special_request = "-";
+            }
+            
             //Create query string
             $register_query = "INSERT INTO user 
                                 (title, first_name, last_name, password, phone, email, special_request, level, status, date_created, last_access)

@@ -1,19 +1,29 @@
 <?php
 
+    session_start();
+    
     $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-    if(isset($_POST['user_search']))
+    $user_firstName = $_SESSION["user_firstName"];
+    
+    if($user_firstName != null OR $user_firstName != "")
     {
-        //SEARCH BY NAME OR PHONE
-        $valueToSearch = $_POST['value_to_search'];
-        $search_query = "SELECT * FROM user WHERE CONCAT(first_name, phone) LIKE '%".$valueToSearch."%'";
-        $result = $connection->query($search_query);
+        if(isset($_POST['user_search']))
+        {
+            //SEARCH BY NAME OR PHONE
+            $valueToSearch = $_POST['value_to_search'];
+            $search_query = "SELECT * FROM user WHERE CONCAT(first_name, phone) LIKE '%".$valueToSearch."%'";
+            $result = $connection->query($search_query);
+        }
+        else
+        {
+            //LIST ALL USERS
+            $query = "SELECT * FROM user";
+            $result = $connection->query($query);  
+        }
     }
-    else
-    {
-        //LIST ALL USERS
-        $query = "SELECT * FROM user";
-        $result = $connection->query($query);  
+    else{
+        $result = array("0" =>"Not Logged In!");
     }
     
 ?>
@@ -44,6 +54,10 @@
                             <tbody>
                                 <?php 
                                     $counter = 0;
+                                    if($result == "")
+                                    {
+                                        $result = array("0" =>"Not Logged In!");
+                                    }
                                     while($row = mysqli_fetch_array($result)):
                                 ?>
                                 <!-- <tr> -->
@@ -58,10 +72,11 @@
                                     }
                                         
                                     $counter++;
+                                    
                                 ?>
-                                    <td><?php echo $row['first_name'];?></td>
-                                    <td><?php echo $row['phone'];?></td>
-                                    <td>
+                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a><?php echo $row['first_name'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a><?php echo $row['phone'];?></td>
+                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>
                                     <?php 
                                         if($row['user_status'] == 1)
                                         {
