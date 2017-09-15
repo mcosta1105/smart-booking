@@ -13,6 +13,14 @@
     
     if($user_firstName != null OR $user_firstName != "")
     {
+        //SEARCH WITH CURRENT DATE
+        $query = "SELECT * FROM booking 
+        INNER JOIN user ON booking.user_id = user.id 
+        WHERE booking.date LIKE '%".$currentDate."%'
+        GROUP BY user.id ORDER BY booking.date";
+        
+        $booking_result = $connection->query($query);
+        
         if(isset($_POST['date_search']))
         {
             //SEARCH BY DATE
@@ -23,7 +31,7 @@
                            GROUP BY user.id
                            ORDER BY booking.date";
         
-            $result = $connection->query($query);
+            $booking_result = $connection->query($query);
         }
         else if(isset($_POST['search']))
         {
@@ -37,24 +45,9 @@
                        GROUP BY user.id
                        ORDER BY booking.date";
     
-            $result = $connection->query($query);
-        }
-        else
-        {
-            //SEARCH WITH CURRENT DATE
-            $query = "SELECT * FROM booking 
-            INNER JOIN user ON booking.user_id = user.id 
-            WHERE booking.date LIKE '%".$currentDate."%'
-            GROUP BY user.id ORDER BY booking.date";
-            
-            $result = $connection->query($query);
+            $booking_result = $connection->query($query);
         }
     }
-    else{
-        $result = array("0" =>"Not Logged In!");
-    }
-    
-    
 ?>
 <form action = "<?php echo $currentpage; ?>" method="post">
     <div class="panel panel-primary">
@@ -66,7 +59,7 @@
                     <h4 class="text-center">Search by Date</h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
-                        <input type="date" name="date_to_search" class="form-control">
+                        <input type="date" value="<?php echo $currentDate;?>" name="date_to_search" class="form-control">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit" name="date_search"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </span>
@@ -99,7 +92,8 @@
                                 <tbody>
                                     <?php 
                                         $counter = 0;
-                                        while($row = mysqli_fetch_array($result)):
+                                        if(!$booking_result == null)
+                                            while($row = mysqli_fetch_array($booking_result)):
                                     ?>
                                     <?php
                                             if($counter%2 == 0)

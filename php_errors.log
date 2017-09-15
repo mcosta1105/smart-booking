@@ -677,3 +677,82 @@
 [15-Sep-2017 08:33:19 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/includes/ajaxLogin.php on line 17
 [15-Sep-2017 08:33:20 UTC] PHP Stack trace:
 [15-Sep-2017 08:33:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/ajaxLogin.php:0
+[15-Sep-2017 21:54:26 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 21:54:26 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:54:26 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:54:26 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 21:54:26 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/users.php on line 57
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:57
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/users.php on line 62
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[15-Sep-2017 21:57:23 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:62
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/admin/includes/users.php on line 53
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:58:19 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/admin/includes/users.php on line 53
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:58:36 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/admin/includes/users.php on line 53
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 21:59:01 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:00:28 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 22:00:28 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:00:28 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:00:28 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 22:00:28 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 22:00:51 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/users.php on line 54
+[15-Sep-2017 22:00:51 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:00:51 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:00:51 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[15-Sep-2017 22:00:51 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:54
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/users.php on line 54
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[15-Sep-2017 22:01:02 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:54
+[15-Sep-2017 22:01:17 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/bookings.php on line 102
+[15-Sep-2017 22:01:17 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:01:17 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:01:17 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 22:01:17 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:102
+[15-Sep-2017 22:01:23 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, array given in /home/ubuntu/workspace/admin/includes/users.php on line 54
+[15-Sep-2017 22:01:23 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:01:23 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:01:23 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[15-Sep-2017 22:01:23 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:54
+[15-Sep-2017 22:03:16 Australia/Sydney] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/admin/includes/bookings.php on line 97
+[15-Sep-2017 22:03:16 Australia/Sydney] PHP Stack trace:
+[15-Sep-2017 22:03:16 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[15-Sep-2017 22:03:16 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:37
+[15-Sep-2017 22:03:16 Australia/Sydney] PHP   3. mysqli_fetch_array(*uninitialized*) /home/ubuntu/workspace/admin/includes/bookings.php:97

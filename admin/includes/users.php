@@ -22,10 +22,6 @@
             $result = $connection->query($query);  
         }
     }
-    else{
-        $result = array("0" =>"Not Logged In!");
-    }
-    
 ?>
 <form action="<?php echo $currentpage; ?>" method="post">
 <div class="panel panel-primary">
@@ -54,11 +50,8 @@
                             <tbody>
                                 <?php 
                                     $counter = 0;
-                                    if($result == "")
-                                    {
-                                        $result = array("0" =>"Not Logged In!");
-                                    }
-                                    while($row = mysqli_fetch_array($result)):
+                                    if(!$result == null)
+                                        while($row = mysqli_fetch_array($result)):
                                 ?>
                                 <!-- <tr> -->
                                 <?php
