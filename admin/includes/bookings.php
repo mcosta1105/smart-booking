@@ -13,40 +13,12 @@
     
     if($user_firstName != null OR $user_firstName != "")
     {
-        //SEARCH WITH CURRENT DATE
-        $query = "SELECT * FROM booking 
+        $query  = "SELECT * FROM booking 
         INNER JOIN user ON booking.user_id = user.id 
-        WHERE booking.date LIKE '%".$currentDate."%'
-        GROUP BY user.id ORDER BY booking.date";
-        
-        $booking_result = $connection->query($query);
-        
-        if(isset($_POST['date_search']))
-        {
-            //SEARCH BY DATE
-            $dateToSerch =$_POST['date_to_search'];
-             
-            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
-                           WHERE booking.date LIKE '%".$dateToSerch."%'
-                           GROUP BY user.id
-                           ORDER BY booking.date";
-        
-            $booking_result = $connection->query($query);
-        }
-        else if(isset($_POST['search']))
-        {
-            //SEARCH BY NAME, PHONE OR DATE
-            $bookingToSearch = $_POST['booking_to_search'];
-           
-            $query  = "SELECT * FROM booking INNER JOIN user ON booking.user_id = user.id 
-                       WHERE user.first_name LIKE '%".$bookingToSearch."%'
-                       OR user.phone LIKE '%".$bookingToSearch."%'
-                       OR booking.date LIKE '%".$bookingToSearch."%'
-                       GROUP BY user.id
-                       ORDER BY booking.date";
+        GROUP BY user.id
+        ORDER BY booking.date";
     
-            $booking_result = $connection->query($query);
-        }
+        $booking_result = $connection->query($query);
     }
 ?>
 <form action = "<?php echo $currentpage; ?>" method="post">
@@ -55,28 +27,10 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <h4 class="text-center">Search by Date</h4>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
-                        <input type="date" value="<?php echo $currentDate;?>" name="date_to_search" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit" name="date_search"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </span>
-                    </div>
-                    <br>
-                    <h4 class="text-center">Or Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="booking_to_search" placeholder="Search..">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit" name="search"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <h4 class="text-center">Bookings List</h4>
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-striped table-bordered" id="bookings_data">
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -91,57 +45,48 @@
                                 </tr>
                                 <tbody>
                                     <?php 
-                                        $counter = 0;
                                         if(!$booking_result == null)
-                                            while($row = mysqli_fetch_array($booking_result)):
-                                    ?>
-                                    <?php
-                                            if($counter%2 == 0)
+                                        {
+                                            while($row = mysqli_fetch_array($booking_result))
                                             {
-                                                echo "<tr class=\"info\">";
-                                            }
-                                            else{
-                                                echo "<tr>";
+                                                //Not Seated = 1
+                                                //Seated = 2
+                                                //Finished = 3
+                                                //Canceled = 4
+                                            
+                                                if($row['status'] == 1)
+                                                {
+                                                    $status = "Not Seated";
+                                                }
+                                                else if($row['status'] == 2)
+                                                {
+                                                    $status = "Seated";
+                                                }
+                                                else if($row['status'] == 3)
+                                                {
+                                                    $status = "Finished";
+                                                }
+                                                else if($row['status'] == 4)
+                                                {
+                                                    $status = "Canceled";
+                                                }
+                                                echo'
+                                                <tr>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['date'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['time'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['table_id'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['no_people'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$status.'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['title'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['first_name'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['phone'].'</td>
+                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['special_request'].'</td>
+                                                </tr>
+                                                ';
                                             }
                                             
-                                            $counter++;
-                                    ?>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['date'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['time'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['table_id'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['no_people'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>
-                                    <?php 
-                                    
-                                        //Not Seated = 1
-                                        //Seated = 2
-                                        //Finished = 3
-                                        //Canceled = 4
-                                    
-                                        if($row['status'] == 1)
-                                        {
-                                            echo "Not Seated";
-                                        }
-                                        else if($row['status'] == 2)
-                                        {
-                                            echo "Seated";
-                                        }
-                                        else if($row['status'] == 3)
-                                        {
-                                            echo "Finished";
-                                        }
-                                        else if($row['status'] == 4)
-                                        {
-                                            echo "Canceled";
                                         }
                                     ?>
-                                    </td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['title'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['first_name'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['phone'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a><?php echo $row['special_request'];?></td>
-                                    </tr>
-                                    <?php endwhile;?>
                                 </tbody>
                             </thead>
                         </table>
@@ -151,3 +96,8 @@
         </div>
     </div>
 </form>
+<script>
+ $(document).ready(function(){  
+      $('#bookings_data').DataTable();  
+ });  
+</script>

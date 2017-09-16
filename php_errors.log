@@ -792,3 +792,6 @@
 [15-Sep-2017 15:23:32 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/ajax/ajaxLogin.php on line 17
 [15-Sep-2017 15:23:32 UTC] PHP Stack trace:
 [15-Sep-2017 15:23:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/ajax/ajaxLogin.php:0
+[16-Sep-2017 11:42:35 UTC] PHP Parse error:  syntax error, unexpected '"Not Seated"' (T_CONSTANT_ENCAPSED_STRING) in /home/ubuntu/workspace/admin/includes/bookings.php on line 107
+[16-Sep-2017 11:42:35 UTC] PHP Stack trace:
+[16-Sep-2017 11:42:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0

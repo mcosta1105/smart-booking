@@ -8,19 +8,8 @@
     
     if($user_firstName != null OR $user_firstName != "")
     {
-        if(isset($_POST['user_search']))
-        {
-            //SEARCH BY NAME OR PHONE
-            $valueToSearch = $_POST['value_to_search'];
-            $search_query = "SELECT * FROM user WHERE CONCAT(first_name, phone) LIKE '%".$valueToSearch."%'";
-            $result = $connection->query($search_query);
-        }
-        else
-        {
-            //LIST ALL USERS
-            $query = "SELECT * FROM user";
-            $result = $connection->query($query);  
-        }
+        $search_query = "SELECT * FROM user ORDER BY first_name";
+        $result = $connection->query($search_query);
     }
 ?>
 <form action="<?php echo $currentpage; ?>" method="post">
@@ -29,60 +18,46 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="input-group">
-                    <input type="text" name="value_to_search" class="form-control" placeholder="Search..">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit" name="user_search"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </span>
-                </div><!-- /input-group -->
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <h4 class="text-center">User List</h4>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-striped table-bordered" id="users_data">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Phone</th>
+                                <th>Email</th>
                                 <th>Status</th>
                             </tr>
                             <tbody>
                                 <?php 
                                     $counter = 0;
                                     if(!$result == null)
-                                        while($row = mysqli_fetch_array($result)):
-                                ?>
-                                <!-- <tr> -->
-                                <?php
-                                    if($counter%2 == 0)
                                     {
-                                        echo "<tr class=\"info\">";
-                                    }
-                                    else
-                                    {
-                                        echo "<tr>"; 
-                                    }
+                                        while($row = mysqli_fetch_array($result))
+                                        {
+                                            if($row['user_status'] == 1)
+                                            {
+                                                $status = "Active";
+                                            }
+                                            else
+                                            {
+                                                $status = "Inactive";
+                                            }
                                         
-                                    $counter++;
-                                    
+                                            echo '
+                                            <tr>
+                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["first_name"].'</td>
+                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["last_name"].'</td>
+                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["phone"].'</td>
+                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["email"].'</td>
+                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$status.'</td>
+                                            </tr>
+                                            ';
+                                        }
+                                    }
                                 ?>
-                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a><?php echo $row['first_name'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a><?php echo $row['phone'];?></td>
-                                    <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>
-                                    <?php 
-                                        if($row['user_status'] == 1)
-                                        {
-                                            echo "Active";
-                                        }
-                                        else
-                                        {
-                                            echo "Inactive";
-                                        }
-                                    ;?>
-                                    </td>
-                                </tr>
-                                <?php endwhile;?>
                             </tbody>
                         </thead>
                     </table>
@@ -92,3 +67,9 @@
     </div>
 </div>
 </form>
+
+<script>
+ $(document).ready(function(){  
+      $('#users_data').DataTable();  
+ });  
+</script>
