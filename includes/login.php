@@ -1,4 +1,5 @@
 
+
 <!-- Modal -->
 <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog" id="loginWidth">
@@ -22,19 +23,13 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input class="form-control" type="text" id="user" placeholder="email or phone number" name="user" required/>
-                                <span class="help-block">
-                                    <?php echo $errors["username"];?>
-                                </span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" id="password" placeholder="your password" name="password" required/>
-                                <span class="help-block">
-                                    <?php echo $errors["password"];?>
-                                </span>
+                                <input class="form-control" type="password" id="password" placeholder="your password" name="password" required/>    
                             </div>
                         </div>
                         <div class="form-group">
@@ -44,7 +39,7 @@
                             <a href="#">Forgot password?</a>
                         </div>
                         <div class="text-center">
-                            <button id="loginButton" onclick="checkLogin()" name="submit" value="login" class="btn btn-primary">Login</button>
+                            <button id="loginbutton" onclick="checkLogin()" name="submit" value="login" class="btn btn-primary">Login</button>
                         </div>
                         <div id="login"></div>
                     </form>
@@ -58,22 +53,28 @@
 
 <script>
     function checkLogin() {
-        document.getElementById("loginButton").disabled = true;
+        document.getElementById("loginbutton").disabled = true;
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("loginButton").disabled = false;
-            if(this.responseText== "true"){
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            document.getElementById("loginbutton").disabled = false;
+            if(this.responseText == "login-ok")
+            {
                 window.location.reload();
-            }else{
+            }
+            else
+            {
                 document.getElementById("login").innerHTML = this.responseText;
             }
         }
       };
-      var username = document.getElementById("user");
-      var password = document.getElementById("password");
-      xhttp.open("POST", "includes/ajaxLogin.php", true);
+      var username = document.getElementById("user"),
+      password = document.getElementById("password");
+      xhttp.open("POST", "ajaxLogin.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send("user="+username.value+"&password="+password.value);
-            }
+    }
 </script>
+
+    

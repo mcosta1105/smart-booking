@@ -1,11 +1,12 @@
 <?php
     session_start();
-
+    include("autoloader.php");
     //Process Login
-    if($_POST['user'] && $_POST['password'])
-    {
+    if($_POST['user'] && $_POST['password']){
         $user = $_POST["user"];
         $password = $_POST["password"];
+        //array to hold the errors
+        $errors = array();
         
         if(filter_var($user, FILTER_VALIDATE_EMAIL)){
             $login_query = "SELECT * FROM user WHERE email=?";
@@ -14,6 +15,9 @@
             $login_query = "SELECT * FROM user WHERE phone=?";
         }
         
+        $db = new Database();
+        $connection = $db->getConnection();
+            
         $statement = $connection->prepare($login_query);
         $statement->bind_param("s", $user);
         $statement->execute();
@@ -53,21 +57,20 @@
             
             //Verify password
             if(password_verify($password, $stored)){
-                echo "Welcome $user_firstName!";
                 $_SESSION["user_email"] = $user_email;
                 $_SESSION["user_firstName"] = $user_firstName;
                 $_SESSION["level"] = $level;
-                
+                echo "login-ok";
             }
             else{
-                //echo "Wrong credentials supplied";
-                echo "<center><p>Username or password is incorrect</p></center>";
+                echo "<center><p class=\"error\">Wrong credentials supplied</p></center>";
             }
         }
         else{
-            echo "Account does not exist!";
+            echo "<center><p class=\"error\">Account does not exist!</p></center>";
         }
-    }else{
-        echo "<center><p>Please enter your username and password</p></center>";
+    }
+    else{
+        echo "<center><p class=\"error\">Please fill out all fields</p></center>";
     }
 ?>
