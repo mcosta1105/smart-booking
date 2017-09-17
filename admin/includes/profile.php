@@ -1,65 +1,108 @@
 <?php
     session_start();
 
-    if(isset($_POST["id"]))
+    if(isset($_POST["phone"]) && !$_POST["submit"] == "delete")
     {
-        $user_id = $_POST["id"];
-        $user_query =  "SELECT * FROM user WHERE id=?";
+        $user_phone = $_POST["phone"];
+        $user_query =  "SELECT * FROM user WHERE phone=?";
         
         $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
             getenv("dbname"));
             
         $statement = $connection->prepare($user_query);
-        $statement->bind_param("i", $user_id);
+        $statement->bind_param("s", $user_phone);
         $statement->execute();
         $result = $statement->get_result();
 
-        //$userSelectedData = $result->fetch_assoc();
-        //$selectedname = $userSelectedData["first_name"];
-        
         while($row = mysqli_fetch_array($result))  
         {
+            $title1 = "Mr.";
+            $title2 = "Mrs.";
+            $title3 = "Miss";
+            
+            //Level
+            if($row["level"] == 1)
+            {
+                $userLevel1 = "User";
+                $userLevel2 = "Admin";
+            }
+            else
+            {
+                $userLevel1 = "Admin";
+                $userLevel2 = "User";
+            }
+            
+            //Status
+            if($row["user_status"] == 1)
+            {
+                $userStatus1 = "Active";
+                $userStatus2 = "Inactive";
+            }
+            else
+            {
+                $userStatus1 = "Inactive";
+                $userStatus2 = "Active";
+            }
         
+            //Verify Title
+            if($row["title"] == "Mr.")
+            {
+                $title1 = "Mr.";
+                $title2 = "Mrs.";
+                $title3 = "Miss";
+            }
+            else if($row["title"] == "Mrs.")
+            {
+                $title1 = "Mrs.";
+                $title2 = "Mr.";
+                $title3 = "Miss";
+            }
+            else
+            {
+                $title1 = "Miss.";
+                $title2 = "Mr.";
+                $title3 = "Mrs.";
+            }
         $output .= '
             <div class="form-group">
             <div class="row">
-                    <div class="col-md-2">
-                        <select class="form-control" id="#"disabled>
-		                    <option>Mr.</option>
-		                    <option>Mrs.</option>
-		                    <option>Miss.</option>
+                    <div class="col-md-4">
+                        <select class="form-control" id="title" name="title">
+		                    <option>'.$title1.'</option>
+		                    <option>'.$title2.'</option>
+		                    <option>'.$title3.'</option>
 	                    </select>
                     </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstName" name="firstName" value = "'.$row["first_name"].'" placeholder="First Name">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="firstName" name="firstName" value = "'.$row["first_name"].'" placeholder="First Name" required>
                     </div>
                 </div>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="lastName" name="lasttName" placeholder="Last Name" required disabled>
+				<input type="text" class="form-control" id="lastName" name="lasttName" placeholder="Last Name" value = "'.$row["last_name"].'">
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="email" name="email" placeholder="Email" required disabled>
+				<input type="text" class="form-control" id="email" name="email" placeholder="Email" value = "'.$row["email"].'" required>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required disabled>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value = "'.$row["phone"].'" required>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7" disabled></textarea>                   
+                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7">'.$row["special_request"].'</textarea>                   
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-                        <select class="form-control" id="#" disabled>
-		                    <option>User</option>
-		                    <option>Administrator</option>
+                        <select class="form-control" id="level" name="level">
+		                    <option>'.$userLevel1.'</option>
+		                    <option>'.$userLevel2.'</option>
 	                    </select>
                     </div>
                     <div class="col-md-6">
-                        <div class="text-center"> 
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"> Edit </button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-                        </div>
+                        <select class="form-control" id="status" name="status">
+		                    <option>'.$userStatus1.'</option>
+		                    <option>'.$userStatus2.'</option>
+	                    </select>
                     </div>
                 </div>
 			</div>

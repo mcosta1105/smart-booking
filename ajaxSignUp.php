@@ -1,6 +1,8 @@
 <?php
     session_start();
     include("autoloader.php");
+    $db = new Database();
+    $connection = $db->getConnection(); 
     //handle incoming data
     $method = $_SERVER["REQUEST_METHOD"];
     if($method == "POST")
@@ -12,30 +14,45 @@
         $newValidation = new Validation();
         
         
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
+        $firstName = filter_var($_POST["firstName"],FILTER_SANITIZE_STRING);
+        $lastName = filter_var($_POST["lastName"],FILTER_SANITIZE_STRING);
         
         $isFirstNameValid = $newValidation->checkName($firstName);
         $isLastNameValid = $newValidation->checkName($lastName);
         
         if(!$isFirstNameValid)
         {
-            $errors["firstName"] = "First Name Criteria (Max: 16 characteres).";
-           
+            if($firstName == null){
+                $errors["firstName"] = "Please fill out this field.";
+            }
+            else{
+                $errors["firstName"] = "First Name Criteria (Max: 16 characteres).";
+            }
         }
         
         if(!$isLastNameValid)
         {
-            $errors["lastName"] = "Last Name Criteria (Max: 16 characteres).";
+            if($lastName == null){
+                $errors["lastName"] = "Please fill out this field.";
+            }
+            else{
+                $errors["lastName"] = "Last Name Criteria (Max: 16 characteres).";
+        
+            }
         }
         
         //EMAIL
-        $email = $_POST["emailvar"];
+        $email = filter_var($_POST["emailvar"],FILTER_SANITIZE_EMAIL);
         $isEmailValid = $newValidation->checkEmail($email);
         
         if(!$isEmailValid)
         {
-            $errors["email"] = "E-mail is not valid.";
+            if($email == null){
+                $errors["email"] = "Please fill out this field.";
+            }
+            else{
+                $errors["email"] = "E-mail is not valid.";
+            }
         }
         
         //PHONE
@@ -44,7 +61,12 @@
         
         if(!$isPhoneValid)
         {
-            $errors["phone"] = "Only numbers on Phone.";
+            if($phone == null){
+                $errors["phone"] = "Please fill out this field.";
+            }
+            else{
+                $errors["phone"] = "Only numbers on Phone.";
+            }
         }
         
         //PASSWORDS
@@ -54,8 +76,12 @@
         
         if(!$isPasswordValid)
         {
-            echo "Password min: 8 characteres, or Passwords do not match.";
-            //$errors["password"] = "Password min: 8 characteres, or Passwords do not match.";
+            if($password1 == null || $password2 == null){
+                $errors["password"] = "Please fill out this field.";
+            }
+            else{
+                $errors["password"] = "Password min: 8 characteres, or Passwords do not match.";
+            }
         }
         
         $errorscount = count($errors);
@@ -66,9 +92,8 @@
             $password = password_hash($_POST["password1"],PASSWORD_DEFAULT);
             
             //USER LEVEL 
-            //3 = user level
-            //2 = edit level
-            //1 = admin level
+            //2 = admin level
+            //1 = user level
             $userLevel = 1;
             
             //USER STATUS 
@@ -87,37 +112,26 @@
             //Create query string
             $register_query = "INSERT INTO user 
                                 (title, first_name, last_name, password, phone, email, special_request, level, user_status, date_created, last_access)
-                                VALUES('$title','$firstName','$lastName','$password','$phone','$email','$special_request',$userLevel,$userStatus, NOW(), NOW())";
+                                VALUES('$title','$firstName','$lastName','$password',?,?,'$special_request',$userLevel,$userStatus, NOW(), NOW())";
                                
-            $db = new Database();
-            $connection = $db->getConnection(); 
+            $statement = $connection-> prepare($register_query);
+            $statement -> bind_param("ss",$phone, $email);
             
-            $result = $connection->query($register_query);
-            
-            if(!$result)
-            {
-                //TODO
-                echo "Error creating account";
-                
-                $error_code = mysqli_errno($connection);
-                $error_msg = mysqli_error($connection);
-                
-                if($error_code == '1062' && stristr($error_msg,"email"))
-                {
-                    $errors["email"] = "Email already used";
-                }
-                else if($error_code == '1062' && stristr($error_msg,"phone"))
-                {
-                    $errors["phone"] = "Phone already used";
-                }
-                
-                echo mysqli_error($connection).", code = ".$error_code;
+            if($statement -> execute() ){
+                echo "signup-ok";
             }
             else{
-                echo "Account created";
+                if(mysqli_errno($connection) == "1062" || strpos(mysqli_error($connection),"email")){
+                    $errors["email"] = "Email already used";
+                }
+                if(mysqli_errno($connection) == "1062" || strpos(mysqli_error($connection),"phone")){
+                    $errors["phone"] = "Phone already used";
+                }
+                echo json_encode($errors);
             }
         }
         else{
+            
              echo json_encode($errors);
         }
     }

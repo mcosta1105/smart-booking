@@ -836,3 +836,35 @@
 [17-Sep-2017 05:37:23 UTC] PHP Stack trace:
 [17-Sep-2017 05:37:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
 [17-Sep-2017 05:37:23 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:20
+[17-Sep-2017 07:52:14 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/ubuntu/workspace/admin/includes/profile.php on line 54
+[17-Sep-2017 07:52:14 UTC] PHP Stack trace:
+[17-Sep-2017 07:52:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 07:52:14 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:20
+[17-Sep-2017 08:06:11 UTC] PHP Parse error:  syntax error, unexpected '$titleMr' (T_VARIABLE) in /home/ubuntu/workspace/admin/includes/profile.php on line 48
+[17-Sep-2017 08:06:11 UTC] PHP Stack trace:
+[17-Sep-2017 08:06:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 08:06:11 UTC] PHP   2. include() /home/ubuntu/workspace/admin/home.php:20
+[17-Sep-2017 20:18:47 Australia/Sydney] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/admin/includes/users.php on line 18
+[17-Sep-2017 20:18:47 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:18:47 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:20:01 Australia/Sydney] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/admin/includes/users.php on line 25
+[17-Sep-2017 20:20:01 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:20:01 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:20:01 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[17-Sep-2017 20:20:01 Australia/Sydney] PHP   3. mysql_query(*uninitialized*, *uninitialized*) /home/ubuntu/workspace/admin/includes/users.php:25
+[17-Sep-2017 20:27:11 Australia/Sydney] PHP Fatal error:  Call to a member function execute() on a non-object in /home/ubuntu/workspace/admin/includes/users.php on line 33
+[17-Sep-2017 20:27:11 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:27:11 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:27:11 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[17-Sep-2017 20:29:50 Australia/Sydney] PHP Fatal error:  Call to undefined method mysqli_stmt::rowCount() in /home/ubuntu/workspace/admin/includes/users.php on line 29
+[17-Sep-2017 20:29:50 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:29:50 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:29:50 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[17-Sep-2017 20:31:36 Australia/Sydney] PHP Fatal error:  Call to undefined method mysqli_stmt::rowCount() in /home/ubuntu/workspace/admin/includes/users.php on line 31
+[17-Sep-2017 20:31:36 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:31:36 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:31:36 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[17-Sep-2017 20:34:39 Australia/Sydney] PHP Fatal error:  Call to undefined method mysqli_stmt::rowCount() in /home/ubuntu/workspace/admin/includes/users.php on line 29
+[17-Sep-2017 20:34:39 Australia/Sydney] PHP Stack trace:
+[17-Sep-2017 20:34:39 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[17-Sep-2017 20:34:39 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40

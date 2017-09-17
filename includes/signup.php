@@ -17,7 +17,7 @@
                     $firstNameClass = "has-error";
                 }
             ?>
-            <div class="form-group <?php echo $firstNameClass; ?>">
+            <div class="form-group<?php echo $firstNameClass; ?>">
                 <div class="row">
                     <div class="col-md-3">
                         <select class="form-control" id="title" name="title">
@@ -28,9 +28,7 @@
                     </div>
                     <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" required>
-                        <span class="help-block" id="error-name">
-                            <?php echo $errors["firstName"]; ?>
-                        </span>
+                        <span id="error-firstName" style="color:red"></span>
                     </div>
                 </div>
 			</div>
@@ -42,7 +40,7 @@
 			?>
 			<div class="form-group <?php echo $lastNameClass; ?>">
 				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
-			    <span class="help-block"><?php echo $errors["lastName"]; ?></span>
+			    <span id="error-lastName" style="color:red"></span>
 			</div>
 			<?php
 			    if($errors["email"])
@@ -52,7 +50,7 @@
 			?>
 			<div class="form-group <?php echo $emailClass; ?>">
 				<input type="email" class="form-control" id="emailvar" name="email" placeholder="Email" required>
-				<span class="help-block" id="error-email"><?php echo $errors["email"]; ?></span>
+				<span id="error-email" style="color:red"></span>
 			</div>
 			<?php
 			    if($errors["phone"])
@@ -61,8 +59,8 @@
 			    }
 			?>
 			<div class="form-group <?php echo $phoneClass; ?>">
-				<input type="text" class="form-control" id="error-phone" name="phone" placeholder="Phone" required>
-				<span class="help-block"><?php echo $errors["phone"]; ?></span>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+				<span id="error-phone" style="color:red"></span>
 			</div>
 			<?php
 			    if($errors["password"])
@@ -75,15 +73,15 @@
 			</div>
 			<div class="form-group <?php echo $passwordClass; ?>">
 			    <input type="password" name="password2" class="form-control" id="password2" placeholder="Retype your password" required>
-			    <span id="error-password" class="help-block"><?php echo $errors["password"]; ?></span>
+			    <span id="error-password" style="color:red"></span>
 			</div>
 			<div class="form-group">
                 <textarea class="form-control" type="textarea" id="specialrequest" name="message" placeholder="Special Request (Optional)" maxlength="200" rows="7"></textarea>                   
             </div>
-            <div class="text-center"> 
-                <button id="signUpBtn" onclick="checkSignUp()" type="submit" name="submit" value="register" class="btn btn-danger">Sign Up</button>
+            <div class="text-center">
+                <button id="signUpBtn" onClick="checkSignUp()" type="submit" name="submit" value="register" class="btn btn-danger">Sign Up</button>
             </div>
-            <div id="signup"></div>
+            <div id="success"></div>
         </form>
         </div>
     </div>
@@ -97,14 +95,28 @@
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("signUpBtn").disabled = false;
-            if(this.responseText == "signup-ok"){
-                window.location.reload();
+            if(this.responseText == "signup-ok")
+            {
+                document.getElementById("success").innerHTML = "<center><p class=\"text-center\">Successfully registered!<br>Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\">  <b>Login</b></a></p></center>";
+                //window.location.reload();
             }
             else{
                 var myObj = JSON.parse(this.responseText);
-                document.getElementById("signup").innerHTML = this.responseText;
-                document.getElementById("error-phone") = myObj.phone;
-                alert(myObj.phone);
+                if(myObj.firstName != null){
+                    document.getElementById("error-firstName").innerHTML = myObj.firstName;
+                }
+                if(myObj.lastName != null){
+                    document.getElementById("error-lastName").innerHTML = myObj.lastName;
+                }
+                if(myObj.email != null){
+                   document.getElementById("error-email").innerHTML = myObj.email; 
+                }
+                if(myObj.phone != null){
+                    document.getElementById("error-phone").innerHTML = myObj.phone;
+                }
+                if(myObj.password != null){
+                    document.getElementById("error-password").innerHTML = myObj.password;
+                }
             }
         }
       };

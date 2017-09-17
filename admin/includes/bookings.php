@@ -14,8 +14,8 @@
     if($user_firstName != null OR $user_firstName != "")
     {
         $query  = "SELECT * FROM booking 
-        INNER JOIN user ON booking.user_id = user.id 
-        GROUP BY user.id
+        INNER JOIN user ON booking.user_id = user.phone 
+        GROUP BY user.phone
         ORDER BY booking.date";
     
         $booking_result = $connection->query($query);

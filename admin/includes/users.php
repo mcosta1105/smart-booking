@@ -6,11 +6,62 @@
 
     $user_firstName = $_SESSION["user_firstName"];
     
+    //Delete
+    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "delete")
+    {
+        $user_delete_phone = $_POST["phone"];
+        $delete_user_query =  "DELETE FROM user WHERE phone=?";
+        
+        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
+        getenv("dbname"));
+          
+        $delete_statement = $connection->prepare($delete_user_query);
+        $delete_statement->bind_param('s', $user_delete_phone);
+        $delete_statement->execute();
+
+        if($delete_statement->affected_rows == 1)
+            $message = 'User deleted';
+        else
+           $message = 'User not deleted';
+        
+        $delete_statement->close();
+
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        
+    }
+    
+    //Update
+    /*if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "update")
+    {
+        //TODO
+        
+        $user_update_phone = $_POST["phone"];
+        $update_user_query =  "DELETE FROM user WHERE phone=?";
+        
+        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
+        getenv("dbname"));
+          
+        $update_statement = $connection->prepare($update_user_query);
+        $update_statement->bind_param('s', $user_delete_phone);
+        $update_statement->execute();
+
+        if($update_statement->affected_rows == 1)
+            $message = 'User deleted';
+        else
+           $message = 'User not deleted';
+        
+        $update_statement->close();
+
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        
+    }*/
+    
     if($user_firstName != null OR $user_firstName != "")
     {
         $search_query = "SELECT * FROM user ORDER BY first_name";
         $result = $connection->query($search_query);
     }
+    
 ?>
 <form action="<?php echo $currentpage; ?>" method="post">
 <div class="panel panel-primary">
@@ -24,10 +75,9 @@
                     <table class="table table-hover table-striped table-bordered" id="users_data">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Phone</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Phone</th>
                                 <th>Email</th>
                                 <th>Level</th>
                                 <th>Status</th>
@@ -58,11 +108,10 @@
                                             }
                                         
                                             echo '
-                                            <tr id="'.$row["id"].'">
-                                                <td>'.$row["id"].'</td>
+                                            <tr id="'.$row["phone"].'">
+                                                <td>'.$row["phone"].'</td>
                                                 <td>'.$row["first_name"].'</td>
                                                 <td>'.$row["last_name"].'</td>
-                                                <td>'.$row["phone"].'</td>
                                                 <td>'.$row["email"].'</td>
                                                 <td>'.$level.'</td>
                                                 <td>'.$status.'</td>
@@ -87,13 +136,21 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h3 class="modal-title title-blue">User Profile</h3>
-        </div>
-        <div class="modal-body" id="user_detail">
-            
-        </div>
+        <form id="profile-form" action="<?php echo $currentpage;?>" method="post">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title title-blue">User Profile</h3>
+            </div>
+            <div class="modal-body" id="user_detail">
+                
+            </div>
+            <div class="modal-footer">
+                <div class="text-center"> 
+                    <button type="submit" name="submit" value="update" class="btn btn-primary">Update</button>
+                    <button type="submit" name="submit" value="delete" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </form>
     </div>
   </div>
 </div>
@@ -102,12 +159,12 @@
  $(document).ready(function(){  
     var table = $('#users_data').DataTable();
     $('#users_data tbody').on( 'click', 'tr', function () {
-    var id = $(this).attr("id");
-    console.log(id);
+    var phone = $(this).attr("id");
+    console.log(phone);
     $.ajax({  
                 url:"includes/profile.php",  
                 method:"post",  
-                data:{id:id},  
+                data:{phone:phone},  
                 success:function(data){  
                      $('#user_detail').html(data);  
                      $('#profileModal').modal("show");  
