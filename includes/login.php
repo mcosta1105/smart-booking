@@ -1,5 +1,3 @@
-
-
 <!-- Modal -->
 <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog" id="loginWidth">

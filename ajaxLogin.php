@@ -54,17 +54,24 @@
             $user_lastName = $userdata["last_name"];
             $user_email = $userdata["email"];
             $level = $userdata["level"];
+            $user_status = $userdata["user_status"];
             
-            //Verify password
-            if(password_verify($password, $stored)){
-                $_SESSION["user_email"] = $user_email;
-                $_SESSION["user_firstName"] = $user_firstName;
-                $_SESSION["level"] = $level;
-                $_SESSION["id"] = $user_id;
-                echo "login-ok";
+            if($user_status == 1)//Active
+            {
+                //Verify password
+                if(password_verify($password, $stored)){
+                    $_SESSION["user_email"] = $user_email;
+                    $_SESSION["user_firstName"] = $user_firstName;
+                    $_SESSION["level"] = $level;
+                    $_SESSION["id"] = $user_id;
+                    echo "login-ok";
+                }
+                else{
+                echo "<center><p class=\"error\">Wrong credentials supplied.</p></center>";
+                }
             }
             else{
-                echo "<center><p class=\"error\">Wrong credentials supplied</p></center>";
+                echo "<center><p class=\"error\">Account is Inacive!</p></center>";
             }
         }
         else{
@@ -72,6 +79,6 @@
         }
     }
     else{
-        echo "<center><p class=\"error\">Please fill out all fields</p></center>";
+        echo "<center><p class=\"error\">Please fill out all fields.</p></center>";
     }
 ?>

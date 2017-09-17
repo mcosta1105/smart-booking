@@ -58,23 +58,31 @@
                 $stored = $userdata["password"];
                 $user_firstName = $userdata["first_name"];
                 $level = $userdata["level"];
+                $user_status = $userdata["user_status"];
                 
-                //Verify Password and Level
-                if(password_verify($password, $stored))
+                if($user_status == 1)//Active
                 {
-                    if($level == 2) //2 == ADMIN, 1 == USER
+                    //Verify Password and Level
+                    if(password_verify($password, $stored))
                     {
-                        //echo "Welcome $user_firstName!";
-                        $_SESSION["user_firstName"] = $user_firstName;
-                        header("Location: home.php"); 
-                        exit;
+                        if($level == 2) //2 == ADMIN, 1 == USER
+                        {
+                            //echo "Welcome $user_firstName!";
+                            $_SESSION["user_firstName"] = $user_firstName;
+                            header("Location: home.php"); 
+                            exit;
+                        }
+                        else {
+                            $error = "$user_firstName is not Administrator!";
+                        }
                     }
-                    else {
-                        $error = "$user_firstName is not Administrator!";
+                    else{
+                        $error = "Wrong credentials supplied.";
                     }
                 }
-                else{
-                    $error = "Wrong credentials supplied";
+                else
+                {
+                    $error = "Account is Inacive!";
                 }
             }
             else{
