@@ -24,10 +24,12 @@
                     <table class="table table-hover table-striped table-bordered" id="users_data">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th>Level</th>
                                 <th>Status</th>
                             </tr>
                             <tbody>
@@ -46,13 +48,24 @@
                                                 $status = "Inactive";
                                             }
                                         
+                                            if($row['level'] == 1)
+                                            {
+                                                $level = "User";
+                                            }
+                                            else
+                                            {
+                                                $level = "Admin";
+                                            }
+                                        
                                             echo '
-                                            <tr>
-                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["first_name"].'</td>
-                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["last_name"].'</td>
-                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["phone"].'</td>
-                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$row["email"].'</td>
-                                                <td><a href="#" data-toggle="modal" data-target="#profileModal"</a>'.$status.'</td>
+                                            <tr id="'.$row["id"].'">
+                                                <td>'.$row["id"].'</td>
+                                                <td>'.$row["first_name"].'</td>
+                                                <td>'.$row["last_name"].'</td>
+                                                <td>'.$row["phone"].'</td>
+                                                <td>'.$row["email"].'</td>
+                                                <td>'.$level.'</td>
+                                                <td>'.$status.'</td>
                                             </tr>
                                             ';
                                         }
@@ -68,8 +81,38 @@
 </div>
 </form>
 
+<!-- Modal -->
+<div id="profileModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="modal-title title-blue">User Profile</h3>
+        </div>
+        <div class="modal-body" id="user_detail">
+            
+        </div>
+    </div>
+  </div>
+</div>
+
 <script>
  $(document).ready(function(){  
-      $('#users_data').DataTable();  
+    var table = $('#users_data').DataTable();
+    $('#users_data tbody').on( 'click', 'tr', function () {
+    var id = $(this).attr("id");
+    console.log(id);
+    $.ajax({  
+                url:"includes/profile.php",  
+                method:"post",  
+                data:{id:id},  
+                success:function(data){  
+                     $('#user_detail').html(data);  
+                     $('#profileModal').modal("show");  
+                }  
+           });  
+      });
  });  
 </script>

@@ -1,16 +1,28 @@
-<!-- Modal -->
-<div id="profileModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<?php
+    session_start();
 
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h3 class="modal-title title-blue">User Profile</h3>
-        </div>
-        <div class="modal-body">
+    if(isset($_POST["id"]))
+    {
+        $user_id = $_POST["id"];
+        $user_query =  "SELECT * FROM user WHERE id=?";
+        
+        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
+            getenv("dbname"));
+            
+        $statement = $connection->prepare($user_query);
+        $statement->bind_param("i", $user_id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        //$userSelectedData = $result->fetch_assoc();
+        //$selectedname = $userSelectedData["first_name"];
+        
+        while($row = mysqli_fetch_array($result))  
+        {
+        
+        $output .= '
             <div class="form-group">
-                <div class="row">
+            <div class="row">
                     <div class="col-md-2">
                         <select class="form-control" id="#"disabled>
 		                    <option>Mr.</option>
@@ -19,7 +31,7 @@
 	                    </select>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required disabled>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value = "'.$row["first_name"].'" placeholder="First Name">
                     </div>
                 </div>
 			</div>
@@ -51,7 +63,9 @@
                     </div>
                 </div>
 			</div>
-        </div>
-    </div>
-  </div>
-</div>
+			';
+        }     
+        echo $output;
+    }
+    
+?>

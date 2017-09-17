@@ -60,6 +60,7 @@
                 $_SESSION["user_email"] = $user_email;
                 $_SESSION["user_firstName"] = $user_firstName;
                 $_SESSION["level"] = $level;
+                $_SESSION["id"] = $user_id;
                 echo "login-ok";
             }
             else{

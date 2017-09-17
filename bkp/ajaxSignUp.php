@@ -6,7 +6,7 @@
     if($method == "POST")
     {
         //array to hold the errors
-        $errors = array(); 
+        $errors = array();
         
         //new object to check the fields
         $newValidation = new Validation();
@@ -21,7 +21,6 @@
         if(!$isFirstNameValid)
         {
             $errors["firstName"] = "First Name Criteria (Max: 16 characteres).";
-           
         }
         
         if(!$isLastNameValid)
@@ -45,6 +44,7 @@
         if(!$isPhoneValid)
         {
             $errors["phone"] = "Only numbers on Phone.";
+            echo "phone-error";
         }
         
         //PASSWORDS
@@ -116,9 +116,6 @@
             else{
                 echo "Account created";
             }
-        }
-        else{
-             echo json_encode($errors);
         }
     }
 

@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" required>
-                        <span class="help-block">
+                        <span class="help-block" id="error-name">
                             <?php echo $errors["firstName"]; ?>
                         </span>
                     </div>
@@ -52,7 +52,7 @@
 			?>
 			<div class="form-group <?php echo $emailClass; ?>">
 				<input type="email" class="form-control" id="emailvar" name="email" placeholder="Email" required>
-				<span class="help-block"><?php echo $errors["email"]; ?></span>
+				<span class="help-block" id="error-email"><?php echo $errors["email"]; ?></span>
 			</div>
 			<?php
 			    if($errors["phone"])
@@ -61,7 +61,7 @@
 			    }
 			?>
 			<div class="form-group <?php echo $phoneClass; ?>">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+				<input type="text" class="form-control" id="error-phone" name="phone" placeholder="Phone" required>
 				<span class="help-block"><?php echo $errors["phone"]; ?></span>
 			</div>
 			<?php
@@ -100,12 +100,11 @@
             if(this.responseText == "signup-ok"){
                 window.location.reload();
             }
-            else if(this.responseText == "password-error")
-            {
-                document.getElementById("error-password").innerHTML = this.responseText;
-            }
             else{
+                var myObj = JSON.parse(this.responseText);
                 document.getElementById("signup").innerHTML = this.responseText;
+                document.getElementById("error-phone") = myObj.phone;
+                alert(myObj.phone);
             }
         }
       };
