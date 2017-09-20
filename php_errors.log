@@ -868,3 +868,28 @@
 [17-Sep-2017 20:34:39 Australia/Sydney] PHP Stack trace:
 [17-Sep-2017 20:34:39 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
 [17-Sep-2017 20:34:39 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:22:00 Australia/Sydney] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/ubuntu/workspace/admin/includes/users.php on line 88
+[20-Sep-2017 18:22:00 Australia/Sydney] PHP Stack trace:
+[20-Sep-2017 18:22:00 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[20-Sep-2017 18:22:00 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:22:00 Australia/Sydney] PHP   3. mysqli_stmt->bind_param() /home/ubuntu/workspace/admin/includes/users.php:88
+[20-Sep-2017 18:22:33 Australia/Sydney] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/ubuntu/workspace/admin/includes/users.php on line 88
+[20-Sep-2017 18:22:33 Australia/Sydney] PHP Stack trace:
+[20-Sep-2017 18:22:33 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[20-Sep-2017 18:22:33 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:22:33 Australia/Sydney] PHP   3. mysqli_stmt->bind_param() /home/ubuntu/workspace/admin/includes/users.php:88
+[20-Sep-2017 18:23:41 Australia/Sydney] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/ubuntu/workspace/admin/includes/users.php on line 88
+[20-Sep-2017 18:23:41 Australia/Sydney] PHP Stack trace:
+[20-Sep-2017 18:23:41 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[20-Sep-2017 18:23:41 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:23:41 Australia/Sydney] PHP   3. mysqli_stmt->bind_param() /home/ubuntu/workspace/admin/includes/users.php:88
+[20-Sep-2017 18:24:25 Australia/Sydney] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/ubuntu/workspace/admin/includes/users.php on line 88
+[20-Sep-2017 18:24:25 Australia/Sydney] PHP Stack trace:
+[20-Sep-2017 18:24:25 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[20-Sep-2017 18:24:25 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:24:25 Australia/Sydney] PHP   3. mysqli_stmt->bind_param() /home/ubuntu/workspace/admin/includes/users.php:88
+[20-Sep-2017 18:24:40 Australia/Sydney] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/ubuntu/workspace/admin/includes/users.php on line 88
+[20-Sep-2017 18:24:40 Australia/Sydney] PHP Stack trace:
+[20-Sep-2017 18:24:40 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[20-Sep-2017 18:24:40 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[20-Sep-2017 18:24:40 Australia/Sydney] PHP   3. mysqli_stmt->bind_param() /home/ubuntu/workspace/admin/includes/users.php:88

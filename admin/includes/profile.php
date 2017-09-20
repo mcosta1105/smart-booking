@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(isset($_POST["phone"]) && !$_POST["submit"] == "delete")
+    if(isset($_POST["phone"]) && !$_POST["submit"] == "delete" && !$_POST["submit"] == "update")
     {
         $user_phone = $_POST["phone"];
         $user_query =  "SELECT * FROM user WHERE phone=?";
@@ -79,16 +79,16 @@
                 </div>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="lastName" name="lasttName" placeholder="Last Name" value = "'.$row["last_name"].'">
+				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value = "'.$row["last_name"].'">
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="email" name="email" placeholder="Email" value = "'.$row["email"].'" required>
+				<input type="text" class="form-control" id="email" name="email" placeholder="Email" value = "'.$row["email"].'" required readonly>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value = "'.$row["phone"].'" required>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value = "'.$row["phone"].'" required readonly>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7">'.$row["special_request"].'</textarea>                   
+                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Special Request (Optional)" maxlength="200" rows="7">'.$row["special_request"].'</textarea>                   
             </div>
             <div class="form-group">
                 <div class="row">
