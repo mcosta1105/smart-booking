@@ -98,7 +98,6 @@
             if(this.responseText == "signup-ok")
             {
                 document.getElementById("success").innerHTML = "<center><p class=\"text-center\">Successfully registered!<br>Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\">  <b>Login</b></a></p></center>";
-                //window.location.reload();
             }
             else{
                 var myObj = JSON.parse(this.responseText);

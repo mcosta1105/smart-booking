@@ -1,40 +1,107 @@
-<!-- Modal -->
-<div id="bookingManagementModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h3 class="modal-title title-blue">Booking Management</h3>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
+<?php
+    session_start();
+    
+    if(isset($_POST["id"])){
+        
+        $booking_id = $_POST["id"];
+        $booking_query = "SELECT * FROM booking 
+        INNER JOIN user ON booking.user_id = user.phone
+        WHERE booking.id = ?
+        GROUP BY user.phone";
+        
+        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
+            getenv("dbname"));
+            
+        $statement_booking = $connection->prepare($booking_query);
+        $statement_booking->bind_param("s", $booking_id);
+        $statement_booking->execute();
+        $result_booking = $statement_booking->get_result();
+        
+        while($row_booking = mysqli_fetch_array($result_booking))  
+        {
+            $title1 = "Mr.";
+            $title2 = "Mrs.";
+            $title3 = "Miss";
+            
+            
+            //Verify Title
+            if($row_booking["title"] == "Mr.")
+            {
+                $title1 = "Mr.";
+                $title2 = "Mrs.";
+                $title3 = "Miss";
+            }
+            else if($row_booking["title"] == "Mrs.")
+            {
+                $title1 = "Mrs.";
+                $title2 = "Mr.";
+                $title3 = "Miss";
+            }
+            else
+            {
+                $title1 = "Miss.";
+                $title2 = "Mr.";
+                $title3 = "Mrs.";
+            }
+            
+            //status
+            if($row_booking["status"] == 1)
+            {
+                $status1 = "Not Seated";
+                $status2 = "Seated";
+                $status3 = "Finished";
+                $status4 = "Canceled";
+            }
+            else if($row_booking["status"] == 2)
+            {
+                $status1 = "Seated";
+                $status2 = "Not Seated";
+                $status3 = "Finished";
+                $status4 = "Canceled";
+            }
+            else if($row_booking["status"] == 3)
+            {
+                $status1 = "Finished";
+                $status2 = "Not Seated";
+                $status3 = "Seated";
+                $status4 = "Canceled";
+            }
+            else{
+                $status1 = "Canceled";
+                $status2 = "Not Seated";
+                $status3 = "Seated";
+                $status4 = "Finished";
+            }
+            
+            $output_booking .='
+                <div class="form-group">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <select class="form-control" id="#"disabled>
-		                    <option>Mr.</option>
-		                    <option>Mrs.</option>
-		                    <option>Miss.</option>
+		                    <option>'.$title1.'</option>
+		                    <option>'.$title2.'</option>
+		                    <option>'.$title3.'</option>
 	                    </select>
                     </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required disabled>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="'.$row_booking['first_name'].'" placeholder="First Name" required readonly>
                     </div>
                 </div>
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required disabled>
+				<input type="text" class="form-control" id="phone" name="phone" value="'.$row_booking['phone'].'"placeholder="Phone" required readonly>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message" placeholder="Special Request (Optional)" maxlength="200" rows="7" disabled></textarea>                   
+                <textarea class="form-control" type="textarea" id="message"  placeholder="Special Request (Optional)" maxlength="200" rows="7" >'.$row_booking['special_request'].'</textarea>                   
             </div>
 			<div class="form-group">
 			    <div class="row">
 			        <div class="col-md-6">
-			            <input type="date" class="form-control" id="date" name="date_time" placeholder="Date/Time" required disabled>  
+			            <input type="date" class="form-control" id="date" name="date_time" value="'.$row_booking['date'].'" placeholder="Date/Time" required >  
 			        </div>
 			        <div class="col-md-6">
-			            <select class="form-control" id="#" disabled>
+			            <select class="form-control" id="#">
+			                <option>'.$row_booking['time'].'</option>
     	                    <option>5:00 PM</option>
       		                <option>5:30 PM</option>
       		                <option>6:00 PM</option>
@@ -54,19 +121,20 @@
 			<div class="form-group">
 			    <div class="row">
                     <div class="col-md-4">
-                        <select class="form-control" id="#" disabled>
-    	                    <option>People</option>
-    	                    <option>1</option>
-    	                    <option>2</option>
-    	                    <option>3</option>
-    	                    <option>4</option>
-    	                    <option>5</option>
-    	                    <option>6</option>
+                        <select class="form-control" id="#">
+    	                    <option>Person(s): '.$row_booking['no_people'].'</option>
+    	                    <option>Person(s): 1</option>
+    	                    <option>Person(s): 2</option>
+    	                    <option>Person(s): 3</option>
+    	                    <option>Person(s): 4</option>
+    	                    <option>Person(s): 5</option>
+    	                    <option>Person(s): 6</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-control" id="#" disabled>
-    	                    <option>Table 1</option>
+                        <select class="form-control" id="#">
+                            <option>Table '.$row_booking['table_id'].'</option>
+                            <option>Table 1</option>
     	                    <option>Table 2</option>
     	                    <option>Table 3</option>
     	                    <option>Table 4</option>
@@ -79,21 +147,17 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-control" id="#" disabled>
-    	                    <option>Status</option>
-    	                    <option>Canceled</option>
-    	                    <option>Finished</option>
-    	                    <option>Not Seated</option>
-    	                    <option>Seated</option>
+                        <select class="form-control" id="#">
+    	                    <option>'.$status1.'</option>
+    	                    <option>'.$status2.'</option>
+    	                    <option>'.$status3.'</option>
+    	                    <option>'.$status4.'</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div class="form-group text-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal"> Edit </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>                    
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
+            ';
+        }
+        echo $output_booking;
+    }
+?>

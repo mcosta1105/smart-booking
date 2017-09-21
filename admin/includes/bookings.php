@@ -33,10 +33,11 @@
                         <table class="table table-hover table-striped table-bordered" id="bookings_data">
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                     <th>Table</th>
-                                    <th>People</th>
+                                    <th>Person(s)</th>
                                     <th>Status</th>
                                     <th>Title</th>
                                     <th>Name</th>
@@ -71,16 +72,17 @@
                                                     $status = "Canceled";
                                                 }
                                                 echo'
-                                                <tr>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['date'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['time'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['table_id'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['no_people'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$status.'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['title'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['first_name'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['phone'].'</td>
-                                                    <td><a href="#" data-toggle="modal" data-target="#bookingManagementModal"</a>'.$row['special_request'].'</td>
+                                                <tr id="'.$row['id'].'">
+                                                    <td>'.$row['id'].'</td>
+                                                    <td>'.$row['date'].'</td>
+                                                    <td>'.$row['time'].'</td>
+                                                    <td>'.$row['table_id'].'</td>
+                                                    <td>'.$row['no_people'].'</td>
+                                                    <td>'.$status.'</td>
+                                                    <td>'.$row['title'].'</td>
+                                                    <td>'.$row['first_name'].'</td>
+                                                    <td>'.$row['phone'].'</td>
+                                                    <td>'.$row['special_request'].'</td>
                                                 </tr>
                                                 ';
                                             }
@@ -96,8 +98,43 @@
         </div>
     </div>
 </form>
+
+<!-- Modal -->
+<div id="bookingManagementModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="modal-title title-blue">Booking Management</h3>
+        </div>
+        <div class="modal-body" id="booking_detail">
+            
+        </div>
+            <div class="form-group text-center">
+                <button type="submit" name="submit" value="delete" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="submit" value="update" class="btn btn-primary">Update</button>              
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
  $(document).ready(function(){  
       $('#bookings_data').DataTable();  
+      $('#bookings_data tbody').on( 'click', 'tr', function () {
+    var id = $(this).attr("id");
+    console.log(id);
+    $.ajax({  
+                url:"includes/booking_management.php",  
+                method:"post",  
+                data:{id:id},  
+                success:function(data){  
+                     $('#booking_detail').html(data);  
+                     $('#bookingManagementModal').modal("show");  
+                }  
+           });  
+      });
  });  
 </script>

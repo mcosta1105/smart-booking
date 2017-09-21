@@ -6,6 +6,9 @@
 
     $user_firstName = $_SESSION["user_firstName"];
     
+    
+    
+    /*
     //Delete
     if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "delete")
     {
@@ -30,74 +33,7 @@
         
     }
     
-    //Update
-    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "update")
-    {
-        //TODO
-        $phone_update = $_POST["phone"];
-        $title_update = $_POST["title"];
-        $firstname_update = $_POST["firstName"];
-        $lastname_update = $_POST["lastName"];
-        $specialrequest_update = $_POST["message"];
-        $level_update = $_POST["level"];
-        $status_update = $_POST["status"];
-        
-        //USER LEVEL 
-        //2 = admin level
-        //1 = user level
-        if($level_update == "Admin")
-        {
-            $level_update = 2;
-        }
-        else
-        {
-            $level_update = 1;
-        }
-        
-        //USER STATUS 
-        //2 = inactive
-        //1 = active
-        if($status_update == "Active")
-        {
-            $status_update = 1;
-        }
-        else
-        {
-            $status_update = 2;
-        }
-        
-        if($specialrequest_update == "" OR $specialrequest_update == null)
-        {
-            $specialrequest_update = "-";
-        }
-            
-        //Update query
-        $update_user_query =  "UPDATE user
-                               SET title = '".$title_update."',
-                               first_name = '".$firstname_update."', 
-                               last_name  = '".$lastname_update."',
-                               special_request = '".$specialrequest_update."',
-                               level = '".$level_update."',
-                               user_status = '".$status_update."'
-                               WHERE phone =?";
-        
-        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
-        getenv("dbname"));
-          
-        $update_statement = $connection->prepare($update_user_query);
-        $update_statement->bind_param('s', $phone_update);
-        $update_statement->execute();
-
-        if($update_statement->affected_rows == 1)
-            $message = 'User updated';
-        else
-           $message = 'User not updated';
-        
-        $update_statement->close();
-
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        
-    }
+    */
     
     //Populate Table with all users
     if($user_firstName != null OR $user_firstName != "")
@@ -190,8 +126,9 @@
             </div>
             <div class="modal-footer">
                 <div class="text-center"> 
-                    <button type="submit" name="submit" value="update" class="btn btn-primary">Update</button>
-                    <button type="submit" name="submit" value="delete" class="btn btn-primary">Delete</button>
+                    <button type="submit" name="submit" value="delete" class="btn btn-danger">Delete</button>
+                    <button id="update-btn" onClick="checkUpdate()" type="submit" name="submit" value="update" class="btn btn-primary">Update</button>
+                    <div id="success-update"></div>
                 </div>
             </div>
         </form>
@@ -216,4 +153,49 @@
            });  
       });
  });  
+</script>
+<script>
+    //AJAX update
+    function checkUpdate(){
+     document.getElementById("update-btn").disabled = true;
+     var updatexhttp = new XMLHttpRequest();
+     updatexhttp.onreadystatechange = function()
+     {
+         
+         if(this.readyState == 4 && this.status == 200)
+         {
+             document.getElementById("update-btn").disabled = false;
+             if(this.responseText == "update-ok")
+             {
+                 console.log("motherfuck");
+                 document.getElementById("success-update").innerHTML = "<center><p class=\"text-center\">Successfully Updated!</p></center>";
+             }
+             else
+             {
+                 var myUpdateObj = JSON.parse(this.responseText);
+                 if(myUpdateObj.firstName != null)
+                 {
+                     document.getElementById("error-update-firstName").innerHTML = myUpdateObj.firstName;
+                 }
+                 if(myUpdateObj.lastName != null)
+                 {
+                     document.getElementById("error-update-lastName").innerHTML = myUpdateObj.lastName;
+                 }
+                 
+             }
+         }
+     };
+     var title = document.getElementById("title"),
+      firstName = document.getElementById("firstName"),
+      lastName = document.getElementById("lastName"),
+      email = document.getElementById("email"),
+      phone = document.getElementById("phone"),
+      specialrequest = document.getElementById("specialrequest"),
+      level = document.getElementById("level"),
+      status = document.getElementById("status");
+      updatexhttp.open("POST","ajaxUpdate.php",true);
+      updatexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      updatexhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&phone="+phone.value+"&specialrequest="+specialrequest.value);
+ }
+ 
 </script>
