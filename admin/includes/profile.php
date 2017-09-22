@@ -88,7 +88,7 @@
 				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value = "'.$row["phone"].'" required readonly>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="specialrequest" name="message" placeholder="Special Request (Optional)" maxlength="200" rows="7">'.$row["special_request"].'</textarea>                   
+                <textarea class="form-control" type="textarea" id="user_request" name="user_request" placeholder="User Request (Optional)" maxlength="200" rows="7">'.$row["user_request"].'</textarea>                   
             </div>
             <div class="form-group">
                 <div class="row">

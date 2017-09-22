@@ -11,7 +11,7 @@
         $title_update = $_POST["title"];
         $firstname_update = $_POST["firstName"];
         $lastname_update = $_POST["lastName"];
-        $specialrequest_update = $_POST["message"];
+        $user_request_update = $_POST["user_request"];
         $level_update = $_POST["level"];
         $status_update = $_POST["status"];
     
@@ -73,9 +73,9 @@
                 $status_update = 2;
             }
             
-            if($specialrequest_update == "" OR $specialrequest_update == null)
+            if($user_request_update == "" OR $user_request_update == null)
             {
-                $specialrequest_update = "-";
+                $user_request_update = "-";
             }
                 
             //Update query
@@ -83,7 +83,7 @@
                                    SET title = '".$title_update."',
                                    first_name = '".$firstname_update."', 
                                    last_name  = '".$lastname_update."',
-                                   special_request = '".$specialrequest_update."',
+                                   user_request = '".$user_request_update."',
                                    level = '".$level_update."',
                                    user_status = '".$status_update."'
                                    WHERE phone =?";
@@ -103,14 +103,8 @@
             {
                 echo json_encode($errors_update);
             }
-            //    $message = 'User updated';
-            //else
-              // $message = 'User not updated';
             
             $update_statement->close();
-    
-            //https://www.w3schools.com/bootstrap/bootstrap_alerts.asp
-            //echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
 ?>

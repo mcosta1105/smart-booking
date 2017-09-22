@@ -6,35 +6,6 @@
 
     $user_firstName = $_SESSION["user_firstName"];
     
-    
-    
-    /*
-    //Delete
-    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "delete")
-    {
-        $user_delete_phone = $_POST["phone"];
-        $delete_user_query =  "DELETE FROM user WHERE phone=?";
-        
-        $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
-        getenv("dbname"));
-          
-        $delete_statement = $connection->prepare($delete_user_query);
-        $delete_statement->bind_param('s', $user_delete_phone);
-        $delete_statement->execute();
-
-        if($delete_statement->affected_rows == 1)
-            $message = 'User deleted';
-        else
-           $message = 'User not deleted';
-        
-        $delete_statement->close();
-
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        
-    }
-    
-    */
-    
     //Populate Table with all users
     if($user_firstName != null OR $user_firstName != "")
     {
@@ -43,6 +14,7 @@
     }
     
 ?>
+
 <form action="<?php echo $currentpage; ?>" method="post">
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -109,11 +81,9 @@
     </div>
 </div>
 </form>
-
 <!-- Modal -->
 <div id="profileModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
         <form id="profile-form" action="<?php echo $currentpage;?>" method="post">
@@ -125,10 +95,15 @@
                 
             </div>
             <div class="modal-footer">
+                <div class="text-center" id="success-update">
+                    
+                </div>
+                <div class="text-center" id="success-delete">
+                    
+                </div>
                 <div class="text-center"> 
-                    <button type="submit" name="submit" value="delete" class="btn btn-danger">Delete</button>
+                    <button id="delete-btn" onClick="processDelete()" type="submit" name="submit" value="delete" class="btn btn-danger">Delete</button>
                     <button id="update-btn" onClick="checkUpdate()" type="submit" name="submit" value="update" class="btn btn-primary">Update</button>
-                    <div id="success-update"></div>
                 </div>
             </div>
         </form>
@@ -138,10 +113,9 @@
 
 <script>
  $(document).ready(function(){  
-    var table = $('#users_data').DataTable();
+    table = $('#users_data').DataTable();
     $('#users_data tbody').on( 'click', 'tr', function () {
     var phone = $(this).attr("id");
-    console.log(phone);
     $.ajax({  
                 url:"includes/profile.php",  
                 method:"post",  
@@ -153,8 +127,7 @@
            });  
       });
  });  
-</script>
-<script>
+
     //AJAX update
     function checkUpdate(){
      document.getElementById("update-btn").disabled = true;
@@ -166,9 +139,8 @@
          {
              document.getElementById("update-btn").disabled = false;
              if(this.responseText == "update-ok")
-             {
-                 console.log("motherfuck");
-                 document.getElementById("success-update").innerHTML = "<center><p class=\"text-center\">Successfully Updated!</p></center>";
+             { 
+                 document.getElementById("success-update").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Updated!</strong></div>";
              }
              else
              {
@@ -190,12 +162,39 @@
       lastName = document.getElementById("lastName"),
       email = document.getElementById("email"),
       phone = document.getElementById("phone"),
-      specialrequest = document.getElementById("specialrequest"),
+      user_request = document.getElementById("user_request"),
       level = document.getElementById("level"),
       status = document.getElementById("status");
       updatexhttp.open("POST","ajaxUpdate.php",true);
       updatexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      updatexhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&phone="+phone.value+"&specialrequest="+specialrequest.value);
+      updatexhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&phone="+phone.value+"&user_request="+user_request.value+"&level="+level.value+"&status="+status.value);
+ }
+ 
+ //Delete function
+ function processDelete()
+ {
+    document.getElementById("delete-btn").disabled = true;
+    var deletexhttp = new XMLHttpRequest();
+    deletexhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+             if(this.responseText == "delete-ok")
+             {
+                document.getElementById("update-btn").disabled = true; 
+                document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Deleted!</strong></div>";
+            }
+            else
+            {
+                document.getElementById("delete-btn").disabled = false;
+                document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-warning fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Not Deleted, Error!</strong></div>";    
+            }
+        }
+    };
+    var phone = document.getElementById("phone");
+    deletexhttp.open("POST", "ajaxDelete.php", true);
+    deletexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    deletexhttp.send("phone="+phone.value);
  }
  
 </script>

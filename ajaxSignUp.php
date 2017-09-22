@@ -102,17 +102,17 @@
             $userStatus = 1;
             
             $title = $_POST["title"];
-            $special_request = $_POST["specialrequest"];
+            $user_request = $_POST["user_request"];
             
-            if($special_request == "" OR $special_request == null)
+            if($user_request == "" OR $user_request == null)
             {
-                $special_request = "-";
+                $user_request = "-";
             }
             
             //Create query string
             $register_query = "INSERT INTO user 
-                                (title, first_name, last_name, password, phone, email, special_request, level, user_status, date_created, last_access)
-                                VALUES('$title','$firstName','$lastName','$password',?,?,'$special_request',$userLevel,$userStatus, NOW(), NOW())";
+                                (title, first_name, last_name, password, phone, email, user_request, level, user_status, date_created, last_access)
+                                VALUES('$title','$firstName','$lastName','$password',?,?,'$user_request',$userLevel,$userStatus, NOW(), NOW())";
                                
             $statement = $connection-> prepare($register_query);
             $statement -> bind_param("ss",$phone, $email);

@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" required>
-                        <span id="error-firstName" style="color:red"></span>
+                        <span id="error-firstName" style="color:#d9534f;"></span>
                     </div>
                 </div>
 			</div>
@@ -40,7 +40,7 @@
 			?>
 			<div class="form-group <?php echo $lastNameClass; ?>">
 				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
-			    <span id="error-lastName" style="color:red"></span>
+			    <span id="error-lastName" style="color:#d9534f;"></span>
 			</div>
 			<?php
 			    if($errors["email"])
@@ -50,7 +50,7 @@
 			?>
 			<div class="form-group <?php echo $emailClass; ?>">
 				<input type="email" class="form-control" id="emailvar" name="email" placeholder="Email" required>
-				<span id="error-email" style="color:red"></span>
+				<span id="error-email" style="color:#d9534f;"></span>
 			</div>
 			<?php
 			    if($errors["phone"])
@@ -60,7 +60,7 @@
 			?>
 			<div class="form-group <?php echo $phoneClass; ?>">
 				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
-				<span id="error-phone" style="color:red"></span>
+				<span id="error-phone" style="color:#d9534f;"></span>
 			</div>
 			<?php
 			    if($errors["password"])
@@ -73,10 +73,10 @@
 			</div>
 			<div class="form-group <?php echo $passwordClass; ?>">
 			    <input type="password" name="password2" class="form-control" id="password2" placeholder="Retype your password" required>
-			    <span id="error-password" style="color:red"></span>
+			    <span id="error-password" style="color:#d9534f;"></span>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="specialrequest" name="message" placeholder="Special Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                <textarea class="form-control" type="textarea" id="user_request" name="user_request" placeholder="User Request (Optional)" maxlength="200" rows="7"></textarea>                   
             </div>
             <div class="text-center">
                 <button id="signUpBtn" onClick="checkSignUp()" type="submit" name="submit" value="register" class="btn btn-danger">Sign Up</button>
@@ -97,7 +97,8 @@
             document.getElementById("signUpBtn").disabled = false;
             if(this.responseText == "signup-ok")
             {
-                document.getElementById("success").innerHTML = "<center><p class=\"text-center\">Successfully registered!<br>Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\">  <b>Login</b></a></p></center>";
+                document.getElementById("signUpBtn").disabled = false;
+                document.getElementById("success").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Successfully registered!</p></center></strong></div><center><p class=\"text-center\">Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\"><b>Login</b></a></p></center>";
             }
             else{
                 var myObj = JSON.parse(this.responseText);
@@ -126,9 +127,9 @@
       phone = document.getElementById("phone"),
       password1 = document.getElementById("password1"),
       password2 = document.getElementById("password2"),
-      specialrequest = document.getElementById("specialrequest");
+      user_request = document.getElementById("user_request");
       xhttp.open("POST", "ajaxSignUp.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&emailvar="+emailvar.value+"&phone="+phone.value+"&password1="+password1.value+"&password2="+password2.value+"&specialrequest="+specialrequest.value);
+      xhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&emailvar="+emailvar.value+"&phone="+phone.value+"&password1="+password1.value+"&password2="+password2.value+"&user_request="+user_request.value);
     }
 </script>

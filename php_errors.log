@@ -916,3 +916,11 @@
 [21-Sep-2017 07:20:13 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/admin/ajaxUpdate.php on line 6
 [21-Sep-2017 07:20:13 UTC] PHP Stack trace:
 [21-Sep-2017 07:20:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/admin/ajaxUpdate.php:0
+[22-Sep-2017 17:14:22 Australia/Sydney] PHP Fatal error:  Call to undefined function base_url() in /home/ubuntu/workspace/admin/includes/users.php on line 121
+[22-Sep-2017 17:14:22 Australia/Sydney] PHP Stack trace:
+[22-Sep-2017 17:14:22 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[22-Sep-2017 17:14:22 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[22-Sep-2017 17:15:44 Australia/Sydney] PHP Fatal error:  Call to undefined function base_url() in /home/ubuntu/workspace/admin/includes/users.php on line 118
+[22-Sep-2017 17:15:44 Australia/Sydney] PHP Stack trace:
+[22-Sep-2017 17:15:44 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
+[22-Sep-2017 17:15:44 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40

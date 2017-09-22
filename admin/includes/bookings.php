@@ -42,7 +42,8 @@
                                     <th>Title</th>
                                     <th>Name</th>
                                     <th>Phone</th>
-                                    <th>Special Request</th>
+                                    <th>Booking Request</th>
+                                    <th>User Request</th>
                                 </tr>
                                 <tbody>
                                     <?php 
@@ -82,7 +83,8 @@
                                                     <td>'.$row['title'].'</td>
                                                     <td>'.$row['first_name'].'</td>
                                                     <td>'.$row['phone'].'</td>
-                                                    <td>'.$row['special_request'].'</td>
+                                                    <td>'.$row['booking_request'].'</td>
+                                                    <td>'.$row['user_request'].'</td>
                                                 </tr>
                                                 ';
                                             }
@@ -118,11 +120,9 @@
         </div>
     </div>
 </div>
-
-
 <script>
  $(document).ready(function(){  
-      $('#bookings_data').DataTable();  
+      $('#bookings_data').DataTable(); 
       $('#bookings_data tbody').on( 'click', 'tr', function () {
     var id = $(this).attr("id");
     console.log(id);

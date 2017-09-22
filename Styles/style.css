@@ -34,6 +34,9 @@ body{
                  
 }
 
+#success .alert{
+    margin-top:20px;
+}
 .title-red{
     color: #d9534f;
     text-align: center;

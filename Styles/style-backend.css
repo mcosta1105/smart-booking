@@ -96,3 +96,8 @@ td a:active{
     color:black;
     text-decoration: none;
 }
+
+.alert-dismissable .close, 
+.alert-dismissible .close {
+    top: -8px;
+}

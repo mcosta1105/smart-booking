@@ -49,7 +49,7 @@
             $userdata = $result->fetch_assoc();
             //check for password macthing
             $stored = $userdata["password"];
-            $user_id = $userdata["id"];
+            $user_phone = $userdata["phone"];
             $user_firstName = $userdata["first_name"];
             $user_lastName = $userdata["last_name"];
             $user_email = $userdata["email"];
@@ -63,7 +63,7 @@
                     $_SESSION["user_email"] = $user_email;
                     $_SESSION["user_firstName"] = $user_firstName;
                     $_SESSION["level"] = $level;
-                    $_SESSION["id"] = $user_id;
+                    $_SESSION["phone"] = $user_phone;
                     echo "login-ok";
                 }
                 else{

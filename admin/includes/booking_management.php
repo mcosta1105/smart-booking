@@ -92,7 +92,7 @@
 				<input type="text" class="form-control" id="phone" name="phone" value="'.$row_booking['phone'].'"placeholder="Phone" required readonly>
 			</div>
 			<div class="form-group">
-                <textarea class="form-control" type="textarea" id="message"  placeholder="Special Request (Optional)" maxlength="200" rows="7" >'.$row_booking['special_request'].'</textarea>                   
+                <textarea class="form-control" type="textarea" id="message"  placeholder="Booking Request (Optional)" maxlength="200" rows="7" >'.$row_booking['booking_request'].'</textarea>                   
             </div>
 			<div class="form-group">
 			    <div class="row">
