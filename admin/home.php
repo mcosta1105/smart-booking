@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <ul class="nav nav-tabs nav-justified">
+                        <ul class="nav nav-tabs nav-justified" id="adminTab">
                             <li role="presentation" class="active"><a data-toggle="tab" href="#bookings">Bookings</a></li>
                             <li role="presentation">
                             <a data-toggle="tab" href="#users">Users</a></li>
@@ -46,3 +46,22 @@
         </div>
     </body>
 </html>
+<script>
+    //Get current tab when reload the page
+    $('#adminTab a').click(function(e) 
+    {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+    
+    //Store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) 
+    {
+      var id = $(e.target).attr("href").substr(1);
+      window.location.hash = id;
+    });
+    
+    //On load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#adminTab a[href="' + hash + '"]').tab('show');
+</script>

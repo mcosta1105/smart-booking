@@ -126,7 +126,8 @@
                 }  
            });  
       });
- });  
+    
+});  
 
     //AJAX update
     function checkUpdate(){
@@ -141,6 +142,10 @@
              if(this.responseText == "update-ok")
              { 
                  document.getElementById("success-update").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Updated!</strong></div>";
+                 //reload screen when close modal
+                 $('#profileModal').on('hidden.bs.modal', function () {
+                    location.reload();
+                 });
              }
              else
              {
@@ -183,6 +188,10 @@
              {
                 document.getElementById("update-btn").disabled = true; 
                 document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Deleted!</strong></div>";
+                //reload screen when close modal
+                 $('#profileModal').on('hidden.bs.modal', function () {
+                    location.reload();
+                 });
             }
             else
             {
@@ -197,4 +206,5 @@
     deletexhttp.send("phone="+phone.value);
  }
  
+
 </script>
