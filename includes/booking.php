@@ -1,36 +1,20 @@
 <?php
   session_start();
   $currentpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-  
+
   //Process Booking
-  if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "booking")
+  if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "booking"  && !$booking_inserted)
   {
       $no_people = $_POST["no_people"];
       $date_picked = $_POST["date"];
       $time_picked = $_POST["time"];
       $booking_request = $_POST["booking_request"];
       
-      
-      /*$booking_result = true;
-      
-      if($booking_result)
+      if($booking_request == null)
       {
-         //GUEST UNTIL LOGIN
-        $user_changed = "0000";
-        
-        //STATUS = 0, pending confirmation
-        $booking_status = 0;
-        
-        //table_id = 0, pending choose table
-        $table_no = 0;
-        
-        $booking_query = "INSERT INTO booking (date, time,no_people,date_created,date_alter,user_changed,booking_request,status,user_id,table_id)
-                          VALUES('$date_picked', '$time_picked', '$no_people',NOW(),NOW(), '$user_changed','$booking_request','$booking_status', '$user_changed','$table_no')";
-        
-        $booking_statement = $connection->prepare($booking_query);
-        $booking_result = $booking_statement->execute();
+        $booking_request= "-";
       }
-      */
+      
       
       //Pending = 0
       //Not Seated = 1
@@ -162,7 +146,29 @@
         }
       }
       
-     
+      if($_SESSION["phone"] != null)
+      {
+        $user_changed = $_SESSION["phone"];
+      }
+      else
+      {
+        //GUEST UNTIL LOGIN
+        $user_changed = "0000";
+      }
+      
+      //STATUS = 0, pending confirmation
+      $booking_status = 0;
+      
+      //table_id = 0, pending choose table
+      $table_no = 0;
+      
+      $booking_query = "INSERT INTO booking (date, time,no_people,date_created,date_alter,user_changed,booking_request,status,user_id,table_id)
+                        VALUES('$date_picked', '$time_picked', '$no_people',NOW(),NOW(), '$user_changed','$booking_request','$booking_status', '$user_changed','$table_no')";
+      
+      $booking_statement = $connection->prepare($booking_query);
+      $booking_result = $booking_statement->execute();
+      if($booking_result)
+        $booking_inserted = true;
       
       ?>
       

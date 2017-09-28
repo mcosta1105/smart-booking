@@ -15,8 +15,9 @@
     {
         $query  = "SELECT * FROM booking 
         INNER JOIN user ON booking.user_id = user.phone 
-        GROUP BY user.phone
-        ORDER BY booking.date";
+        WHERE table_id > 0
+        GROUP BY booking.id
+        ORDER BY booking.date DESC";
     
         $booking_result = $connection->query($query);
     }

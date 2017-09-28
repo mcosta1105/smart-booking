@@ -61,7 +61,6 @@
   {
     table_no = $(event.target).data("id");
     $("#table").val(table_no);
-    table_no = '<?php $table_no; ?>';
   });
   
 </script>

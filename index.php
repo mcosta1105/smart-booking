@@ -8,6 +8,9 @@
         include("autoloader.php");
         $db = new Database();
         $connection = $db->getConnection();
+        
+        $booking_inserted = false; // variable used to check if booking is already inserted on -> booking.php
+        $booking_updated = false; // variable used to check if booking is updated on -> booking_confirmation.php
     ?>
     <body>
         <span id="index"></span>
