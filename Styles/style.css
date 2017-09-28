@@ -204,6 +204,11 @@ footer{
     height: auto;
 }
 
+textarea{
+    overflow:auto;
+    resize:none;
+}
+
 #landscape{ display:block; }
 @media only screen and (max-width:600px) and (orientation:portrait){
   #landscape {  

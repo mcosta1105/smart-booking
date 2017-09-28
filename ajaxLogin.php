@@ -71,7 +71,7 @@
                 }
             }
             else{
-                echo "<center><p class=\"error\">Account is Inacive!</p></center>";
+                echo "<center><p class=\"error\">Account is Inactive!</p></center>";
             }
         }
         else{

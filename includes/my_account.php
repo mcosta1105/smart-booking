@@ -118,11 +118,12 @@
                                                 	<input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" placeholder="Phone" readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" type="textarea" id="message" value="<?php echo $user_req; ?>" placeholder="User Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                                                    <textarea class="form-control" type="textarea" id="message"  placeholder="User Request (Optional)" maxlength="200" rows="7"><?php echo $user_req; ?></textarea>                   
                                                 </div>
                                                 <div class="text-center"> 
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+                                                <div class="text-center" id="success-delete"></div>
+                                                    <button id="delete-btn" onClick="processDelete()" type="button" class="btn btn-danger">Delete</button>
+                                                    <button id="update-btn" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,8 +211,33 @@
 </div>
 
 <script>
- $(document).ready(function(){  
-      $('#my_bookings_data').DataTable(); 
- });  
+    $(document).ready(function(){  
+        $('#my_bookings_data').DataTable(); 
+    }); 
+    //Delete function
+    function processDelete()
+    {
+        //document.getElementById("delete-btn").disabled = true;
+        //document.getElementById("update-btn").disabled = true;
+        document.getElementById("delete-btn").style.visibility = "hidden";
+        document.getElementById("update-btn").style.visibility = "hidden";
+        document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-danger fade in alert-dismissible\" role=\"alert\"><button id=\"close\" onClick=\"close()\" type=\"button\" class=\"close\"  aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Are you sure you want to delete your account?<button id=\"confirm\" onClick=\"confirm()\" class=\"btn btn-danger\" style=\"margin-left:10px\">Yes!</button></strong></div>";
+    }
+ 
+    function confirm(){
+        document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Sucessfully deleted!</strong></div>";
+        document.getElementById("delete-btn").style.visibility = "visible";
+        document.getElementById("update-btn").style.visibility = "visible";
+    }
+    
+    function close(){
+        document.getElementById("delete-btn").style.visibility = "visible";
+        document.getElementById("update-btn").style.visibility = "visible";
+    }
+    //data-dismiss=\"alert\"
+    $('#close').click(function () {
+        document.getElementById("delete-btn").style.visibility = "visible";
+        document.getElementById("update-btn").style.visibility = "visible";
+    });
 </script>
 

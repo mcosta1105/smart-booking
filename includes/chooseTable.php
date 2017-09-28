@@ -1,11 +1,3 @@
-<?php 
-
-session_start();
-
-//echo implode(",",$tables_available_array);
-
-
-?>
 <!-- Modal -->
 <div id="chooseTableModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg" id="teste">
@@ -21,38 +13,38 @@ session_start();
               <div class="col-md-12 col-xs-12"  >
                 <div class="row pad3">
                   <div class="col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-3">
-                      <a class="<?php echo $tableN01Status; ?>" href="#" class="" id="table1"><img class="seats2" src="/images/1.svg"></img></a>
+                      <a class="<?php echo $tableN01Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img  data-id="1" class="seats2" src="/images/1.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                      <a class="<?php echo $tableN02Status; ?>" href="#" class="" id="table2"><img class="seats2" src="/images/2.svg"></img></a>
+                      <a class="<?php echo $tableN02Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="2" class="seats2" src="/images/2.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                     <a class="<?php echo $tableN03Status; ?>" href="#" class="" id="table3"> <img class="seats2" src="/images/3.svg"></img></a>
+                     <a class="<?php echo $tableN03Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="3" class="seats2" src="/images/3.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                      <a class="<?php echo $tableN04Status; ?>" href="#" class="" id="table4"><img class="seats2" src="/images/4.svg"></img></a>
+                      <a class="<?php echo $tableN04Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="4" class="seats2" src="/images/4.svg"></img></a>
                   </div>
                 </div>
                 <div class="row pad3">
                   <div class="col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-3">
-                      <a class="<?php echo $tableN05Status; ?>" id="table5"href="#"><img class="seats4" src="/images/5.svg"></img></a>
+                      <a class="<?php echo $tableN05Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="5" class="seats4" src="/images/5.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                      <a class="<?php echo $tableN06Status; ?>" href="#" class="" id="table6"><img class="seats4" src="/images/6.svg"></img></a>
+                      <a class="<?php echo $tableN06Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="6" class="seats4" src="/images/6.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                     <a class="<?php echo $tableN07Status; ?>" href="#" class="" id="table7"> <img class="seats4" src="/images/7.svg"></img></a>
+                     <a class="<?php echo $tableN07Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="7" class="seats4" src="/images/7.svg"></img></a>
                   </div>
                 </div>
                 <div class="row pad3" style="margin-bottom: 5%">
                   <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
-                     <a class="<?php echo $tableN08Status; ?>" href="#" class="" id="table8"> <img class="seats6" src="/images/8.svg"></img></a>
+                     <a class="<?php echo $tableN08Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="8" class="seats6" src="/images/8.svg"></img></a>
                   </div>
                   <div class="col-md-3 col-xs-3">
-                     <a class="<?php echo $tableN09Status; ?>" href="#" class="" id="table9"> <img class="seats6" src="/images/9.svg"></img></a>
+                     <a class="<?php echo $tableN09Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="9" class="seats6" src="/images/9.svg"></img></a>
                   </div>
                   <div class="col-md-2 col-xs-2">
-                      <a class="<?php echo $tableN10Status; ?>" href="#" class="" id="table10"><img class="seats4" src="/images/10.svg"></img></a>
+                      <a class="<?php echo $tableN10Status; ?> table" href="#" data-toggle="modal" data-target="#bookingConfirmationModal"><img data-id="10" class="seats4" src="/images/10.svg"></img></a>
                   </div>
                 </div>
               </div>
@@ -61,3 +53,18 @@ session_start();
     </div>
   </div>
 </div>
+<script>
+
+  //Pass the table id with click
+  var table_no;
+  $(".table").click(function(event)
+  {
+    table_no = $(event.target).data("id");
+    $("#table").val(table_no);
+    table_no = '<?php $table_no; ?>';
+  });
+  
+</script>
+<?php 
+  include("includes/booking_confirmation.php");
+?>

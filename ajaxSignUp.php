@@ -114,7 +114,7 @@
                                 (title, first_name, last_name, password, phone, email, user_request, level, user_status, date_created, last_access)
                                 VALUES('$title','$firstName','$lastName','$password',?,?,'$user_request',$userLevel,$userStatus, NOW(), NOW())";
                                
-            $statement = $connection-> prepare($register_query);
+            $statement = $connection->prepare($register_query);
             $statement -> bind_param("ss",$phone, $email);
             
             if($statement -> execute() ){

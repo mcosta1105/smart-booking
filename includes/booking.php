@@ -8,7 +8,31 @@
       $no_people = $_POST["no_people"];
       $date_picked = $_POST["date"];
       $time_picked = $_POST["time"];
+      $booking_request = $_POST["booking_request"];
       
+      
+      /*$booking_result = true;
+      
+      if($booking_result)
+      {
+         //GUEST UNTIL LOGIN
+        $user_changed = "0000";
+        
+        //STATUS = 0, pending confirmation
+        $booking_status = 0;
+        
+        //table_id = 0, pending choose table
+        $table_no = 0;
+        
+        $booking_query = "INSERT INTO booking (date, time,no_people,date_created,date_alter,user_changed,booking_request,status,user_id,table_id)
+                          VALUES('$date_picked', '$time_picked', '$no_people',NOW(),NOW(), '$user_changed','$booking_request','$booking_status', '$user_changed','$table_no')";
+        
+        $booking_statement = $connection->prepare($booking_query);
+        $booking_result = $booking_statement->execute();
+      }
+      */
+      
+      //Pending = 0
       //Not Seated = 1
       //Seated = 2
       //Finished = 3
@@ -19,7 +43,7 @@
                 FROM booking b
                 WHERE b.date = ?
                 AND b.time = ?
-                AND (b.status = 1 OR b.status = 2)";
+                AND (b.status = 0 OR b.status = 1 OR b.status = 2)";
                 
                 
       //FIND TABLES ACCORDING TO NUMBER OF PEOPLE                
@@ -32,7 +56,7 @@
                             (SELECT b.table_id FROM booking b
                             WHERE b.date = ?
                             AND b.time = ?
-                            AND (b.status = 1 OR b.status = 2)
+                            AND (b.status = 0 OR b.status = 1 OR b.status = 2)
                             GROUP BY b.table_id)";
       
       //Remove PM from time
@@ -138,10 +162,13 @@
         }
       }
       
+     
+      
       ?>
       
       <script type="text/javascript"> 
        $(document).ready(function(){
+           //TODO $('#bookingModal').modal('show'); DONT CLOSE MODAL
            $('#chooseTableModal').modal('show');
        });
       </script>
@@ -173,10 +200,6 @@
   		                <option>04</option>
   		                <option>05</option>
   		                <option>06</option>
-  		                <option>07</option>
-  		                <option>08</option>
-  		                <option>09</option>
-  		                <option>10</option>
   		              </select>
                     <div class="input-group-addon">
                       <i class="fa fa-user" aria-hidden="true"></i>
@@ -221,17 +244,23 @@
                 </div>
               </div>
               
-                <div class="row">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <h4 class="text-center">Booking request:</h4>
+                    <textarea class="form-control" type="textarea" id="booking_request" name="booking_request" placeholder="Booking Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                </div>
+              </div>
+              
+              <div class="row">
                   <div class="text-center" style="margin-top:5%">
                     <button type="submit" name="submit" value="booking" class="btn btn-danger">Choose a Table</button>
                   </div>  
-                </div>
-              </form>
+              </div>
+            </form>
       </div>
     </div>
   </div>
 </div>
 <?php
-// btn = data-toggle="modal" data-target="#chooseTableModal"  data-dismiss="modal"
     include("includes/chooseTable.php");
 ?>
