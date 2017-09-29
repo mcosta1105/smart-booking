@@ -98,7 +98,7 @@
                         <div class="text-center">
                              <img class="logo-img" src="../images/smart-booking-logo.png"></img>
                         </div>
-                        <h3 class="form-title text-center">Sign In to your Account</h3>
+                        <h3 class="form-title text-center">Login</h3>
                         <div class="form-group">
                             <label for="">Email or Phone number</label>
                             <div class="input-group">

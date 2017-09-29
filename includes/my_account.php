@@ -115,7 +115,7 @@
                                                 	<input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>" placeholder="Email" readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                	<input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" placeholder="Phone" readonly>
+                                                	<input type="text" class="form-control" id="user-phone" name="phone" placeholder="Phone" value = "<?php echo $phone; ?>" readonly>
                                                 </div>
                                                 <div class="form-group">
                                                     <textarea class="form-control" type="textarea" id="message"  placeholder="User Request (Optional)" maxlength="200" rows="7"><?php echo $user_req; ?></textarea>                   
@@ -123,7 +123,7 @@
                                                 <div class="text-center"> 
                                                 <div class="text-center" id="success-delete"></div>
                                                     <button id="delete-btn" onClick="processDelete()" type="button" class="btn btn-danger">Delete</button>
-                                                    <button id="update-btn" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+                                                    <button id="update-btn" onClick="updateUser" type="button" class="btn btn-primary">Update</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,7 +141,6 @@
                                                     <table class="table table-hover" id="my_bookings_data">
                                                         <thead>
                                                             <tr>
-                                                                <th>ID</th>
                                                                 <th>Phone</th>
                                                                 <th>Date</th>
                                                                 <th>Time</th>
@@ -178,7 +177,6 @@
                                                                             }
                                                                             echo'
                                                                                 <tr id="'.$booking_row['id'].'">
-                                                                                    <td>'.$booking_row['id'].'</td>
                                                                                     <td>'.$booking_row['phone'].'</td>
                                                                                     <td>'.$booking_row['date'].'</td>
                                                                                     <td>'.$booking_row['time'].'</td>
@@ -212,32 +210,98 @@
 
 <script>
     $(document).ready(function(){  
-        $('#my_bookings_data').DataTable(); 
-    }); 
+      $('#my_bookings_data').DataTable(); 
+      
+    });  
+    
+    
     //Delete function
     function processDelete()
     {
-        //document.getElementById("delete-btn").disabled = true;
-        //document.getElementById("update-btn").disabled = true;
         document.getElementById("delete-btn").style.visibility = "hidden";
         document.getElementById("update-btn").style.visibility = "hidden";
-        document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-danger fade in alert-dismissible\" role=\"alert\"><button id=\"close\" onClick=\"close()\" type=\"button\" class=\"close\"  aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Are you sure you want to delete your account?<button id=\"confirm\" onClick=\"confirm()\" class=\"btn btn-danger\" style=\"margin-left:10px\">Yes!</button></strong></div>";
+        document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-danger fade in alert-dismissible\" role=\"alert\"><strong>Are you sure you want to delete your account?<button id=\"confirm\" onClick=\"confirm()\" class=\"btn btn-danger\" style=\"margin-left:10px\">Yes</button><button id=\"confirm\" onClick=\"notConfirmed()\" class=\"btn btn-primary\" style=\"margin-left:10px\">No</button></strong></div>";
     }
  
     function confirm(){
-        document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Sucessfully deleted!</strong></div>";
+        var deletexhttp = new XMLHttpRequest();
+        deletexhttp.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                 if(this.responseText == "delete-ok")
+                 {
+                    document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Sucessfully deleted!</strong></div>";
+                    //reload screen when close modal
+                     $('#profileModal').on('hidden.bs.modal', function () {
+                        location.reload();
+                     });
+                }
+                else
+                {
+                    document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-warning fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Not Deleted, Error!</strong></div>";    
+                    document.getElementById("delete-btn").style.visibility = "visible";
+                    document.getElementById("update-btn").style.visibility = "visible";
+                    
+                }
+            }
+        };
+        var phone = document.getElementById("user-phone");
+        deletexhttp.open("POST", "includes/deleteUser.php", true);
+        deletexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        deletexhttp.send("phone="+phone.value);
+        console.log(phone);
+    }
+    
+    function notConfirmed(){
+        document.getElementById("success-delete").innerHTML ="";
         document.getElementById("delete-btn").style.visibility = "visible";
         document.getElementById("update-btn").style.visibility = "visible";
     }
     
-    function close(){
-        document.getElementById("delete-btn").style.visibility = "visible";
-        document.getElementById("update-btn").style.visibility = "visible";
+    function updateUser(){
+        document.getElementById("update-btn").disabled = true;
+        var updatexhttp = new XMLHttpRequest();
+        updatexhttp.onreadystatechange = function()
+        {
+             
+            if(this.readyState == 4 && this.status == 200)
+            {
+                document.getElementById("update-btn").disabled = false;
+                if(this.responseText == "update-ok")
+                { 
+                    document.getElementById("success-update").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Updated!</strong></div>";
+                    //reload screen when close modal
+                    $('#profileModal').on('hidden.bs.modal', function () {
+                        location.reload();
+                    });
+                 }
+                 else
+                 {
+                    var myUpdateObj = JSON.parse(this.responseText);
+                    if(myUpdateObj.firstName != null)
+                    {
+                        document.getElementById("error-update-firstName").innerHTML = myUpdateObj.firstName;
+                    }
+                    if(myUpdateObj.lastName != null)
+                    {
+                        document.getElementById("error-update-lastName").innerHTML = myUpdateObj.lastName;
+                    }
+                }
+            }
+        };
+        var title = document.getElementById("title"),
+        firstName = document.getElementById("firstName"),
+        lastName = document.getElementById("lastName"),
+        email = document.getElementById("email"),
+        phone = document.getElementById("phone"),
+        user_request = document.getElementById("user_request"),
+        level = document.getElementById("level"),
+        status = document.getElementById("status");
+        updatexhttp.open("POST","ajaxUpdate.php",true);
+        updatexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        updatexhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&phone="+phone.value+"&user_request="+user_request.value+"&level="+level.value+"&status="+status.value);
     }
-    //data-dismiss=\"alert\"
-    $('#close').click(function () {
-        document.getElementById("delete-btn").style.visibility = "visible";
-        document.getElementById("update-btn").style.visibility = "visible";
-    });
+    
 </script>
 

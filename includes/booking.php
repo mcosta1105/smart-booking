@@ -146,6 +146,7 @@
         }
       }
       
+      //BOOKING INSERT
       if($_SESSION["phone"] != null)
       {
         $user_changed = $_SESSION["phone"];
@@ -162,13 +163,16 @@
       //table_id = 0, pending choose table
       $table_no = 0;
       
+      /*
       $booking_query = "INSERT INTO booking (date, time,no_people,date_created,date_alter,user_changed,booking_request,status,user_id,table_id)
                         VALUES('$date_picked', '$time_picked', '$no_people',NOW(),NOW(), '$user_changed','$booking_request','$booking_status', '$user_changed','$table_no')";
+      
       
       $booking_statement = $connection->prepare($booking_query);
       $booking_result = $booking_statement->execute();
       if($booking_result)
         $booking_inserted = true;
+      */
       
       ?>
       

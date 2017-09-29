@@ -204,6 +204,7 @@
     deletexhttp.open("POST", "ajaxDelete.php", true);
     deletexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     deletexhttp.send("phone="+phone.value);
+    console.log(phone);
  }
  
 

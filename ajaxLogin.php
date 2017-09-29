@@ -1,10 +1,24 @@
 <?php
     session_start();
     include("autoloader.php");
+    
     //Process Login
-    if($_POST['user'] && $_POST['password']){
+    if($_POST['user'] && $_POST['password'])
+    {
         $user = $_POST["user"];
         $password = $_POST["password"];
+    }
+    else if($_POST['booking-user'] && $_POST['booking-password'])
+    {
+        $user = $_POST["booking-user"];
+        $password = $_POST["booking-password"];
+    }
+    
+    if($user == null || $password == null)
+    {
+        echo "<center><p class=\"error\">Please fill out all fields.</p></center>";
+    }
+    else{
         //array to hold the errors
         $errors = array();
         
@@ -77,8 +91,5 @@
         else{
             echo "<center><p class=\"error\">Account does not exist!</p></center>";
         }
-    }
-    else{
-        echo "<center><p class=\"error\">Please fill out all fields.</p></center>";
     }
 ?>
