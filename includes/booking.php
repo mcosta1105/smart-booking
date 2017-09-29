@@ -178,7 +178,6 @@
       
       <script type="text/javascript"> 
        $(document).ready(function(){
-           //TODO $('#bookingModal').modal('show'); DONT CLOSE MODAL
            $('#chooseTableModal').modal('show');
        });
       </script>

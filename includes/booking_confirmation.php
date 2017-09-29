@@ -49,7 +49,7 @@
       </div>
       <div class="modal-body">
             <div class="row">
-                <div class="col-lg-6" id="left-col">
+                <div class="col-md-6" id="left-col">
                   <div id="option-btns">
                      <h3 class="title-red">Choose an Option</h3>
                       <div class="row text-center">
@@ -97,7 +97,7 @@
                             </div>
                             </div>
                       </div>
-                      <div id="content-signup" hidden>
+                    <div id="content-signup" hidden>
                         <h3 class="form-title text-center">Sign up</h3>
                         <form id="register-form" action="<?php echo $currentpage; ?>" method="post">
                         <?php
@@ -174,7 +174,7 @@
                         </form>
                       </div>
                 </div>
-                <div class="col-lg-6" id="booking-details">
+                <div class="col-md-6" id="booking-details">
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h4 class="text-center">Number of people:</h4>
@@ -243,13 +243,13 @@
 $("#btn-login").click(function(){
   $("#content-login").show();
   $("#content-signup").hide();
-
+  $('#chooseTableModal').modal('hide');
 });
 
 $("#btn-signup").click(function(){
   $("#content-signup").show();
   $("#content-login").hide();
-
+  $('#chooseTableModal').modal('hide');
 });
 
 function checkBookingLogin() 
@@ -260,20 +260,22 @@ function checkBookingLogin()
     if (this.readyState == 4 && this.status == 200) 
     {
         document.getElementById("loginBookingButton").disabled = false;
+        
         if(this.responseText == "login-ok")
         {
             document.getElementById("success-msg").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Logged in, Please confirm your booking!</p></center></strong></div>";
             document.getElementById("confirm-booking-button").disabled = false;
+           
             $("#option-btns").hide();
             $("#content-login").hide();
             $("#left-col").hide();
-            document.getElementById("booking-details").classList.remove("col-lg-6");
-            document.getElementById("booking-details").classList.add("col-lg-12");
+           
+            document.getElementById("booking-details").classList.remove("col-md-6");
+            document.getElementById("booking-details").classList.add("col-md-12");
             
             //change size of modal
             document.getElementById("body-modal").classList.remove("modal-lg");
             document.getElementById("body-modal").classList.add("modal-md");
-            
         }
         else
         {
@@ -288,6 +290,10 @@ function checkBookingLogin()
   xhttp.send("booking-user="+username.value+"&booking-password="+password.value);
 }
 
+//TODO TEM QUE TROCAR AS ID's pra nao dar conflito
+//tive que mexer na parte do ajaxLogin.php pra pegar essas variaveis, tenta trocar so as IDs no Signup
+//e nao os names. ai acho que nao vai precisar mexer no ajaxSignup.php
+/*
 function checkSignUp()
 {
   document.getElementById("signUpBtn").disabled = true;
@@ -332,4 +338,5 @@ function checkSignUp()
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&emailvar="+emailvar.value+"&phone="+phone.value+"&password1="+password1.value+"&password2="+password2.value+"&user_request="+user_request.value);
 }
+*/
 </script>

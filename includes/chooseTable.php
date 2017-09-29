@@ -61,6 +61,28 @@
   {
     table_no = $(event.target).data("id");
     $("#table").val(table_no);
+    
+    //get user phone from SESSION
+    var userphone = "<?php echo $_SESSION['phone'] ?>";
+    
+    //Hide elements with user is already logged in
+    if(userphone != "")
+    {
+      document.getElementById("confirm-booking-button").disabled = false;
+     
+      $("#option-btns").hide();
+      $("#content-login").hide();
+      $("#left-col").hide();
+     
+      document.getElementById("booking-details").classList.remove("col-md-6");
+      document.getElementById("booking-details").classList.add("col-md-12");
+      
+      //change size of modal
+      document.getElementById("body-modal").classList.remove("modal-lg");
+      document.getElementById("body-modal").classList.add("modal-md");
+      
+      $('#chooseTableModal').modal('hide');
+    }
   });
   
 </script>
