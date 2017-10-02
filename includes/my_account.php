@@ -11,7 +11,7 @@
         $myAcc_bookingQuery = "SELECT * FROM booking 
         INNER JOIN user ON booking.user_id = user.phone
         WHERE user.phone = ?
-        GROUP BY user.phone
+        GROUP BY booking.id
         ORDER BY booking.date";
         
         
@@ -47,20 +47,14 @@
             if($myAcc_row["title"] == "Mr.")
             {
                 $title1 = "Mr.";
-                //$title2 = "Mrs.";
-                //$title3 = "Miss";
             }
             else if($myAcc_row["title"] == "Mrs.")
             {
                 $title1 = "Mrs.";
-                //$title2 = "Mr.";
-                //$title3 = "Miss";
             }
             else
             {
                 $title1 = "Miss.";
-                $title2 = "Mr.";
-                $title3 = "Mrs.";
             }
         }
         
@@ -97,33 +91,34 @@
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <select class="form-control" id="#">
+                                                            <select class="form-control" id="user-title" name="user-title">
                                                                 <option><?php echo $title1; ?></option>
                                                                 <option><?php echo $title2; ?></option>
                                                                 <option><?php echo $title2; ?></option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $first_name; ?>" placeholder="First Name" required>
+                                                            <input type="text" class="form-control" id="user-firstName" name="user-firstName" value="<?php echo $first_name; ?>" placeholder="First Name" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                	<input type="text" class="form-control" id="lastName" name="lasttName" value="<?php echo $last_name; ?>" placeholder="Last Name" required>
+                                                	<input type="text" class="form-control" id="user-lastName" name="user-lastName" value="<?php echo $last_name; ?>" placeholder="Last Name" required>
                                                 </div>
                                                 <div class="form-group">
-                                                	<input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>" placeholder="Email" readonly>
+                                                	<input type="text" class="form-control" id="user-email" name="user-email" value="<?php echo $email; ?>" placeholder="Email" readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                	<input type="text" class="form-control" id="user-phone" name="phone" placeholder="Phone" value = "<?php echo $phone; ?>" readonly>
+                                                	<input type="text" class="form-control" id="user-phone" name="user-phone" placeholder="Phone" value = "<?php echo $phone; ?>" readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" type="textarea" id="message"  placeholder="User Request (Optional)" maxlength="200" rows="7"><?php echo $user_req; ?></textarea>                   
+                                                    <textarea class="form-control" type="textarea" id="user-request"  placeholder="User Request (Optional)" maxlength="200" rows="7"><?php echo $user_req; ?></textarea>                   
                                                 </div>
                                                 <div class="text-center"> 
                                                 <div class="text-center" id="success-delete"></div>
-                                                    <button id="delete-btn" onClick="processDelete()" type="button" class="btn btn-danger">Delete</button>
-                                                    <button id="update-btn" onClick="updateUser" type="button" class="btn btn-primary">Update</button>
+                                                <div class="text-center" id="success-update"></div>
+                                                    <button id="deleteBtn" onClick="processDelete()" type="button" class="btn btn-danger">Delete</button>
+                                                    <button id="updateBtn" onClick="updateUser()" type="button" class="btn btn-primary">Update</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,8 +213,8 @@
     //Delete function
     function processDelete()
     {
-        document.getElementById("delete-btn").style.visibility = "hidden";
-        document.getElementById("update-btn").style.visibility = "hidden";
+        document.getElementById("deleteBtn").style.visibility = "hidden";
+        document.getElementById("updateBtn").style.visibility = "hidden";
         document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-danger fade in alert-dismissible\" role=\"alert\"><strong>Are you sure you want to delete your account?<button id=\"confirm\" onClick=\"confirm()\" class=\"btn btn-danger\" style=\"margin-left:10px\">Yes</button><button id=\"confirm\" onClick=\"notConfirmed()\" class=\"btn btn-primary\" style=\"margin-left:10px\">No</button></strong></div>";
     }
  
@@ -232,16 +227,18 @@
                  if(this.responseText == "delete-ok")
                  {
                     document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Sucessfully deleted!</strong></div>";
+                    
+                    
                     //reload screen when close modal
-                     $('#profileModal').on('hidden.bs.modal', function () {
+                     $('#myAccountModal').on('hidden.bs.modal', function () {
                         location.reload();
                      });
                 }
                 else
                 {
                     document.getElementById("success-delete").innerHTML = "<div class=\"alert alert-warning fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Not Deleted, Error!</strong></div>";    
-                    document.getElementById("delete-btn").style.visibility = "visible";
-                    document.getElementById("update-btn").style.visibility = "visible";
+                    document.getElementById("deleteBtn").style.visibility = "visible";
+                    document.getElementById("updateBtn").style.visibility = "visible";
                     
                 }
             }
@@ -256,29 +253,32 @@
     function notConfirmed(){
         document.getElementById("success-delete").innerHTML ="";
         document.getElementById("delete-btn").style.visibility = "visible";
-        document.getElementById("update-btn").style.visibility = "visible";
+        document.getElementById("updateBtn").style.visibility = "visible";
     }
     
     function updateUser(){
-        document.getElementById("update-btn").disabled = true;
+        document.getElementById("updateBtn").disabled = true;
         var updatexhttp = new XMLHttpRequest();
         updatexhttp.onreadystatechange = function()
         {
              
             if(this.readyState == 4 && this.status == 200)
             {
-                document.getElementById("update-btn").disabled = false;
+                document.getElementById("updateBtn").disabled = false;
                 if(this.responseText == "update-ok")
                 { 
+                    alert("ok");
                     document.getElementById("success-update").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Updated!</strong></div>";
                     //reload screen when close modal
-                    $('#profileModal').on('hidden.bs.modal', function () {
+                    $('#myAccountModal').on('hidden.bs.modal', function () {
                         location.reload();
                     });
                  }
                  else
                  {
+                    alert("Not");
                     var myUpdateObj = JSON.parse(this.responseText);
+                    alert(myUpdateObj.firstName);
                     if(myUpdateObj.firstName != null)
                     {
                         document.getElementById("error-update-firstName").innerHTML = myUpdateObj.firstName;
@@ -290,17 +290,15 @@
                 }
             }
         };
-        var title = document.getElementById("title"),
-        firstName = document.getElementById("firstName"),
-        lastName = document.getElementById("lastName"),
-        email = document.getElementById("email"),
-        phone = document.getElementById("phone"),
-        user_request = document.getElementById("user_request"),
-        level = document.getElementById("level"),
-        status = document.getElementById("status");
-        updatexhttp.open("POST","ajaxUpdate.php",true);
+        var title = document.getElementById("user-title"),
+        firstName = document.getElementById("user-firstName"),
+        lastName = document.getElementById("user-lastName"),
+        email = document.getElementById("user-email"),
+        phone = document.getElementById("user-phone"),
+        user_request = document.getElementById("user-request");
+        updatexhttp.open("POST","updateUser.php",true);
         updatexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        updatexhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&phone="+phone.value+"&user_request="+user_request.value+"&level="+level.value+"&status="+status.value);
+        updatexhttp.send("user-title="+title.value+"&user-firstName="+firstName.value+"&user-lastName="+lastName.value+"&user-phone="+phone.value+"&user-request="+user_request.value);
     }
     
 </script>

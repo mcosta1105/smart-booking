@@ -81,11 +81,11 @@
       document.getElementById("body-modal").classList.remove("modal-lg");
       document.getElementById("body-modal").classList.add("modal-md");
       
-      $('#chooseTableModal').modal('hide');
     }
+    $('#chooseTableModal').modal('hide');
   });
   
 </script>
 <?php 
-  include("includes/booking_confirmation.php");
+  include("booking_confirmation.php");
 ?>

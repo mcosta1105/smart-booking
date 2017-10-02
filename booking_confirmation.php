@@ -1,42 +1,3 @@
-<?php
-
-  session_start();
-  //TODO UPDATE BOOKING AJAX
-  if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] == "confirm-booking" && !$booking_updated)
-  {
-    
-    $user_changed = $_SESSION["phone"];
-    
-    $table_no = $_POST["table"];
-    
-    //STATUS Not Seated = 1
-    $booking_status = 1;
-    
-    $booking_confirm_query = "UPDATE booking SET
-                      status = '".$booking_status."',
-                      table_id = '".$table_no."'
-                      WHERE
-                      user_id = ?
-                      AND status = 0";
-    
-    $booking_confirm_statement = $connection->prepare($booking_confirm_query);
-    $booking_confirm_statement->bind_param('s', $user_changed);
-    $booking_confirm_statement->execute();
-    
-    if($booking_confirm_statement->affected_rows == 1)
-    {
-        echo "booking-confirmed";
-        $booking_updated = true;
-    }
-    else
-    {
-        echo "error";
-    }
-    
-    $booking_confirm_statement->close();
-  }  
-  
-?>
 <!-- Booking Confirmation Modal -->
 <div id="bookingConfirmationModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg" id="body-modal">
@@ -44,7 +5,7 @@
     <div class="modal-content">
       <form id="booking-confirmation-form" action= "<?php echo $currentpage; ?>" method="post">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" id="booking-close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title title-red">Booking Confirmation</h3>
       </div>
       <div class="modal-body">
@@ -229,7 +190,7 @@
                       <div class="col-md-10 col-md-offset-1 text-center">
                         <br>
                         <div id="success-msg"></div>
-                        <button id="confirm-booking-button" type="submit" name="submit" value="confirm-booking" class="btn btn-danger" disabled>Confirm now!</button>
+                        <button id="confirm-booking-button" onClick="updateBooking()" name="submit" value="confirm-booking" class="btn btn-danger" disabled>Confirm now!</button>
                       </div>
                     </div>
                 </div>
@@ -250,6 +211,11 @@ $("#btn-signup").click(function(){
   $("#content-signup").show();
   $("#content-login").hide();
   $('#chooseTableModal').modal('hide');
+});
+
+$("#booking-close").click(function(){
+  //window.location.reload();
+  //$('#chooseTableModal').modal('hide');
 });
 
 function checkBookingLogin() 
@@ -288,6 +254,33 @@ function checkBookingLogin()
   xhttp.open("POST", "ajaxLogin.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("booking-user="+username.value+"&booking-password="+password.value);
+}
+
+//Update Booking
+function updateBooking() 
+{
+  document.getElementById("confirm-booking-button").disabled = true;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200) 
+    {
+        if(this.responseText == "booking-confirmed")
+        {
+            document.getElementById("success-msg").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Booking confirmed. See you soon!</p></center></strong></div>";
+        }
+        else
+        {
+            document.getElementById("success-msg").innerHTML = "<div class=\"alert alert-warning fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">"+this.responseText+"</p></center></strong></div>";
+            document.getElementById("confirm-booking-button").disabled = false;
+        }
+        $('#chooseTableModal').modal('hide');
+    }
+  };
+  var table = document.getElementById("table");
+  xhttp.open("POST", "ajaxUpdateBooking.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("table="+table.value);
 }
 
 //TODO TEM QUE TROCAR AS ID's pra nao dar conflito
@@ -339,4 +332,8 @@ function checkSignUp()
   xhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&emailvar="+emailvar.value+"&phone="+phone.value+"&password1="+password1.value+"&password2="+password2.value+"&user_request="+user_request.value);
 }
 */
+
+
+
+
 </script>

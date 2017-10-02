@@ -924,3 +924,339 @@
 [22-Sep-2017 17:15:44 Australia/Sydney] PHP Stack trace:
 [22-Sep-2017 17:15:44 Australia/Sydney] PHP   1. {main}() /home/ubuntu/workspace/admin/home.php:0
 [22-Sep-2017 17:15:44 Australia/Sydney] PHP   2. include() /home/ubuntu/workspace/admin/home.php:40
+[01-Oct-2017 00:29:07 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/includes/deleteUser.php on line 22
+[01-Oct-2017 00:30:10 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/includes/deleteUser.php on line 23
+[01-Oct-2017 00:30:52 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/includes/deleteUser.php on line 23
+[01-Oct-2017 03:51:56 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:51:56 UTC] PHP Stack trace:
+[01-Oct-2017 03:51:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:51:56 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:51:56 UTC] PHP Stack trace:
+[01-Oct-2017 03:51:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:51:56 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 03:51:56 UTC] PHP Stack trace:
+[01-Oct-2017 03:51:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:52:08 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:52:08 UTC] PHP Stack trace:
+[01-Oct-2017 03:52:08 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:52:08 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:52:08 UTC] PHP Stack trace:
+[01-Oct-2017 03:52:08 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:52:08 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 03:52:08 UTC] PHP Stack trace:
+[01-Oct-2017 03:52:08 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:56:30 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:56:30 UTC] PHP Stack trace:
+[01-Oct-2017 03:56:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:56:30 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:56:30 UTC] PHP Stack trace:
+[01-Oct-2017 03:56:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:56:30 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 03:56:30 UTC] PHP Stack trace:
+[01-Oct-2017 03:56:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:57:19 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:57:19 UTC] PHP Stack trace:
+[01-Oct-2017 03:57:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:57:19 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:57:19 UTC] PHP Stack trace:
+[01-Oct-2017 03:57:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:57:19 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 03:57:19 UTC] PHP Stack trace:
+[01-Oct-2017 03:57:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:59:07 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:59:07 UTC] PHP Stack trace:
+[01-Oct-2017 03:59:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:59:07 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 03:59:07 UTC] PHP Stack trace:
+[01-Oct-2017 03:59:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 03:59:07 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 03:59:07 UTC] PHP Stack trace:
+[01-Oct-2017 03:59:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:00:36 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:00:36 UTC] PHP Stack trace:
+[01-Oct-2017 04:00:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:00:36 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:00:36 UTC] PHP Stack trace:
+[01-Oct-2017 04:00:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:00:36 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:00:36 UTC] PHP Stack trace:
+[01-Oct-2017 04:00:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:05:38 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:05:38 UTC] PHP Stack trace:
+[01-Oct-2017 04:05:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:05:38 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:05:38 UTC] PHP Stack trace:
+[01-Oct-2017 04:05:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:05:51 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:05:51 UTC] PHP Stack trace:
+[01-Oct-2017 04:05:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:06:20 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:06:20 UTC] PHP Stack trace:
+[01-Oct-2017 04:06:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:06:20 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:06:20 UTC] PHP Stack trace:
+[01-Oct-2017 04:06:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:06:24 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:06:24 UTC] PHP Stack trace:
+[01-Oct-2017 04:06:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:06:39 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:06:39 UTC] PHP Stack trace:
+[01-Oct-2017 04:06:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:06:39 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:06:39 UTC] PHP Stack trace:
+[01-Oct-2017 04:06:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:07:37 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:07:37 UTC] PHP Stack trace:
+[01-Oct-2017 04:07:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:07:57 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:07:57 UTC] PHP Stack trace:
+[01-Oct-2017 04:07:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:07:57 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:07:57 UTC] PHP Stack trace:
+[01-Oct-2017 04:07:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:08:01 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:08:01 UTC] PHP Stack trace:
+[01-Oct-2017 04:08:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:11:58 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:11:58 UTC] PHP Stack trace:
+[01-Oct-2017 04:11:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:11:58 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:11:58 UTC] PHP Stack trace:
+[01-Oct-2017 04:11:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:12:03 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:12:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:12:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:12:43 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:12:43 UTC] PHP Stack trace:
+[01-Oct-2017 04:12:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:12:43 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:12:43 UTC] PHP Stack trace:
+[01-Oct-2017 04:12:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:12:47 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:12:47 UTC] PHP Stack trace:
+[01-Oct-2017 04:12:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:13:06 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:13:06 UTC] PHP Stack trace:
+[01-Oct-2017 04:13:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:13:06 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:13:06 UTC] PHP Stack trace:
+[01-Oct-2017 04:13:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:17 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:14:17 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:27 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:14:27 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:27 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:14:27 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:31 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:14:31 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:56 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:14:56 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:14:56 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:14:56 UTC] PHP Stack trace:
+[01-Oct-2017 04:14:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:15:00 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:15:00 UTC] PHP Stack trace:
+[01-Oct-2017 04:15:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:22:43 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:22:43 UTC] PHP Stack trace:
+[01-Oct-2017 04:22:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:22:43 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:22:43 UTC] PHP Stack trace:
+[01-Oct-2017 04:22:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:23:00 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:23:00 UTC] PHP Stack trace:
+[01-Oct-2017 04:23:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:24:05 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:24:05 UTC] PHP Stack trace:
+[01-Oct-2017 04:24:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:24:05 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:24:05 UTC] PHP Stack trace:
+[01-Oct-2017 04:24:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:24:27 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:24:27 UTC] PHP Stack trace:
+[01-Oct-2017 04:24:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:25:13 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:25:13 UTC] PHP Stack trace:
+[01-Oct-2017 04:25:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:25:13 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:25:13 UTC] PHP Stack trace:
+[01-Oct-2017 04:25:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:25:16 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:25:16 UTC] PHP Stack trace:
+[01-Oct-2017 04:25:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:27:58 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:27:58 UTC] PHP Stack trace:
+[01-Oct-2017 04:27:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:27:58 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:27:58 UTC] PHP Stack trace:
+[01-Oct-2017 04:27:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:27:58 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:27:58 UTC] PHP Stack trace:
+[01-Oct-2017 04:27:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:30:05 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:30:05 UTC] PHP Stack trace:
+[01-Oct-2017 04:30:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:30:05 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:30:05 UTC] PHP Stack trace:
+[01-Oct-2017 04:30:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:30:05 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:30:05 UTC] PHP Stack trace:
+[01-Oct-2017 04:30:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:35:12 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:35:12 UTC] PHP Stack trace:
+[01-Oct-2017 04:35:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:35:12 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:35:12 UTC] PHP Stack trace:
+[01-Oct-2017 04:35:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:35:12 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:35:12 UTC] PHP Stack trace:
+[01-Oct-2017 04:35:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:44:48 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:44:48 UTC] PHP Stack trace:
+[01-Oct-2017 04:44:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:44:48 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:44:48 UTC] PHP Stack trace:
+[01-Oct-2017 04:44:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:44:48 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:44:48 UTC] PHP Stack trace:
+[01-Oct-2017 04:44:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:52:52 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:52:52 UTC] PHP Stack trace:
+[01-Oct-2017 04:52:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:52:52 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:52:52 UTC] PHP Stack trace:
+[01-Oct-2017 04:52:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:52:52 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:52:52 UTC] PHP Stack trace:
+[01-Oct-2017 04:52:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:53:03 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:53:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:53:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:53:03 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:53:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:53:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:53:03 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:53:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:53:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:55:18 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:55:18 UTC] PHP Stack trace:
+[01-Oct-2017 04:55:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:55:18 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:55:18 UTC] PHP Stack trace:
+[01-Oct-2017 04:55:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:55:18 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:55:18 UTC] PHP Stack trace:
+[01-Oct-2017 04:55:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:03 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:03 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:03 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:56:03 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:16 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:16 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:16 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:16 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:16 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:56:16 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:34 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:34 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:34 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:56:34 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:56:34 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:56:34 UTC] PHP Stack trace:
+[01-Oct-2017 04:56:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:57:32 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:57:32 UTC] PHP Stack trace:
+[01-Oct-2017 04:57:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:57:32 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:57:32 UTC] PHP Stack trace:
+[01-Oct-2017 04:57:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:57:32 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:57:32 UTC] PHP Stack trace:
+[01-Oct-2017 04:57:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:58:00 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:58:00 UTC] PHP Stack trace:
+[01-Oct-2017 04:58:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:58:00 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 04:58:00 UTC] PHP Stack trace:
+[01-Oct-2017 04:58:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 04:58:15 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 04:58:15 UTC] PHP Stack trace:
+[01-Oct-2017 04:58:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:37:00 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:37:00 UTC] PHP Stack trace:
+[01-Oct-2017 06:37:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:37:00 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:37:00 UTC] PHP Stack trace:
+[01-Oct-2017 06:37:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:37:18 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 8
+[01-Oct-2017 06:37:18 UTC] PHP Stack trace:
+[01-Oct-2017 06:37:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:39:47 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:39:47 UTC] PHP Stack trace:
+[01-Oct-2017 06:39:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:39:47 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:39:47 UTC] PHP Stack trace:
+[01-Oct-2017 06:39:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:41:46 UTC] PHP Fatal error:  Call to a member function checkName() on a non-object in /home/ubuntu/workspace/includes/updateUser.php on line 19
+[01-Oct-2017 06:41:46 UTC] PHP Stack trace:
+[01-Oct-2017 06:41:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:41:46 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:41:46 UTC] PHP Stack trace:
+[01-Oct-2017 06:41:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:41:46 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 06:41:46 UTC] PHP Stack trace:
+[01-Oct-2017 06:41:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 06:41:46 UTC] PHP Fatal error:  Call to a member function checkName() on a non-object in /home/ubuntu/workspace/includes/updateUser.php on line 19
+[01-Oct-2017 06:41:46 UTC] PHP Stack trace:
+[01-Oct-2017 06:41:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:32:22 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:32:22 UTC] PHP Stack trace:
+[01-Oct-2017 07:32:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:32:22 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:32:22 UTC] PHP Stack trace:
+[01-Oct-2017 07:32:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:32:22 UTC] PHP Fatal error:  Call to a member function checkName() on a non-object in /home/ubuntu/workspace/includes/updateUser.php on line 19
+[01-Oct-2017 07:32:22 UTC] PHP Stack trace:
+[01-Oct-2017 07:32:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:32:54 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:32:54 UTC] PHP Stack trace:
+[01-Oct-2017 07:32:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:32:54 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:32:54 UTC] PHP Stack trace:
+[01-Oct-2017 07:32:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:33:52 UTC] PHP Fatal error:  Call to a member function checkName() on a non-object in /home/ubuntu/workspace/includes/updateUser.php on line 19
+[01-Oct-2017 07:33:52 UTC] PHP Stack trace:
+[01-Oct-2017 07:33:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:36:40 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:36:40 UTC] PHP Stack trace:
+[01-Oct-2017 07:36:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:36:40 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:36:40 UTC] PHP Stack trace:
+[01-Oct-2017 07:36:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:37:16 UTC] PHP Fatal error:  Call to a member function checkName() on a non-object in /home/ubuntu/workspace/includes/updateUser.php on line 19
+[01-Oct-2017 07:37:16 UTC] PHP Stack trace:
+[01-Oct-2017 07:37:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:37:46 UTC] PHP Warning:  include(autoloader.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:37:46 UTC] PHP Stack trace:
+[01-Oct-2017 07:37:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:37:46 UTC] PHP Warning:  include(): Failed opening 'autoloader.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/includes/updateUser.php on line 3
+[01-Oct-2017 07:37:46 UTC] PHP Stack trace:
+[01-Oct-2017 07:37:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
+[01-Oct-2017 07:37:46 UTC] PHP Fatal error:  Class 'Validation' not found in /home/ubuntu/workspace/includes/updateUser.php on line 4
+[01-Oct-2017 07:37:46 UTC] PHP Stack trace:
+[01-Oct-2017 07:37:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/includes/updateUser.php:0
