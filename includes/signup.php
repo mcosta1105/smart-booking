@@ -89,6 +89,7 @@
 </div>
 
 <script>
+    
     function checkSignUp(){
         document.getElementById("signUpBtn").disabled = true;
       var xhttp = new XMLHttpRequest();
@@ -97,6 +98,7 @@
             document.getElementById("signUpBtn").disabled = false;
             if(this.responseText == "signup-ok")
             {
+                
                 document.getElementById("signUpBtn").disabled = false;
                 document.getElementById("success").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Successfully registered!</p></center></strong></div><center><p class=\"text-center\">Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\"><b>Login</b></a></p></center>";
             }

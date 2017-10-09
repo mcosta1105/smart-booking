@@ -99,11 +99,13 @@
                                                         </div>
                                                         <div class="col-md-9">
                                                             <input type="text" class="form-control" id="user-firstName" name="user-firstName" value="<?php echo $first_name; ?>" placeholder="First Name" required>
+                                                            <span id="error-fname" style="color:#d9534f;"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                 	<input type="text" class="form-control" id="user-lastName" name="user-lastName" value="<?php echo $last_name; ?>" placeholder="Last Name" required>
+                                                	<span id="error-lname" style="color:#d9534f;"></span>
                                                 </div>
                                                 <div class="form-group">
                                                 	<input type="text" class="form-control" id="user-email" name="user-email" value="<?php echo $email; ?>" placeholder="Email" readonly>
@@ -247,7 +249,6 @@
         deletexhttp.open("POST", "includes/deleteUser.php", true);
         deletexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         deletexhttp.send("phone="+phone.value);
-        console.log(phone);
     }
     
     function notConfirmed(){
@@ -267,7 +268,6 @@
                 document.getElementById("updateBtn").disabled = false;
                 if(this.responseText == "update-ok")
                 { 
-                    alert("ok");
                     document.getElementById("success-update").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Successfully Updated!</strong></div>";
                     //reload screen when close modal
                     $('#myAccountModal').on('hidden.bs.modal', function () {
@@ -276,16 +276,14 @@
                  }
                  else
                  {
-                    alert("Not");
-                    var myUpdateObj = JSON.parse(this.responseText);
-                    alert(myUpdateObj.firstName);
-                    if(myUpdateObj.firstName != null)
+                    var my_UpdateObj = JSON.parse(this.responseText);
+                    if(my_UpdateObj.firstName != null)
                     {
-                        document.getElementById("error-update-firstName").innerHTML = myUpdateObj.firstName;
+                        document.getElementById("error-fname").innerHTML = my_UpdateObj.firstName;
                     }
-                    if(myUpdateObj.lastName != null)
+                    if(my_UpdateObj.lastName != null)
                     {
-                        document.getElementById("error-update-lastName").innerHTML = myUpdateObj.lastName;
+                        document.getElementById("error-lname").innerHTML = my_UpdateObj.lastName;
                     }
                 }
             }
@@ -296,7 +294,7 @@
         email = document.getElementById("user-email"),
         phone = document.getElementById("user-phone"),
         user_request = document.getElementById("user-request");
-        updatexhttp.open("POST","updateUser.php",true);
+        updatexhttp.open("POST","ajaxUpdateUser.php",true);
         updatexhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         updatexhttp.send("user-title="+title.value+"&user-firstName="+firstName.value+"&user-lastName="+lastName.value+"&user-phone="+phone.value+"&user-request="+user_request.value);
     }

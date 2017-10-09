@@ -70,15 +70,15 @@
                         <div class="form-group<?php echo $firstNameClass; ?>">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <select class="form-control" id="title" name="title">
+                                    <select class="form-control" id="b_title" name="title">
             		                    <option>Mr.</option>
             		                    <option>Mrs.</option>
             		                    <option>Miss.</option>
             	                    </select>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" required>
-                                    <span id="error-firstName" style="color:#d9534f;"></span>
+                                    <input type="text" class="form-control" id="b_firstName" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" required>
+                                    <span id="error_firstName" style="color:#d9534f;"></span>
                                 </div>
                             </div>
                   			</div>
@@ -89,8 +89,8 @@
                   			    }
                   			?>
                   			<div class="form-group <?php echo $lastNameClass; ?>">
-                  				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
-                  			    <span id="error-lastName" style="color:#d9534f;"></span>
+                  				<input type="text" class="form-control" id="b_lastName" name="lastName" placeholder="Last Name" required>
+                  			    <span id="error_lastName" style="color:#d9534f;"></span>
                   			</div>
                   			<?php
                   			    if($errors["email"])
@@ -99,8 +99,8 @@
                   			    }
                   			?>
                   			<div class="form-group <?php echo $emailClass; ?>">
-                  				<input type="email" class="form-control" id="emailvar" name="email" placeholder="Email" required>
-                  				<span id="error-email" style="color:#d9534f;"></span>
+                  				<input type="email" class="form-control" id="b_emailvar" name="email" placeholder="Email" required>
+                  				<span id="error_email" style="color:#d9534f;"></span>
                   			</div>
                   			<?php
                   			    if($errors["phone"])
@@ -109,8 +109,8 @@
                   			    }
                   			?>
                   			<div class="form-group <?php echo $phoneClass; ?>">
-                  				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
-                  				<span id="error-phone" style="color:#d9534f;"></span>
+                  				<input type="text" class="form-control" id="b_phone" name="phone" placeholder="Phone" required>
+                  				<span id="error_phone" style="color:#d9534f;"></span>
                   			</div>
                   			<?php
                   			    if($errors["password"])
@@ -119,19 +119,19 @@
                   			    }
                   			?>
                   			<div class="form-group <?php echo $passwordClass; ?>">
-                  			    <input type="password" name="password1" class="form-control" id="password1" placeholder="Password - min: 8 characteres" required>
+                  			    <input type="password" name="password1" class="form-control" id="b_password1" placeholder="Password - min: 8 characteres" required>
                   			</div>
                   			<div class="form-group <?php echo $passwordClass; ?>">
-                  			    <input type="password" name="password2" class="form-control" id="password2" placeholder="Retype your password" required>
-                  			    <span id="error-password" style="color:#d9534f;"></span>
+                  			    <input type="password" name="password2" class="form-control" id="b_password2" placeholder="Retype your password" required>
+                  			    <span id="error_password" style="color:#d9534f;"></span>
                   			</div>
                   			<div class="form-group">
-                            <textarea class="form-control" type="textarea" id="user_request" name="user_request" placeholder="User Request (Optional)" maxlength="200" rows="7"></textarea>                   
+                            <textarea class="form-control" type="textarea" id="b_user_request" name="user_request" placeholder="User Request (Optional)" maxlength="200" rows="7"></textarea>                   
                         </div>
                         <div class="text-center">
-                            <button id="signUpBtn" onClick="checkSignUp()" type="submit" name="submit" value="register" class="btn btn-danger">Sign Up</button>
+                            <button id="signUpButtonn" onClick="b_checkSignUp()" type="submit" name="submit" value="register" class="btn btn-danger">Sign Up</button>
                         </div>
-                        <div id="success"></div>
+                        <div id="successSg"></div>
                         </form>
                       </div>
                 </div>
@@ -190,6 +190,7 @@
                       <div class="col-md-10 col-md-offset-1 text-center">
                         <br>
                         <div id="success-msg"></div>
+                        <div id="timer-msg" class="tex-center title-red">Please, confirm your booking. <br>Otherwise, it will expire in: <span id = "timer">05:00</span> minutes.</div><br>
                         <button id="confirm-booking-button" onClick="updateBooking()" name="submit" value="confirm-booking" class="btn btn-danger" disabled>Confirm now!</button>
                       </div>
                     </div>
@@ -201,6 +202,7 @@
   </div>
 </div>
 <script>
+
 $("#btn-login").click(function(){
   $("#content-login").show();
   $("#content-signup").hide();
@@ -214,9 +216,45 @@ $("#btn-signup").click(function(){
 });
 
 $("#booking-close").click(function(){
-  //window.location.reload();
-  //$('#chooseTableModal').modal('hide');
+  //delete pre booking
+  var table = document.getElementById("table");
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "pre_booking_delete.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("table="+table.value);
 });
+
+
+//TIMER
+function countDown5Min(duration, display)
+{
+  var timer = duration, minutes, seconds;
+  
+  setInterval(function()
+  {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+            document.getElementById("timer-msg").innerHTML = "Booking Expired!";
+            document.getElementById("btn-login").disabled = true;
+            document.getElementById("btn-signup").disabled = true;
+        }
+        
+  },1000);
+}
+window.onload = function () 
+{
+    var fiveMinutes = 60 * 1, //Change 1 to 5 for 5 minutes
+    display = document.querySelector('#timer');
+    countDown5Min(fiveMinutes, display);
+};
 
 function checkBookingLogin() 
 {
@@ -268,6 +306,7 @@ function updateBooking()
         if(this.responseText == "booking-confirmed")
         {
             document.getElementById("success-msg").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Booking confirmed. See you soon!</p></center></strong></div>";
+            $("#timer-msg").hide();
         }
         else
         {
@@ -283,57 +322,75 @@ function updateBooking()
   xhttp.send("table="+table.value);
 }
 
-//TODO TEM QUE TROCAR AS ID's pra nao dar conflito
-//tive que mexer na parte do ajaxLogin.php pra pegar essas variaveis, tenta trocar so as IDs no Signup
-//e nao os names. ai acho que nao vai precisar mexer no ajaxSignup.php
-/*
-function checkSignUp()
+
+function b_checkSignUp()
 {
-  document.getElementById("signUpBtn").disabled = true;
+  document.getElementById("signUpButtonn").disabled = true;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("signUpBtn").disabled = false;
+        document.getElementById("signUpButtonn").disabled = false;
         if(this.responseText == "signup-ok")
         {
-            document.getElementById("signUpBtn").disabled = false;
-            document.getElementById("success").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Successfully registered!</p></center></strong></div><center><p class=\"text-center\">Would you like to login now?<a href=\"#\" data-toggle=\"modal\" data-target=\"#loginModal\" data-dismiss=\"modal\"><b>Login</b></a></p></center>";
+          document.getElementById("signUpButtonn").disabled = true;
+          document.getElementById("confirm-booking-button").disabled = false;
+          
+          document.getElementById("success-msg").innerHTML = "<div class=\"alert alert-success fade in alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong><center><p class=\"text-center\">Successfully registered!</p></center></strong></div>";
         }
         else{
             var myObj = JSON.parse(this.responseText);
             if(myObj.firstName != null){
-                document.getElementById("error-firstName").innerHTML = myObj.firstName;
+                document.getElementById("error_firstName").innerHTML = myObj.firstName;
             }
             if(myObj.lastName != null){
-                document.getElementById("error-lastName").innerHTML = myObj.lastName;
+                document.getElementById("error_lastName").innerHTML = myObj.lastName;
             }
             if(myObj.email != null){
-               document.getElementById("error-email").innerHTML = myObj.email; 
+               document.getElementById("error_email").innerHTML = myObj.email; 
             }
             if(myObj.phone != null){
-                document.getElementById("error-phone").innerHTML = myObj.phone;
+                document.getElementById("error_phone").innerHTML = myObj.phone;
             }
             if(myObj.password != null){
-                document.getElementById("error-password").innerHTML = myObj.password;
+                document.getElementById("error_password").innerHTML = myObj.password;
             }
         }
     }
   };
-  var title = document.getElementById("title"),
-  firstName = document.getElementById("firstName"),
-  lastName = document.getElementById("lastName"),
-  emailvar = document.getElementById("emailvar"),
-  phone = document.getElementById("phone"),
-  password1 = document.getElementById("password1"),
-  password2 = document.getElementById("password2"),
-  user_request = document.getElementById("user_request");
+  var title = document.getElementById("b_title"),
+  firstName = document.getElementById("b_firstName"),
+  lastName = document.getElementById("b_lastName"),
+  emailvar = document.getElementById("b_emailvar"),
+  phone = document.getElementById("b_phone"),
+  password1 = document.getElementById("b_password1"),
+  password2 = document.getElementById("b_password2"),
+  user_request = document.getElementById("b_user_request");
   xhttp.open("POST", "ajaxSignUp.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("title="+title.value+"&firstName="+firstName.value+"&lastName="+lastName.value+"&emailvar="+emailvar.value+"&phone="+phone.value+"&password1="+password1.value+"&password2="+password2.value+"&user_request="+user_request.value);
 }
-*/
 
-
+//Function to auto login
+    function login(s_user, s_password){
+        var login = new XMLHttpRequest();
+        login.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            alert(s_user);
+            if(this.responseText == "login-ok")
+            {
+                alert("ok!");
+            }
+            else
+            {
+                alert("fail");
+            }
+        }
+      };
+      login.open("POST", "ajaxLogin.php", true);
+      login.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      login.send("user="+s_user.value+"&password="+s_password.value);
+    }
 
 
 </script>

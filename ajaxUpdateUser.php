@@ -2,6 +2,7 @@
 
     include("autoloader.php");
     $valUserUpdate = new Validation();
+    
     //Update
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -43,9 +44,9 @@
             }
         }
         
-        $errorsUpdateCounter = count($errors_update);
+        $errorsUpdateCounter = count($errorsUpdate);
         
-        if($errors_update_counter == 0)
+        if($errorsUpdateCounter == 0)
         {
             
             if($userRequestUpdate == "" OR $userRequestUpdate == null)
@@ -58,17 +59,18 @@
                                    SET title = '".$titleUpdate."',
                                    first_name = '".$firstnameUpdate."', 
                                    last_name  = '".$lastnameUpdate."',
-                                   user_request = '".$userRequestUpdate."',
-                                   WHERE user-phone =?";
+                                   user_request = '".$userRequestUpdate."'
+                                   WHERE phone =?";
             
-            $connection = mysqli_connect(getenv("dbhost"),getenv("dbuser"),getenv("dbpass"),
-            getenv("dbname"));
+            $database = new Database();
+            $connection_db = $database->getConnection();
               
-            $update_statement = $connection->prepare($updateUserQuery);
-            $update_statement->bind_param('s', $phoneUpdate);
-            $update_statement->execute();
+            $update_user_statement = $connection_db->prepare($updateUserQuery);
+            $update_user_statement->bind_param('s', $phoneUpdate);
+            $update_user_statement->execute();
+            
     
-            if($update_statement->affected_rows == 1)
+            if($update_user_statement->affected_rows == 1)
             {
                 echo "update-ok";
             }
@@ -77,8 +79,11 @@
                 echo json_encode($errorsUpdate);
             }
             
-            $update_statement->close();
+            $update_user_statement->close();
         }
-        echo json_encode($errorsUpdate);
+        else
+        {
+            echo json_encode($errorsUpdate);
+        }
     }
 ?>

@@ -5,7 +5,7 @@
     <!-- Modal content-->
     <div id="landscape" class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" id="choose-table-close" class="close" data-dismiss="modal">&times;</button>
             <h3 class="modal-title title-red">Choose a Table</h3>
         </div>
         <div class="modal-body" id="restaurant">
@@ -59,9 +59,23 @@
   var table_no;
   $(".table").click(function(event)
   {
+    //get table id
     table_no = $(event.target).data("id");
     $("#table").val(table_no);
+
+ 
+    //TODO
+        
+    var table_id = table_no;
     
+    console.log(table_id); // JUST TO SHOW THAT IS SHOWING THE TABLE ID
+    
+    var xprehttp = new XMLHttpRequest();
+    xprehttp.open("POST", "pre_booking_update.php", true);
+    xprehttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xprehttp.send("table_id="+table_id);
+    
+
     //get user phone from SESSION
     var userphone = "<?php echo $_SESSION['phone'] ?>";
     
@@ -83,6 +97,15 @@
       
     }
     $('#chooseTableModal').modal('hide');
+  });
+  
+  $("#choose-table-close").click(function(){
+    //delete pre booking if close modal
+    var table = document.getElementById("table");
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "pre_booking_delete.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("table="+table.value);
   });
   
 </script>

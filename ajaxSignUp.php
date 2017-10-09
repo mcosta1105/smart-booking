@@ -117,7 +117,9 @@
             $statement = $connection->prepare($register_query);
             $statement -> bind_param("ss",$phone, $email);
             
-            if($statement -> execute() ){
+            if($statement -> execute() )
+            {
+                $_SESSION["phone"] = $phone;
                 echo "signup-ok";
             }
             else{

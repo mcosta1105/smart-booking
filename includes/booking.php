@@ -196,7 +196,7 @@
 <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" id="booking-details-close" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title title-red">Booking</h3>
       </div>
       <div class="modal-body">
@@ -276,3 +276,13 @@
 <?php
     include("includes/chooseTable.php");
 ?>
+<script>
+  $("#booking-details-close").click(function(){
+    //delete pre booking if close modal
+    var table = document.getElementById("table");
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "pre_booking_delete.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("table="+table.value);
+  });
+</script>
